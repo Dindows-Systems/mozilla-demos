@@ -1,0 +1,833 @@
+@charset "utf-8";
+
+/* ========================================================================
+
+
+
+	+ 基本レイアウト・デザイン
+
+
+
+======================================================================== */
+
+/* ----------------------------------------------------
+	■基本レイアウト
+---------------------------------------------------- */
+html {
+	overflow-y: scroll;
+	height: 100%;
+}
+body {
+	height: 100%;
+	color: #000;
+	text-align: center;
+	background-color: #fff;
+}
+#wrapper {
+	width: 860px;
+	margin: 0 auto;
+	text-align: left;
+}
+header {
+	position: relative;
+	padding: 40px 0 0;
+	height: 80px;
+}
+#contents {
+	position: relative;
+	margin: 0 0 20px;
+}
+body#home #contents,
+body.detail #contents {
+	display:-webkit-box;
+	display:-moz-box;
+}
+#main {
+	position: relative;
+	width: 500px;
+	padding: 0 60px 0 0;
+	background-color: #fff;
+}
+#side {
+	width: 300px;
+	position: relative;
+	padding: 0px 0 0;
+}
+footer {
+	padding: 40px 0;
+	margin: 0 0 80px;
+	background-color: #eee;
+	border-top: solid 1px #dedede;
+	border-bottom: solid 1px #dedede;
+}
+
+
+/* ----------------------------------------------------
+	■リンクスタイル
+---------------------------------------------------- */
+a {
+	color: #ffa800;
+	text-decoration: underline;
+	outline: 0;
+}
+a:hover {
+	color: #ffa800;
+}
+
+
+/* ----------------------------------------------------
+	■ロゴ
+---------------------------------------------------- */
+h1#logo,
+h1#logo a {
+	display: block;
+	height: 29px;
+	width: 250px;
+}
+h1#logo {
+	text-indent: -9999px;
+}
+h1#logo a {
+	background-image: url(../img/base/logo.png);
+	overflow: hidden;
+}
+
+
+#A8 {
+	height: 60px;
+	width: 234px;
+	position: absolute;
+	top: -80px;
+	right: 0;
+}
+
+
+
+
+/* ========================================================================
+
+
+
+	+ ナビゲーション
+
+
+
+======================================================================== */
+
+/* ----------------------------------------------------
+	■グローバルナビゲーション
+---------------------------------------------------- */
+ul#nav {
+	width: 232px;
+	height: 19px;
+	position: absolute;
+	top: 48px;
+	left: 268px;
+}
+ul#nav li {
+	float: left;
+	text-indent: -9999px;
+	margin: 0 10px 0 0;
+}
+ul#nav li:last-child {
+	float: left;
+	text-indent: -9999px;
+	margin: 0;
+}
+ul#nav li a {
+	display: block;
+	height: 19px;
+	background-color: #fff;
+	background-image: url(../img/base/navi.png);
+	background-repeat: no-repeat;
+}
+ul#nav li#homeBtn {			width: 42px;}
+ul#nav li#showcaseBtn {		width: 71px;}
+ul#nav li#presetBtn {		width: 42px;}
+ul#nav li#randomBtn {		width: 47px;}
+ul#nav li#homeBtn a {		background-position: 0 5px;}
+ul#nav li#showcaseBtn a {	background-position: 0 -15px;}
+ul#nav li#presetBtn a {		background-position: -10px -35px;}
+ul#nav li#randomBtn a {		background-position: -10px -55px;}
+
+/* ホバー */
+ul#nav li#homeBtn a:hover {		background-position: -80px 5px;}
+ul#nav li#showcaseBtn a:hover {	background-position: -80px -15px;}
+ul#nav li#presetBtn a:hover {	background-position: -90px -35px;}
+ul#nav li#randomBtn a:hover {	background-position: -90px -55px;}
+
+/* アクティブ */
+body#home ul#nav li#homeBtn,
+body#showcase ul#nav li#showcaseBtn,
+body.preset ul#nav li#presetBtn,
+body.random ul#nav li#randomBtn {
+	border-bottom: solid 5px #ffcc00;
+}
+
+
+
+
+/* ========================================================================
+
+
+
+	+ プレビュー
+
+
+ 
+======================================================================== */
+
+/* ----------------------------------------------------
+	■基本レイアウト
+---------------------------------------------------- */
+#preview {
+	height: 150px;
+	width: 500px;
+	text-align: center;
+	background-color: #fff;
+	background-image: url(../img/base/preview_bg.gif);
+	overflow: hidden;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+
+
+
+/* ========================================================================
+
+
+
+	+ フォーム
+
+
+ 
+======================================================================== */
+
+/* ----------------------------------------------------
+	■基本レイアウト
+---------------------------------------------------- */
+.config {
+	display:-webkit-box;
+	display:-moz-box;
+	margin: 30px 0 0;
+}
+.config:first-child  {
+	margin: 50px 0 0;
+}
+.config > div {
+	width: 116px;
+	margin: 0 0 0 12px;
+}
+.config > div:first-child {
+	margin: 0;
+}
+.config > div > h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 1.1;
+	color: #fff;
+	background-color: #000;
+	padding: 4px 7px;
+	margin: 0 0 7px;
+	text-transform: uppercase;
+	display: block;
+	font-weight: normal;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.config:last-child > div h2 {
+	background-color: #666;
+}
+ul.forms {
+	list-style-type: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 1;
+	background-image: url(../img/base/label_bg.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+ul.bg { 		background-image: url(../img/base/label_bg.gif);}
+ul.border { 	background-image: url(../img/base/label_border.gif);}
+ul.shadow {		background-image: url(../img/base/label_shadow.gif);}
+ul.padding {	background-image: url(../img/base/label_padding.gif);}
+ul.font {		background-image: url(../img/base/label_font.gif);}
+ul.forms > li {
+	height: 30px;
+	width: 76px;
+	position: relative;
+	padding: 0 0 0 40px;
+}
+
+/* チェックボックス
+---------------------------------------------------- */
+ul.forms > li input.check {
+	position: absolute;
+	top: 4px;
+	right: 80px;
+}
+
+/* スピンフォーム
+---------------------------------------------------- */
+ul.forms > li.spin {
+	height: 28px;
+	padding: 2px 0 0 40px;
+}
+ul.forms > li input.spin {
+	color: #000;
+	font-size: 12px;
+	height: 17px;
+	width: 22px;
+	margin: 0 16px 0 0;
+	padding: 1px 0;
+	background-color: #FFFFFF;
+	line-height: 1.4;
+	font-family: Arial;
+	border: 1px solid #8e8e8e;
+	ime-mode: disabled;
+	vertical-align: middle;
+	text-align: center;
+	cursor: default;
+}
+
+
+/* ----------------------------------------------------
+	■カラーピッカー
+---------------------------------------------------- */
+.colorSelector {
+	position: absolute;
+	width: 76px;
+	height: 24px;
+	background-color: #000;
+	left: 40px;
+	top: 0;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.colorSelector:hover {
+	background-color: #666;
+}
+.colorSelector div {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 68px;
+	height: 16px;
+	border-radius: 1px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+}
+
+/* B
+---------------------------------------------------- */
+ul.forms > li.mini {
+	width: 46px;
+	padding: 2px 0 0 70px;
+}
+ul.forms > li.mini .colorSelector {
+	width: 24px;
+}
+ul.forms > li.mini .colorSelector div {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 16px;
+	height: 16px;
+}
+ul.forms > li.mini > .mask  {
+	height: 24px;
+	width: 76px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: rgba(255,255,255,0.6);
+}
+
+
+
+/* ----------------------------------------------------
+	■送信ボタン
+---------------------------------------------------- */
+#saveBtn {
+	position: relative;
+}
+#saveBtn button,
+#saveBtn #dummyBtn {
+	text-align: center;
+	background-color: #FFFFFF;
+	background-image: url(../img/base/btn_save.png);
+	background-repeat: no-repeat;
+	display: block;
+	height: 140px;
+	width: 105px;
+	text-indent: -9999px;
+	border-style: none;
+	position: absolute;
+	right: 0px;
+	top: 20px;
+	cursor: pointer;
+}
+#saveBtn #dummyBtn {
+	background-position: 0 0;
+}
+#saveBtn #dummyBtn:hover {
+	background-position: 0 -150px;
+}
+#saveBtn button {
+	background-position: 0 -300px;
+}
+#saveBtn button:hover {
+	background-position: 0 -450px;
+}
+
+
+
+
+/* ========================================================================
+
+
+
+	+ コードビュー
+
+
+ 
+======================================================================== */
+
+/* ----------------------------------------------------
+	■基本レイアウト
+---------------------------------------------------- */
+#htmlCode h2,
+#cssCode h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 1;
+	font-weight: normal;
+	padding: 0 0 4px;
+}
+#codeCache {
+	display: none;
+}
+
+/* ----------------------------------------------------
+	■コード
+---------------------------------------------------- */
+.code {
+	width: 290px;
+	color: #999;
+	padding: 5px;
+	margin: 0 0 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 1.2;
+	-moz-box-shadow:
+		inset 0 1px 3px #000;
+	-webkit-box-shadow:
+		inset 0 1px 3px #000;
+	background-color: #373737;
+	display: block;
+	border: none;
+	overflow: hidden;
+	cursor: pointer;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+textarea#csscopy {
+	display: none;
+	background-color: #000;
+}
+
+/* 色 */
+.code span.c {
+	color: #CCCCFF;
+}
+
+/* サイズ */
+.code span.s {
+	color: #99FFFF;
+}
+
+/* 透明度 */
+.code span.a {
+	color: #FFFF99;
+}
+
+/* 位置 */
+.code span.p {
+	color: #FFCCFF;
+}
+
+/* 位置 */
+.code span.property {
+	color: #eee;
+}
+
+.code:hover {
+	color: #ccc;
+	background-color: #000;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+
+
+/* ========================================================================
+
+
+
+	+ 個別ページ
+
+
+ 
+======================================================================== */
+
+/* ----------------------------------------------------
+	■基本レイアウト
+---------------------------------------------------- */
+h2#pageTitle {
+	width: 500px;
+	height: 50px;
+	background-image: url(../img/base/pagetitle.png);
+	background-repeat: no-repeat;
+	text-indent: -9999px;
+}
+body.user h2#pageTitle {	background-position: 0px -50px;}
+body.random h2#pageTitle {	background-position: 0px -100px;}
+body.preset h2#pageTitle {	background-position: 0px -150px;}
+
+
+/* ----------------------------------------------------
+	■ページナビ
+---------------------------------------------------- */
+ul#entryNav {
+	width: 300px;
+	position: absolute;
+	top: 0;
+	right: 60px;
+	list-style-type: none;
+}
+ul#entryNav li,
+ul#entryNav li a {
+	width: 30px;
+	height: 17px;
+	display: block;
+}
+ul#entryNav li {
+	text-indent: -9999px;
+	margin: 0 0 0 3px;
+	float: right;
+}
+ul#entryNav li a {
+	background-color: #ccc;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	background-image: url(../img/base/entrynav.png);
+	background-repeat: no-repeat;
+}
+ul#entryNav li a:hover {
+	background-color: #333;
+}
+ul#entryNav li.nextBtn a {
+	background-position: center 2px;
+}
+ul#entryNav li.prevBtn a {
+	background-position: center -18px;
+}
+
+
+
+
+/* ========================================================================
+
+
+
+	+ ソーシャルパーツ
+
+
+ 
+======================================================================== */
+
+/* ----------------------------------------------------
+	■基本レイアウト
+---------------------------------------------------- */
+#socialParts {
+	width: 500px;
+	margin: 40px 0 0;
+}
+#twitter {
+	margin: 0 0 10px;
+	vertical-align: middle;
+}
+#hatebu {
+}
+
+
+
+
+/* ========================================================================
+
+
+
+	+ ボタン一覧
+
+
+ 
+======================================================================== */
+
+/* ----------------------------------------------------
+	■基本レイアウト
+---------------------------------------------------- */
+#btnList {
+	width: 860px;
+	margin: 0 0 20px;
+	padding: 0;
+}
+	#btnList { /zoom: 1; }
+	#btnList:after { content: ''; display: block; clear: both; }
+#btnList .box {
+	height: 90px;
+	width: 164px;
+	margin: 0 10px 10px 0;
+	float: left;
+}
+#btnList .end {
+	margin: 0 0 10px 0;
+}
+#btnList .box a {
+	height: 90px;
+	width: 164px;
+	background-color: #eee;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	text-decoration: none;
+}
+#btnList .box a:hover {
+	background-color: #333;
+}
+#btnList .box .preview {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-align: center;
+	width: 6em;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
+
+/* ----------------------------------------------------
+	■追加エフェクト
+---------------------------------------------------- */
+#btnList .add a {
+	background-color: #ffcc00;
+}
+#btnList .add a .preview {
+	display: none;
+}
+
+
+/* ----------------------------------------------------
+	■新規URL
+---------------------------------------------------- */
+#newURL {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	width: 200px;
+	height: 35px;
+	color: #fff;
+	padding: 10px 0 0;
+	position: absolute;
+	left: -18px;
+	top: 30px;
+	background-image: url(../img/base/newurl.png);
+	background-repeat: no-repeat;
+}
+
+
+/* ----------------------------------------------------
+	■ページャー
+---------------------------------------------------- */
+.pagerBox {
+	width: 860px;
+	margin: 0 0 50px;
+}
+ul.pager {
+	width: 860px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-align: right;
+	text-transform: uppercase;
+	line-height: 1;
+}
+/* 上部ページャー */
+#pageTitle + ul.pager {
+	width: 500px;
+	position: absolute;
+	top: 5px;
+	right: 0px;
+}
+ul.pager li {
+	display: inline;
+}
+ul.pager li a,
+ul.pager li span {
+	color: #000;
+	margin: 0 1px;
+	padding: 2px 5px;
+	text-decoration: none;
+}
+ul.pager li span {
+	color: #E3E3E3;
+}
+ul.pager li a:hover {
+	color: #ffcc00;
+}
+ul.pager li.on a {
+	border-bottom: solid 5px #ffcc00;
+}
+
+
+/* ----------------------------------------------------
+	■リロード
+---------------------------------------------------- */
+#reload {
+	width: 50px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-align: right;
+	text-transform: uppercase;
+	line-height: 1;
+	width: 500px;
+	position: absolute;
+	top: 10px;
+	right: 0px;
+}
+
+
+
+
+
+
+/* ========================================================================
+
+
+
+	+ フッター
+
+
+ 
+======================================================================== */
+
+/* ----------------------------------------------------
+	■基本レイアウト
+---------------------------------------------------- */
+footer > .inner {
+	width: 860px;
+	margin: 0 auto;
+	text-align: left;
+	position: relative;
+}
+footer > .inner .line {
+	display:-webkit-box;
+	display:-moz-box;
+}
+footer > .inner .line > div > h2 {
+	background-image: url(../img/base/footer_title.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-indent: -9999px;
+	height: 20px;
+}
+#about h2 {
+	background-position: 0px -20px;
+}
+
+
+/* ----------------------------------------------------
+	■アバウト
+---------------------------------------------------- */
+#about {
+	width: 285px;
+	position: relative;
+}
+#about .icon {
+	position: absolute;
+	left: 0px;
+	top: 20px;
+}
+#about dl	{
+	width: 200px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 1.1;
+	margin: 0 0 0 65px;
+}
+#about dl dt	{
+	width: 5em;
+	font-weight: bold;
+	float: left;
+	clear: left;
+	color: #999;
+}
+#about dl dd	{
+	margin: 0 0 3px 5em;
+}
+
+/* ----------------------------------------------------
+	■バナー
+---------------------------------------------------- */
+footer #banner ul {
+	display:-webkit-box;
+	display:-moz-box;
+	list-style-type: none;
+}
+footer #banner ul li {
+	margin: 0 0 0 5px;
+}
+footer #banner ul li:first-child {
+	margin: 0;
+}
+
+
+/* ----------------------------------------------------
+	■トラックフィード
+---------------------------------------------------- */
+#trackfeed {
+	font-size: 10px;
+	position: absolute;
+	left: 0px;
+	bottom: -70px;
+}
+#trackfeed a {
+	color: #fff;
+}
+
+
+/* ----------------------------------------------------
+	■コピーライト
+---------------------------------------------------- */
+#copyright {
+	text-align: right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	position: absolute;
+	right: 0px;
+	bottom: -70px;
+}
+
+
+
+
+
+
+/* End */

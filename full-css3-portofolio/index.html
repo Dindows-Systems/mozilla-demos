@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portofolio HTML5</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="styles/style.css"/>
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/index.js"></script>
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="styles/ie.css"/>
+	<![endif]-->
+	<!--[if lt IE 8]>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#image>div>.nav').hover(function() {
+					$(this).css('color','blue');
+				},function() {
+					$(this).css('color','black');
+				});
+			});
+		</script>
+		<style>
+			#image>div>.nav {
+				color: black;
+			}
+		</style>
+	<![endif]-->
+	<noscript><!-- si il n'y a pas javascript on met directement le css des animations -->
+		<style>
+			#nav:hover {
+				color: blue;
+				width: 150px;
+				height: 250px
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" media="screen" href="styles/css3.css"/>
+	</noscript>
+</head>
+<body>
+	<noscript>
+		<style>
+			div[id^="pasCss"] {
+				display:none;
+			}
+		</style>
+		<div id="pasCss3" style="z-index:1000;text-align:center;background-color:white;position:fixed;top:0;left:0;width:100%;height:100%;">
+			<h1>Vous n'avez ni CSS3, ni JavaScript d'activ&eacute; donc vous ne pouvez pas visionner ce site dans le confort.</h1>
+		</div>
+	</noscript>
+	<div id="filtre">
+	</div>
+	<div id="image">
+		<div id="articlePortofolio">
+			<img src="images/css3.png"/>
+			<div class="nav gauche"><a>&lt;</a></div>
+			<div class="nav droite"><a href="#articleNCetML">&gt;</a></div>
+			<div class="titre">
+				<a>A full CSS3 portofolio, without JavaScript..</a>
+				<div class="article">
+					<p>Here is this portofolio (sorry for my bad english i'm french and i'm 16 years old so i've some difficultes^^)</p>
+					<!--<p>Oui il y a des scripts mais ils ne servent qu'à la <b>rétrocompatibilité avec les anciens navigateurs</b> et la <b>correction des bugs de certains navigateurs
+					compatibles CSS3.</b></p>-->
+					<p>Yes, they're scripts but is <b>just for non-CSS3 browsers and for some CSS3 bugs (in IE and Opera)</b></p>
+					<p>You can <b>try it with JavaScript disabled, it will works</b> in a CSS3 browser!</p>
+					<!--<p>En gros si vous avez un navigateurs compatible CSS3 <b>désactivez JavaScript</b> et vous verrez la puissance de CSS3!</p>-->
+					</div>
+			</div>
+		</div>
+		<div id="articleNCetML">
+			<img src="images/apple.jpg"/>
+			<div class="nav gauche"><a href="#articlePortofolio">&lt;</a></div>
+			<div class="nav droite"><a href="#articleHelloWorld">&gt;</a></div>
+			<div class="titre">
+				<a>Notification Center et Mountain Lion!</a>
+				<div class="article">
+				<br/>
+				<br/>
+					Si vous êtes dans mon cas : pas d'argent pour se payer un compte développeur pour avoir la doc des API de Mountain Lion en avance voici une des API majeur de ce dernier : le Notification Center (aka <code>NSUserNotification.h</code>)!
+
+On peut retrouver son header dans la framework Foundation sous le nom de <code>NSUserNotification.h</code>
+
+Mais attention, dans la DP1 il faut obligatoirement un code signé (avec le programme de dev) mais plus dans la DP2 (DP3 je ne sais pas)
+
+<pre>
+NSUserNotificationCenter *notifCenter = [NSUserNotificationCenter defaultUserNotificationCenter]; //centre de notification
+NSUserNotification *notification = [[NSUserNotification alloc] init]; //on initalise notification
+[notification setTitle:@"Un titre de notification!"];
+[notification setInformativeText:@"Et du texte!"];
+NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"test" forKey:@"nomNotif"]; //un dict pour reconnaitre la notification
+[notification setUserInfo:infoDict]; //et on lui donne notre dict.
+[center deliverNotification:notification];
+</pre>
+Biensur il faut supprimer la notification et éxécuter une action lorsqu'elle est publier! ça on le fait via son delegate:
+<pre>
+- (void)userNotificationCenter:(NSUserNotificationCenter *)notifCenter didActivateNotification:(NSUserNotification *)notification {
+	NSLog([[notification userInfo] valueForKey:@"nomNotif"]); //log = test
+															//ça peut être utile pour identifier la notification
+	[center removeDeliveredNotification:notification]; //on supprime la notification
+}
+</pre>
+				</div>
+			</div>
+		</div>
+		<div id="articleHelloWorld">
+			<img src="images/helloworld.jpg"/>
+			<div class="nav gauche"><a href="#articleNCetML">&lt;</a></div>
+			<div class="nav droite"><a>&gt;</a></div>
+			<div class="titre">
+				<a href="#apple">Hello World!</a>
+				<div class="article">
+					<p>Je viens de finir la plus grosse partie du blog, je publierais d'ici peu, il me reste à finir la partie serveur du blog!</p>
+
+					<p>C'est un blog full-ajax qui m'a pris pas mal de temps!</p>
+
+					<p>Bonne visite!!</p>
+
+					<p>Signé Boundjadj (pour faire "classe")</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="nav">
+		<p>Nav<span id="igation">igation</span><br/><span class="gt">&gt;</span></p>
+	</div>
+</body>
+</html>

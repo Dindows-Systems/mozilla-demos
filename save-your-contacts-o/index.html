@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html  lang="es" manifest="manifiesto.appcache"> <!--Hay que espesificar el lenguaje para seguir el estandar html5-->
+
+<head>
+	<meta charset="utf-8"/>
+	<!--Para poner una tilde: &[Letra]acute;  -->
+	<title>Agenda ABCdario</title>
+
+	<meta name="description" content="Galeria FullScreen"/>
+
+	<!--Etiqueta Responsive Web Desing 
+	el ancho de la pagina es equivalente al ancho del dispositivo-->
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	
+	<!--Etiqueta del Icono de la pagina-->
+	<link rel="shortcut icon"type="image/x-icon" href="favicon.ico"/>
+
+	
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jqueryUI.js"></script>	
+<link href="css/ui-lightness/jquery-ui-1.9.1.custom.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="css/reset.css"/>
+	<!--Linkeo de hojas de estilo CSS3-->
+	<link rel="stylesheet" href="css/estilos.css"/>
+
+<link href='http://fonts.googleapis.com/css?family=Ewert' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Frijole' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Balthazar' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+
+	<script src="js/abc.js"></script>
+
+
+
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	
+
+
+
+
+</head>
+
+<body id="bod">
+
+	<section id="letras">
+	
+		<div id="1" class ="letraVerde">A</div>
+		<div id="2" class ="letraFuccia">B</div>
+	    <div id="3" class ="letraVerde">C</div>
+	    <div id="4" class ="letra">D</div>
+		<div id="5" class ="letraAmarilla">E</div>
+		<div id="6" class ="letraFuccia">F</div>
+	    <div id="7" class ="letraVerde">G</div>
+	    <div id="8" class ="letraFuccia">H</div>
+		<div id="9" class ="letra">I</div>
+		<div id="10" class ="letraFuccia">J</div>
+	    <div id="11" class ="letraBlanca">K</div>
+	    <div id="12" class ="letraVerde">L</div>
+		<div id="13" class ="letraBlanca">M</div>
+		<div id="14" class ="letraAmarilla">N</div>
+	    <div id="15" class ="letraBlanca">O</div>
+	    <div id="16" class ="letraFuccia">P</div>
+	    <div id="17" class ="letraVerde">Q</div>
+	    <div id="18" class ="letra">R</div>
+		<div id="19" class ="letraAmarilla">S</div>
+		<div id="20" class ="letraVerde">T</div>
+	    <div id="21" class ="letraFuccia">U</div>
+	    <div id="22" class ="letraVerde">V</div>
+		<div id="23" class ="letraAmarilla">W</div>
+		<div id="24" class ="letraFuccia">X</div>
+	    <div id="25" class ="letraAmarilla">Y</div>
+	    <div id="26" class ="letraVerde">Z</div>
+
+	</section>
+	
+	
+		<div id="contenedorLera" class="contenedorLera" > 
+
+		<section id="subCont">
+
+		
+		<!--<div><span class="pre">Nombre:</span> Alejandro Manrique   <span class="pre">Telefono:</span>  2703440   <span class="pre">Celular: </span>   320 520 2554  <span class="pre">Correo: </span>alejo_mono@hotmail.com  </div> -->
+		
+
+		</section>	
+	 	</div>
+		
+		<span id="letraContenedor"></span><br /><br />
+		<img id="volver" src="img/cerrar.png"/>
+		
+		<!--<div id="buscar">Nombre:<input type="text" id="txtBuscar" /> <input type="button"  id="btnBuscar" value="Buscar" onclick="buscarContacto()"/></div>-->
+		<div class="contenedorContactos">
+			
+		
+		</div>
+		<section id="contactos">
+
+				<form>
+	
+				<article class="cont">Name:<input type="text" id="txtNombre" class="caja"/> </article>
+				<article class="cont">Phone:<input type="text" id="txtTelefono"class="caja" /> </article>
+				<article class="cont">E-mail:<input type="text" id="txtCorreo" class="caja"/></article>
+				<article class="cont">Address: <input type="text" id="txtDireccion"class="caja" /></article>
+				<input type="button" id="btnAgregar" class="btn" onclick="saveContact()" value="Agregar Contacto"/>
+				</form>
+				<br /><br />
+					
+		</section>
+		
+			
+			
+			
+			
+			<br>
+			
+	
+			
+
+			
+</body>
+
+
+
+
+</html>

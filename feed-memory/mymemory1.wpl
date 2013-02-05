@@ -1,0 +1,17 @@
+<?wpl version="1.0"?>
+<smil>
+    <head>
+        <meta name="Generator" content="Microsoft Windows Media Player -- 12.0.7601.17514"/>
+        <meta name="IsNetworkFeed" content="0"/>
+        <meta name="ItemCount" content="3"/>
+        <title>Meine Memory Bilder</title>
+        <description>Datei ins Spiel ziehen</description>
+    </head>
+    <body>
+        <seq>
+            <media src="..\..\..\..\..\Public\Pictures\juli geburtstag\2011-02-13_17-25_Pictures_SAM_1320.jpg" tid="{EC146849-246D-4614-A511-57933FD873BA}"/>
+            <media src="..\..\..\..\..\Public\Pictures\juli geburtstag\2011-02-13_17-25_Pictures_SAM_1319.jpg" tid="{905427E1-2F2D-4AA3-BCC1-174905E1F225}"/>
+            <media src="..\..\..\..\..\Public\Pictures\juli geburtstag\2011-02-13_17-24_Pictures_SAM_1318.jpg" tid="{469F6C66-CDB8-4786-9350-5BB66CB855A7}"/>
+        </seq>
+    </body>
+</smil>

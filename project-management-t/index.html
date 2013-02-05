@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+	<meta charset="utf-8">
+	<title>Project Management Tool</title>
+	<link media="all" rel="stylesheet" type="text/css" href="css/all.css">
+		<link rel="stylesheet" href="js/google-code-prettify/prettify.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/localstoragedb.min.js"></script>
+	<script type="text/javascript" src="js/jquery.main.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+	<script type="text/javascript">
+		/*global db, $, tickets, document, active_project, active_projects, getTickets, getCountTickets, addTicket, deleteTicket, editTicket, getActiveProjects, comparePublishedDate, getActiveProjectsWithNames, htmlEntities*/
+		$(document).ready(function() {
+			var active_projects = getActiveProjects(), tickets = getTickets(active_projects,'open',3),tickets_len = tickets.length, tickets_str = '', i, ticket;
+			for(i = 0; i < tickets_len; i+=1) {
+				ticket = tickets[i];
+				tickets_str += '<div class="'+htmlEntities(ticket.priority)+'" data-id="'+ticket.ID+'"><span><span class="priority">'+htmlEntities(ticket.priority.toUpperCase())+'</span> <span class="title">'+htmlEntities(ticket.title)+'</span></span>';
+				//tickets_str += '<a href="#" class="edit">EDIT</a><a href="#" class="del"></a><span class="date">'+(new Date(ticket.date))+'</span></div>';
+				tickets_str += '<span class="date">'+(new Date(ticket.date))+'</span></div>';
+			}
+			$('.tickets').html(tickets_str);
+		});
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div class="c1">
+				<div class="controls">
+					<nav class="links">
+						<ul>
+							<li><a href="projects.html" class="ico1">Projects <span class="num">26</span></a></li>
+							<li><a href="tickets.html" class="ico2">Tickets <span class="num">5</span></a></li>
+							<li><a href="snippets.html" class="ico3">Snippets <span class="num">3</span></a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="tabs">
+					<article>
+							<div class="text-section">
+								<h1>Dashboard</h1>
+								<p>Current (active) project(s):</p>
+								<div id="active_project">
+
+								</div>
+								<p>Latest tickets:</p>
+								<div class="tickets">
+									<div class="high" data-id="1">
+										<span><span class="priority">HIGH</span> Create database </span>
+										<a href="#" class="edit">EDIT</a>
+										<a href="#" class="del"></a>
+										<span class="date">16.11.2012</span>
+									</div>
+									<div class="normal">
+										<span><span class="priority">NORMAL</span> Insert test data to database </span>
+										<a href="#" class="edit">EDIT</a>
+										<a href="#" class="del"></a>
+										<span class="date">16.11.2012</span>
+									</div>
+									<div class="low">
+										<span><span class="priority">LOW</span> Create config files </span>
+										<a href="#" class="edit">EDIT</a>
+										<a href="#" class="del"></a>
+										<span class="closed">CLOSED</span><span class="date">16.11.2012</span>
+									</div>
+								</div>
+							</div>
+
+					</article>
+					
+				</div>
+			</div>
+		</div>
+		<aside id="sidebar">
+			<strong class="logo"><a href="index.html">lg</a></strong>
+			<ul class="tabset buttons">
+				<li class="active">
+					<a href="index.html" class="ico1"><span>Dashboard</span><em></em></a>
+					<span class="tooltip"><span>Dashboard</span></span>
+				</li>
+				<li>
+					<a href="tickets.html" class="ico2"><span>Tickets</span><em></em></a>
+					<span class="tooltip"><span>Tickets</span></span>
+				</li>
+				<li>
+					<a href="projects.html" class="ico3"><span>Projects</span><em></em></a>
+					<span class="tooltip"><span>Projects</span></span>
+				</li>
+				<li>
+					<a href="snippets.html" class="ico4"><span>Snippets</span><em></em></a>
+					<span class="tooltip"><span>Snippets</span></span>
+				</li>
+				<li>
+					<a href="archive.html" class="ico5"><span>Archive</span><em></em></a>
+					<span class="tooltip"><span>Archive</span></span>
+				</li>
+			</ul>
+			<span class="shadow"></span>
+		</aside>
+	</div>
+</body>
+</html>

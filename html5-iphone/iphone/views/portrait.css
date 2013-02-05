@@ -1,0 +1,18 @@
+/* iPhone */
+
+.iPhone {
+  width: 300px;
+  height: 500px;
+  
+  transform: none;
+  -moz-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  
+  transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+}

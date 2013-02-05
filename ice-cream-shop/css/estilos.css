@@ -1,0 +1,169 @@
+@font-face{
+	font-family:"bub";
+	src:url("../Arista.ttf") format("truetype");
+	font-weight:normal;
+    font-style:normal;	
+}
+
+
+
+#contCono{
+	background: rgba(50,50,50,0.5);
+	position: absolute;
+	width: auto;
+	height: auto;
+	border:2px solid white;
+	left:35em;
+	top: 4em;
+	padding-left: 5em;
+	padding-right: 5em;
+	padding-top:18em;
+	display: none;
+	
+}
+#contCono h2,#contBanana h2{
+	position: absolute;
+	left: 2.3em;
+	top: 0;
+	font-family: "bub";
+	color:rgba(255,255,255,0.5);
+	display: none;
+}
+#contBanana{
+	background: rgba(50,50,50,0.5);
+	position: absolute;
+	width: auto;
+	height: auto;
+	border:2px solid white;
+	left:25em;
+	top: 6em;
+	padding-left: 6em;
+	padding-right: 6em;
+	padding-top:10em;
+	display: none;
+}
+
+.banana{
+	width: 25em;
+	height: 15em;
+}
+
+
+#conos{
+		
+	font-size: .8em;
+}
+#cmbConos{
+	position: absolute;
+	left: 16em;
+
+}
+#cmbConos,#btnConos{
+
+	background: rgba(50,50,50,0.5);
+	padding:.2em;
+	border-radius: .5em;
+	color: #FFF;
+	border:1px solid #FFF;
+	box-shadow: 1px 1px 5px #000;
+}
+#btnConos{
+	
+	cursor: pointer;
+	margin-left: 9em;
+	
+}
+#btnConos:hover{
+	background: rgba(0,0,0,0.5);
+}
+#btnConos:active{
+	
+	font-size: .65em;
+	
+}
+#inicio{
+	background: rgba(50,50,50,0.6);
+	position: absolute;
+	width: 20em;
+	height: auto;
+	left:17em;
+	top:1em;
+	padding: 1em;
+	text-align: center;
+	color: #FFF;
+	box-shadow: .3em .3em .7em #000;
+	font-family: bub;
+	font-size: 1.5em;
+	text-shadow:1px 1px 5px #000;
+
+}
+#conito,#banana{
+	cursor: pointer;
+}
+#conito:hover{
+	src:urt("img/conito.png");
+}
+.helado{
+	width: 10em;
+	height: 8em;
+	cursor: pointer;
+	opacity: 0.6;
+	display: block;
+
+}
+.helado:hover{
+	opacity: 1;
+	bac
+
+}
+
+.cono{
+	width: 7em; 
+	height:14em;
+}
+
+
+.heladoPedido{
+	width: 10em;
+	height: 8em;
+}
+
+
+
+#infoSabor{
+	position: fixed;
+	top:0;
+	right:0.1em;
+	width: 9em;
+	height: 9em;
+	background: #DDD;
+	z-index: 500;
+	font-family: bub;
+	font-size: 23px;
+	text-align: center;
+	box-shadow: 0 2px 1em #000;
+	display: none;
+
+}
+#cuenta{
+	position: absolute;
+	top:0;
+	left:12em;
+	width: 15em;
+	height: auto;
+	background: blue;
+	font-family: bub;
+	text-align: center;
+	box-shadow: 0 2px 1em #000;
+	padding-top: 1em;
+	display: none;
+	opacity: 0.6;
+}
+#totalCuenta{
+	background: #DDD;
+	position:relative;
+	width: 100%;
+}
+#cuenta h2{
+	color:#FFF;
+}

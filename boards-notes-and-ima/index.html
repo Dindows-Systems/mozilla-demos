@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="es"  manifest="manifiesto.appcache"> <!--Hay que espesificar el lenguaje para seguir el estandar html5-->
+
+<head>
+	<meta charset="utf-8"/>
+	<!--Para poner una tilde: &[Letra]acute;  -->
+	<title>Notas de adhesivas</title>
+
+	<meta name="description" content="Galeria FullScreen"/>
+	<link rel="shortcut icon"type="image/x-icon" href="favicon.ico"/>
+	<!--Etiqueta Responsive Web Desing 
+	el ancho de la pagina es equivalente al ancho del dispositivo-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+	<!--Etiqueta del Icono de la pagina-->
+	<link rel="shortcut icon"type="image/x-icon" href="favicon.ico"/>
+
+	
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jqueryUI.js"></script>	
+
+<link rel="stylesheet" media="screen" type="text/css" href="p-in/colorpicker/css/colorpicker.css" />
+	    <link rel="stylesheet" media="screen" type="text/css" href="p-in/colorpicker/css/layout.css" />
+		
+
+	<script type="text/javascript" src="p-in/colorpicker/js/colorpicker.js"></script>
+
+
+
+
+	
+	<link rel="stylesheet" href="css/reset.css"/>
+	<!--Linkeo de hojas de estilo CSS3-->
+	<link rel="stylesheet" href="css/estilos.css"/>
+		<link rel="stylesheet" href="css/jqStyle.css"/>
+<link href='http://fonts.googleapis.com/css?family=Ewert' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Frijole' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Balthazar' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Iceland' rel='stylesheet' type='text/css'>
+
+	<script src="js/notas.js"></script>
+
+
+
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	
+
+
+
+
+</head>
+
+<body id="bod" >
+
+
+	 
+	<div id="menu">		
+	<input type="button" id="btnAdd" value="+Note" onclick="addNota()"/>
+	<input type="button" id="btnAddTitulo" value="+Board" onclick="addTablero()"/>
+	<input type="button" id="btnPrub" value="+Tack" onclick="addTachuela()"/> 
+	<input type="button" id="btnImg" value="+Image" onclick="addImagen()"/> 
+	<input type="button" id="btnClear" value="Clear all" onclick="clearLocalStorage()"/> 
+	<p id="textoColor">Background Color:</p>
+	<div id="colorSelector"><div style="background-color: #808485"></div></div>
+	
+	</div>
+	
+	<br />	<br />	<br />
+	<section id="contenido">
+		<!--<div class="note" id="1" >
+		<a href="" class="btnX">x</a>
+		<textarea class="textArea" id="t1">Escribe tu nota...</textarea>
+		</div>--> 
+	</section>
+	
+		
+			
+	
+</body>
+
+
+
+
+</html>

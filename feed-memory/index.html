@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Memory</title>
+	<meta name="author" content="DJ">
+
+<style type="text/css">
+img{border:0; border-radius:5px;}
+img[name] {cursor:help} img[style*="opacity: 0"] {cursor:pointer}
+
+.block {
+	position: relative;
+
+
+	-webkit-perspective: 500;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 0.5s;
+	-moz-transform-style: preserve-3d;
+	-moz-transition: -moz-transform 0.5s;
+}
+
+.rotated,
+.mover .block:hover{
+	-webkit-transform: rotateY(180deg);
+	-moz-transform:  rotateY(180deg);
+}
+
+
+.side{
+	position: absolute;		
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-webkit-box-shadow: 0 2px 5px #ccc;
+}
+
+.front{
+	color: #fff;
+	background-color: #fff;  /* #000; */
+}
+
+
+.back{
+	background-color: #fff;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+ overflow:hidden;
+
+}
+
+.block .front{
+	z-index: 50;
+}
+.block .back{
+	z-index: 10;
+}
+.rotated .back, .mover .block:hover .back{
+	z-index: 99;
+}
+
+</style>
+
+<script>
+var num = 10 //Anzahl Bilder
+var imgw=75; imgh=56  //72;54px
+var op = 0.5 //0 Sichtbarkeit
+var first;  //erster Zug
+var xa,xb; //letzter Zug
+var cpaare=0; cfehlp=0;
+//var cspaare=0;  //2.Spieler player=1; 
+var c4paare = new Array(0,0,0,0); c3paare = new Array(0,0,0);  //4.Spieler
+var imgrss = new Array(); imgtitle = new Array(); imglink = new Array(); imgasp = new Array(); title=""
+if (window.Audio) {var audiop = new Audio();audiop.setAttribute("src","paar.wav"); var audiof = new Audio();audiof.setAttribute("src","fehlpaar.wav");}
+var ld;  //Bilder geladen
+var t; //timer
+var tb,luck
+
+var rssReader = {
+    // initialization function
+    init : function() {
+             // getting necessary variables
+            var rssUrl = unescape(location.search.slice(1))
+            num+=5  //Begrenzung (num<15)?num:15
+            //var num = "10" //containers[i].getAttribute('rss_num');
+
+            // creating temp scripts which will help us to transform XML (RSS) to JSON
+            var url = encodeURIComponent(rssUrl);
+            var googUrl = 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num='+num+'&q='+url+'&callback=rssReader.parse&context='//+id;
+            var script = document.createElement('script');
+            script.setAttribute('type','text/javascript');
+            script.setAttribute('charset','utf-8');
+            script.setAttribute('src',googUrl);
+            document.getElementsByTagName("body")[0].appendChild(script);  //containers[i]
+    },
+
+    // parsing of results by google
+    parse : function(context, data) {
+        // creating list of elements
+
+        // also creating its childs (subitems)
+        if (!data) {alert("No images\nchoose another feed"); return}
+        var entries = data.feed.entries;
+        if (entries.length > 2 ) num=entries.length; else {alert("Not enough images"); return}  //Anpassung
+        title = data.feed.title
+        for (var i=0; i<num; i++) {
+        //var zuf = Math.floor(Math.random()*entries.length)
+        //imagerss = entries[zuf].mediaGroups[0].contents[0].url;  //Zufallsbild
+        imgtitle[i] = entries[i].title //link
+        imglink[i] = entries[i].link
+        if (entries[i].mediaGroups) 
+        {imgrss[i] = entries[i].mediaGroups[0].contents[0].thumbnails[0].url
+        if (entries[i].mediaGroups[0].contents[0].thumbnails[0].width <= entries[i].mediaGroups[0].contents[0].thumbnails[0].height) {imgh=imgw;  //quadr.
+        imgasp[i] = 1} }
+        else if (entries[i].content.match(/<img src=".+/))  // pinterest
+        {imgrss[i] = entries[i].content.match(/<img src=".+/)[0].replace(/<img src="/, "").replace(/".*/, "")}
+        else {alert("No Media RSS"); return}
+        }
+        schreiben()
+    }
+};
+
+function zudecken()
+{document.getElementById("d"+xa).className = "block";document.getElementById("d"+xb).className = "block";
+ document.getElementsByName("bild")[xa].style.opacity=1;document.getElementsByName("bild")[xb].style.opacity=1}  //bekannt
+
+function laden() {
+if (!ld) { //no images
+ld=1; 
+Check = prompt( ((navigator.language||navigator.browserLanguage).match(/de/))?"Suche ein Picasa Memory von Fotos:":"Search a Picasa Memory from photos:", (localStorage&&localStorage.suchen)?localStorage.suchen:"" );
+if (Check!=null) 
+ {if (localStorage) localStorage.suchen=Check;
+window.location.href=window.location.href+
+'?http://picasaweb.google.com/data/feed/base/all?alt=rss&kind=photo&access=public&filter=1&q='+Check+'&imgmax=1600&hl=de'
+// '?http://instagram.com/tags/'+Check+'/feed/recent.rss'
+// '?http://api.flickr.com/services/feeds/photos_public.gne?tags='+Check+'&format=rss2'
+ } 
+}
+}
+
+function verdecken() {
+for(i = 0; i < num*2; i++)
+{document.getElementById("d"+i).className = "block"
+document.getElementsByName("bild")[i].removeAttribute("style")}
+tb=new Date().getTime()
+if (!location.search) laden()  //ie  document.all && 
+}
+
+function mischen()
+{cpaare=0;cfehlp=0;first="";xa="";xb="";c4paare = new Array(0,0,0,0); c3paare = new Array(0,0,0); luck=0  //;player=1;cspaare=0
+if (window.Audio) {var audio = new Audio();audio.setAttribute("src","again.wav");audio.play()}
+for(i = 0; i < num; i++) //Schritte
+tausche(Math.floor(Math.random()*num*2),Math.floor(Math.random()*num*2))
+window.setTimeout("verdecken()",1000)
+}
+
+function tausche(a,b){
+temp = document.getElementsByName("bild")[a].parentNode.innerHTML  //.src
+document.getElementsByName("bild")[a].parentNode.innerHTML = document.getElementsByName("bild")[b].parentNode.innerHTML
+document.getElementsByName("bild")[b].parentNode.innerHTML = temp
+}
+
+function mclick(x)
+{
+if (document.getElementById("d"+x).className == "block")  //verdeckt
+{
+if (!first) //erste Karte
+ {
+if (xa || xb) {clearTimeout(t);zudecken()}
+xa=x; //merke offene Karte
+document.getElementById("d"+x).className += " rotated";first="false"
+ }
+else //zweite Karte
+ {document.getElementById("d"+x).className += " rotated";first="";
+if (document.getElementsByName("bild")[x].id == -document.getElementsByName("bild")[xa].id) // + .src 
+  {if (!document.getElementsByName("bild")[x].style.opacity) luck++;
+  document.getElementsByName("bild")[x].style.opacity=op;document.getElementsByName("bild")[xa].style.opacity=op; 
+  if ((cfehlp%2+1) == 2) { //cspaare++; 
+  document.getElementsByName("bild")[x].style.MozTransform = "rotate(2deg)";document.getElementsByName("bild")[xa].style.MozTransform = "rotate(2deg)"
+  }
+  c4paare[cfehlp%4]++; c3paare[cfehlp%3]++
+  xa="";xb="";cpaare++
+  audiop.play()
+  } 
+  else 
+  {xb=x;cfehlp++
+  audiof.play()  
+  document.title="Memory player"+(cfehlp%2+1)+"'s turn; "+cfehlp+" failed" //Spielerwechsel player = (player==1) ? 2 : 1; 
+  t=setTimeout("zudecken()",2000)
+  }
+if (cpaare==num) alert( ausgabe().replace(/; turn.'s/g, "") +"\n"+title+((cfehlp<=num)?" :)":"") ) //AI  num-1
+ }
+
+}
+else if (cpaare==num) {mischen()}  //schreiben()
+else if (!first && (x==xa || x==xb)) {clearTimeout(t);zudecken();xa="";xb=""}  //zudecken
+else if (x!=xa && x!=xb) {if (imglink[0]) window.open(imglink[document.getElementsByName("bild")[x].alt],"feed")}
+else {
+if (document.getElementById(-document.getElementsByName("bild")[xa].id).style.opacity) ki=":) "  //AI
+else if (xb!=="" && document.getElementById(-document.getElementsByName("bild")[xb].id).style.opacity) ki=":( "; else ki=""
+//(xb!=="" && xa!=xb && document.getElementsByName("bild")[xa].src == document.getElementsByName("bild")[xb].src) //miniAI
+alert( ki + ausgabe() + (!document.getElementsByName("bild")[xa].style.opacity?" :)":"") )}  //strat.AI
+
+}
+
+function ausgabe(){
+ausg=( cpaare+" pairs; "+cfehlp+" failed; "+luck+" lucky; "+Math.round((new Date().getTime()-tb)/60000)+"min"+
+//( ((xb && document.getElementsByName("bild")[xa].src == document.getElementsByName("bild")[xb].src)) ? " :)" : "")+  //miniAI
+"\n"+(c4paare[0]+c4paare[2])+"+"+(c4paare[1]+c4paare[3])+" pairs; turn"+(cfehlp%2+1)+"'s"+
+"\n"+c3paare[0]+"+"+c3paare[1]+"+"+c3paare[2]+"      pairs; turn"+(cfehlp%3+1)+"'s"+
+"\n"+c4paare[0]+"+"+c4paare[1]+"+"+c4paare[2]+"+"+c4paare[3]+" pairs; turn"+(cfehlp%4+1)+"'s"
+); return ausg;
+}
+
+function schreiben(){
+nummax=Math.floor(window.innerHeight/(imgh+2))*(Math.floor(window.innerHeight/(imgh+2))+1)/2  //Bilder fensterabhängig
+if (nummax<num) num=nummax  //Begrenzung //num=num/2 für paare
+var a="<table>"; z=0; k=1
+for(i = 0; i < num*2; i++)
+{l=Math.floor(i/2); j=l; k=-k  // j=i für paare 
+if (z==0) a += '<tr>'
+a += '<td onclick="mclick('+i+')"><div style="height:'+imgh+'px;width:'+imgw+'px" id="d'+i+'" class="block rotated">'
++'<div class="front side"><img height='+imgh+' width='+imgw+' src="bilddeck.jpg" alt=""></div>'
++'<div class="back side" style="height:'+imgh+'px;width:'+imgw+'px">'
++'<img id='+k*(l+1)  //div
+a += (!imgasp[j]) ? ' height='+imgh : ' width='+imgw   // width='+imgw+'
+a += ' src="'+((!imgrss[j]) ? 'bild_'+(j+1)+'.jpg' : imgrss[j])+'"'  // "bild_1.jpg", ...
+a += ' title="'+imgtitle[j]+'"'  
+a += ' alt='+((!imglink[j]) ? '"'+'drag img"' : j);  // into game
+a += ' name="bild" onerror="laden()">' //+imgtitle[j]+'</div>' Wortspiel
++'</div></div></td>';
+if (z==Math.ceil(Math.sqrt(num*2))-1) {a += '</tr>\n';z=-1}  //Anzahl Spalten 4
+z++; //j++
+//if (j==num) {j=0; k=-1}
+}
+a += "</table>"
+document.getElementsByTagName("body")[0].innerHTML = a
+
+dropbox = document.getElementsByTagName("table")[0];  //drag files
+dropbox.addEventListener("dragenter", dragenter, false);
+dropbox.addEventListener("dragover", dragover, false);
+dropbox.addEventListener("drop", drop, false);
+
+mischen()
+}
+
+	window.addEventListener('shake', shakeEventDidOccur, false);
+	
+	//define a custom method to fire when shake occurs.
+	function shakeEventDidOccur () {
+	
+		//put your own code here etc.
+		schreiben()  //schütteln
+	}
+
+function dragenter(e) {e.stopPropagation();e.preventDefault();}
+function dragover(e)  {e.stopPropagation();e.preventDefault();}
+function drop(e)      {e.stopPropagation();e.preventDefault();
+  var dt = e.dataTransfer;var files = dt.files;
+  handleFiles(files);}
+
+
+function handleFiles(files) {
+
+    if (files[0].type.match(/image.*/)) {
+
+        if (files.length < 3 ) {alert("Not enough images"); return}  //Anpassung
+        else num = (files.length < num+11 )?files.length:num+11; //Begrenzung
+        
+        //schreiben()
+  for (var i = 0; i < num; i++) {  //files.length
+    var file = files[i];
+     
+      var img = document.createElement("img");
+      img.src = (window.URL || window.webkitURL).createObjectURL(files[i]);
+      imgrss[i] = img.src
+      imgtitle[i] = files[i].name  //img.title
+      //img.name = "bild"; 
+      //img.height = imgh; //img.width = imgw;
+      //img.onload = function(e) {(window.URL || window.webkitURL).revokeObjectURL(this.src);}
+      //document.getElementsByName("bild")[i].parentNode.replaceChild(img, document.getElementsByName("bild")[i]);  //.firstChild
+      //document.getElementsByName("bild")[i+num].src = document.getElementsByName("bild")[i].src
+  }
+
+schreiben() //mischen()
+}
+else 
+{ //lok. rss datei
+var fileReader = new FileReader();
+    var file = files[0]; //;  File("recent.rss.xml") insecure
+
+                    fileReader.onload = function (event) {
+                          a=(event.target.result);
+                          var parser = new DOMParser();
+var doc = parser.parseFromString(a, "application/xml");
+var entries = (!files[0].type.match(/wpl/))?doc.getElementsByTagName("item"):doc.getElementsByTagName("media");  //media:content
+
+        if (entries.length < 3 ) {return}
+        else  num = (entries.length < num+11 )?entries.length:num+11; //Begrenzung
+        title = doc.getElementsByTagName("title")[0].firstChild.nodeValue
+        for (var i=0; i<num; i++) {
+        imgrss[i] = (!files[0].type.match(/wpl/))?entries[i].getElementsByTagNameNS("*","thumbnail")[0].getAttribute("url"):entries[i].getAttribute("src") //getElementsByTagName("media:content")
+        imgtitle[i] = (!files[0].type.match(/wpl/))?entries[i].getElementsByTagName("title")[0].firstChild.nodeValue:""}
+        if (doc.getElementsByTagNameNS("*","card")[0]) {imgw=doc.getElementsByTagNameNS("*","card")[0].getAttribute("width")*1;imgh=doc.getElementsByTagNameNS("*","card")[0].getAttribute("height")*1}  //Spielfeld
+schreiben()
+                    };                  
+                    fileReader.readAsText(file);
+}
+
+ }
+
+</script>
+<script type="text/javascript" src="shake.js"></script>
+
+</head>
+<body onload="if(location.search) rssReader.init();else schreiben()">
+... wird geladen
+<!-- schreiben -->
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body, button {
+	font-family: "Crafty Girls", monospace;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: #202020;
+	text-align: center;
+}
+
+.wrapper {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.helper {
+	display: inline-block;
+	height: 100%;
+	padding: 0;
+	vertical-align: middle;
+}
+
+#stage {
+	background-color: #f2f2f2;
+	background-image: url( "img/level0.gif" );
+	display: block;
+	height: 600px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+	width: 900px;
+}
+
+button {
+	background-color: #292929;
+	border: 0;
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 26px;
+	padding: 2px 10px 1px;
+}
+
+button:hover {
+	background-color: #ffffff;
+	color: #292929;
+}
+
+#volume {
+	list-style-type: none;
+	margin-top: 10px;
+	text-align: center;
+}
+
+#volume:before {
+	color: #ffffff;
+	content: "Vol.";
+	font-size: 22px;
+	margin-right: 8px;
+	vertical-align: top;
+}
+
+	#volume li {
+		background-color: rgba( 250, 250, 250, 0.4 );
+		cursor: pointer;
+		height: 30px;
+		display: inline-block;
+		margin: 0 3px;
+		width: 10px;
+	}
+
+	#volume li.active {
+		background-color: rgb( 250, 250, 250 );
+	}
+
+#msgBox {
+	background-color: rgba( 55, 72, 82, 0.8 );
+	color: #ffffff;
+	font-size: 24px;
+	line-height: 34px;
+	padding: 12px 40px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 820px;
+	z-index: 100;
+}
+
+#next {
+	position: absolute;
+	z-index: 200;
+}
+
+#pete {
+	background-repeat: no-repeat;
+}
+
+.back {
+	background-image: url( "img/pete_back.gif" );
+	height: 300px;
+	width: 100px;
+}
+
+.fighting_stance {
+	background-image: url( "img/pete_fight.gif" );
+	height: 301px;
+	width: 185px;
+}
+
+.slime {
+	background-image: url( "img/pete_slime.gif" );
+	height: 301px;
+	width: 185px;
+}
+
+.back_slime {
+	background-image: url( "img/pete_back_slime.gif" );
+	height: 300px;
+	width: 100px;
+}
+
+.hold_note {
+	background-image: url( "img/pete_note.gif" );
+	height: 300px;
+	width: 122px;
+}
+
+.shirt {
+	background-image: url( "img/pete_shirt.gif" );
+	height: 600px;
+	width: 491px;
+}
+
+.onwards {
+	background-image: url( "img/pete_onwards.gif" );
+	height: 600px;
+	width: 133px;
+}
+
+
+/* level specific */
+
+/* level 0 */
+
+.level0 #pete {
+	margin: 200px auto 0;
+}
+
+.level0 #next {
+	left: 520px;
+	top: 299px;
+}
+
+.flip_x,
+.level0 #next:hover ~ #pete {
+	transform: scalex( -1 );
+	-webkit-transform: scalex( -1 );
+}
+
+
+/* level 1 */
+
+.level1 #pete {
+	bottom: 10px;
+	left: 60px;
+	position: absolute;
+	z-index: 20;
+}
+
+.level1 #next {
+	bottom: 270px;
+	left: 560px;
+}
+
+.drop {
+	background-color: #404040;
+	border: 3px solid #ff0000;
+	color: #ffffff;
+	font-family: monospace;
+	font-size: 24px;
+	font-weight: bold;
+	left: 560px;
+	padding: 4px;
+	position: absolute;
+	top: -50px;
+	white-space: nowrap;
+}
+
+.drop.animate {
+	top: 260px !important;
+	transition: top 2s linear;
+	-webkit-transition: top 2s linear;
+}
+
+.monster {
+	background-image: url( "img/monster.gif" );
+	bottom: 50px;
+	height: 336px;
+	position: absolute;
+	right: 30px;
+	width: 500px;
+	z-index: 10;
+}
+
+.defeated {
+	background-image: url( "img/monster_defeated.gif" ) !important;
+	height: 155px !important;
+}
+
+
+/* level 2 */
+
+.level2 #pete {
+	bottom: 10px;
+	left: 100px;
+	position: absolute;
+	z-index: 20;
+}
+
+.level2 #next {
+	bottom: 250px;
+	left: 250px;
+}
+
+.note {
+	background-image: url( "img/note.gif" );
+	bottom: 98px;
+	cursor: pointer;
+	height: 55px;
+	opacity: 0.4;
+	position: absolute;
+	right: 260px;
+	width: 40px;
+	z-index: 15;
+}
+
+
+/* level 3 */
+
+.level3 #stage {
+	background: #303030 url( "img/pete_shirt.gif" ) bottom center no-repeat;
+}
+
+.level3 #pete {
+	display: none;
+}
+
+.level3 #next {
+	left: 408px;
+	top: 296px;
+}
+
+.shirt_dropzone {
+	display: block;
+	margin: 0 auto;
+	max-height: 260px;
+	max-width: 260px;
+	min-height: 100px;
+	min-width: 100px;
+	position: relative;
+	top: 360px;
+}
+
+
+/* level 4 */
+
+.level4 #stage {
+	background: #f2f2f2 url( "img/level4.gif" ) center repeat;
+}
+
+.level4 #pete {
+	margin: 0 auto;
+	position: relative;
+	top: 190px;
+}

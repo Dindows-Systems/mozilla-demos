@@ -1,0 +1,73 @@
+<!doctype html>
+<html manifest="richland.appcache">
+<head>
+    <meta charset="utf-8">
+    <title>Metakaolin</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" type="text/css" href="app.css">
+    
+    <script src="d3.min.js"></script>
+    <script src="fermata.min.js"></script>
+    <script src="memcouch.js"></script>
+    <script src="memcouch.pouchdb.js"></script>
+    <script src="pouch.alpha.min.js"></script>
+    <script src="polymaps.min.js"></script>
+    <script src="polymaps.editor.js"></script>
+    <script src="polymaps.viewer.js"></script>
+    
+    <script src="stage.js"></script>
+</head>
+<body>
+<script>
+    // redirect ourselves to working page when necessary.
+    // developer.mozilla.org launches demo encrypted, which means same-origin resources only — no 3rd-party map tiles!
+    if (location.protocol === 'https:') location = location.href.replace(/^https:/, 'http:');
+</script>
+<script>
+
+var MAP_OPTIONS = [{
+    key:'argyles',
+    url: org.polymaps.url("http://temp{S}.argyl.es/preview-key/{Z}/{X}/{Y}.jpg").hosts([1, 2, 3]),
+    name:"Argyle Tiles (offline demo)",
+    attr: "Argyle Tiles hosted by <a href=\"http://exts.ch\">Nathan Vander Wilt</a>, data courtesy NASA-JPL and USGS."
+},{
+    key:'mbs', name:"MapBox Satellite",
+    url: org.polymaps.url("http://{S}tiles.mapbox.com/v3/natevw.map-u490f7en/{Z}/{X}/{Y}.jpg").hosts(["a.", "b.", "c.", "d."]),
+    attr: "<a href=\"http://mapbox.com/blog/mapbox-satellite/\">MapBox Satellite</a> tileset, data courtesy U.S. government agencies."
+},{
+    key:'moa', name:"MapQuest Open Aerial",
+    url: org.polymaps.url("http://otile{S}.mqcdn.com/tiles/1.0.0/sat/{Z}/{X}/{Y}.jpg").hosts([1,2,3,4]),
+    attr: "Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency. Tiles Courtesy of <a href=\"http://www.mapquest.com/\">MapQuest</a>."  
+},{
+    key:'osm', name:"OpenStreetMap",
+    url: org.polymaps.url("http://{S}tile.openstreetmap.org/{Z}/{X}/{Y}.png").hosts(["a.", "b.", "c.", ""]),
+    attr: "© OpenStreetMap contributors. <a href=\"http://www.openstreetmap.org/copyright\">Learn more.</a>"
+},{
+    key:'cm', name:"Stamen Toner",
+    url: org.polymaps.url("http://tile.stamen.com/toner-lite/{Z}/{X}/{Y}.png").hosts(["a.", "b.", "c.", "d.", ""]),
+    attr:"Map tiles by <a href=\"http://stamen.com\">Stamen Design</a>, under <a href=\"http://creativecommons.org/licenses/by/3.0\">CC BY 3.0</a>. Data by <a href=\"http://openstreetmap.org\">OpenStreetMap</a>, under <a href=\"http://creativecommons.org/licenses/by-sa/3.0\">CC BY SA</a>."
+}];
+
+var SHAPE_COLORS = [
+    {name:"Black", val:"black"},
+    {name:"Grey", val:"grey"},
+    {name:"White", val:"white"},
+    {name:"Red", val:"red"},
+    {name:"Orange", val:"orange"},
+    {name:"Yellow", val:"yellow"},
+    {name:"Green", val:"green"},
+    {name:"Blue", val:"blue"},
+    {name:"Indigo", val:"indigo"},
+    {name:"Violet", val:"violet"}
+];
+
+var DEFAULT_BOUNDS = [{"lon":-119.30125318334436,"lat":46.25484223829065},{"lon":-119.2276755696854,"lat":46.28833816956944}];
+
+</script>
+<script src="app.js"></script>
+</body>
+</html>

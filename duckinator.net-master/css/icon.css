@@ -1,0 +1,28 @@
+.icon {
+	background-size: 16px;
+	padding-left: 18px;
+	background-position: 0 center;
+	background-repeat: no-repeat;
+}
+
+@media (min-width: 960px) {
+	#header .icon {
+		-webkit-transition-property: background-position;
+		-moz-transition-property: background-position;
+		-o-transition-property: background-position;
+		transition-property: background-position;
+
+		-webkit-transition-duration: 0.3s;
+		-moz-transition-duration: 0.3s;
+		-o-transition-duration: 0.3s;
+		transition-duration: 0.3s;
+
+		background-position: 5px -50%;
+	}
+
+	#header .icon:hover,
+	#header .icon:focus,
+	#header .active {
+		background-position: 5px 50%;
+	}
+}

@@ -1,0 +1,41 @@
+body:hover #filtre { /*cache les hachure au survol de la page // hide stripes when mouse is over the page*/
+	height:0
+}
+.titre:hover>a {
+	color: blue
+}
+.titre:hover>.article { /*affiche l'article au survol du titre // show post when mouse is hover of title*/
+	opacity:1;
+	height:500px
+}
+.titre:hover>a:after{ /*cache le "Lire Plus" de l'article au survol // hide the "Read More" on hover*/
+	opacity:0
+}
+#image>div:not(.annexe), .nonTarget {
+	/*sors tout les posts de la page // place all posts out of page*/
+	-moz-transform:translatex(100%);
+	-ms-transform:translatex(100%);
+	-o-transform:translatex(100%);
+	-webkit-transform:translatex(100%);
+	transform:translatex(100%)
+}
+#image>div:first-child:not(.nonTarget), #image>div:target { /*permet de mettre un article par défaut si il n'y a pas d'hash dans l'url // show the first post if there aren't hash in url*/
+	-moz-transform:translatex(0);
+	-ms-transform:translatex(0);
+	-o-transform:translatex(0);
+	-webkit-transform:translatex(0);
+	transform:translatex(0)
+}
+#nav:hover>p>span:not(#igation) {
+	opacity:0;
+}
+#nav:hover>p>#igation {
+	opacity: 1
+}
+* { /*réglages des animations CSS3 // CSS3 animation settings*/
+	-moz-transition:all .5s, color .25s;
+	-o-transition:all .5s;
+	-webkit-transition:all .5s, color .25s;
+	-ms-transition:all .5s, color .25s, opacity .75s;
+	transition:all .5s, color .25s
+}

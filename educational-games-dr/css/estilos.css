@@ -1,0 +1,140 @@
+@font-face{
+	font-family:"arista";
+	src:url("../fonts/Arista.ttf") format("truetype");
+	font-weight:normal;
+    font-style:normal;	
+}
+@font-face{
+	font-family:"imp";
+	src:url("../fonts/Impact Label Reversed.ttf") format("truetype");
+	font-weight:normal;
+    font-style:normal;	
+}
+#preguntas{
+	width: 66em;
+	height: 35em;
+	border: 2px solid #000;
+	-webkit-user-select:none;
+-moz-user-select:none
+}
+
+
+
+#preguntas article {
+
+	display: inline-block;
+	border: 1px solid #000;
+	width: 10em;
+	height: 10em;
+	margin-left: .5em;
+	margin-top:.5em;
+	text-align: center;
+	font-weight: bold;
+	box-shadow: 2px 2px .3em #000;
+	background:rgba(255,255,255,0.8);
+	vertical-align: top;
+}
+#preguntasMonumentos{
+	width: 66em;
+	height: 17em;
+	border: 2px solid #000;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#preguntasMonumentos article {
+
+	display: inline-block;
+	border: 1px solid #000;
+	width: 10em;
+	height: 15em;
+	
+	margin-top:.5em;
+	text-align: center;
+	font-weight: bold;
+	box-shadow: 2px 2px .3em #000;
+	background:rgba(255,255,255,0.8);
+	vertical-align: top;
+}
+
+#preguntas .pregMonumento{
+	height: 15em;
+}
+
+#respuestas{
+	position:relative;
+	width: 66em;
+	border:1px solid black;
+	margin-top: 2em;
+-webkit-user-select:none;
+-moz-user-select:none
+
+}
+
+#respuestas img{
+	margin-left: 2em;
+	margin-top: 1em;
+	cursor: move;
+}
+
+.ok,.inco{
+	display: none;
+
+}
+#resultados{
+	width: 13em;
+	height: auto;
+	border:2px solid black;
+	padding: 1em;
+	background: rgba(255,255,255,0.6);
+}
+
+#preguntas,#resultados,#preguntasMonumentos{
+	display: inline-block;
+	vertical-align: top;
+}
+ 
+ .rDrop{
+ 	position: relative;
+ 	top: 2em;
+
+ }
+#banderas{
+	margin-left: 15%;
+}
+ #banderas,#monumentos{
+ 	text-align: center;
+  	width: 30em;
+ 	height: auto;
+ 	background: rgba(255,255,255,0.6);
+ }
+h1{
+	background: rgba(0,0,0,0.8);
+	color: white;
+	text-align: center;
+	font-family: "imp";
+}
+ #banderas a, #monumentos a{
+ 	text-decoration: none;
+ 	font-size: 22px;
+ 	color:#076A79;
+ }
+  #banderas a:hover, #monumentos a:hover{
+  	color: #851F00;
+  	text-shadow:3px 3px 13px #DF7E61;
+
+  }
+ #banderas h2, #monumentos h2{
+ 	font-family: imp;
+
+ }
+ body{
+ 	font-family:arista;
+
+
+ }
+ #banderas,#monumentos{
+ 	display: inline-block;
+ 	vertical-align: middle;
+ }
+ 

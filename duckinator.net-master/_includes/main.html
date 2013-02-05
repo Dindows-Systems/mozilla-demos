@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% assign title_suffix = "" %}
+{% if page.title and page.title != '' %}
+	{% assign title_suffix = " &mdash; " %}
+{% endif %}
+{% capture bio %}
+{% include bio.markdown %}
+{% endcapture %}
+{% if page.url == '/index.html' %}
+	{% assign page_class = 'home' %}
+{% else %}
+	{% capture page_class %}{{ page.url | remove: 'index.html' | remove_first: '/' | split: '/' | first }}{% endcapture %}
+{% endif %}
+
+
+{% case page_class %}
+{% when 'home' %}
+	{% assign home_class = 'active' %}
+{% when 'blog' %}
+	{% assign blog_class = 'active' %}
+{% when 'resources' %}
+	{% assign resources_class = 'active' %}
+{% when 'resume' %}
+	{% assign resume_class = 'active' %}
+{% endcase %}
+
+	<meta charset="utf-8"> 
+	<title>{{ page.title }}{{ title_suffix }}duckinator.net</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	
+	{% comment %}
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/draft-update.css">
+	<link rel="stylesheet" type="text/css" href="/css/pagination.css">
+	<link rel="stylesheet" type="text/css" href="/css/post-list.css">
+	<link rel="stylesheet" type="text/css" href="/css/post.css">
+	<link rel="stylesheet" type="text/css" href="/css/wide.css">
+	{% endcomment %}
+
+	<link rel="stylesheet" type="text/css" href="/css/all.min.css">
+	
+	<link rel="alternate" type="application/rss+xml" title="duckinator.net" href="/rss.xml">
+</head>
+<body class="{{ page.layout }} {{ page_class }}">
+
+<div id="header">
+	<nav>
+		<ul class="constraint">
+			<!-- Formatted weirdly to get around http://da.gd/inlinedisp -->
+			<li><a class="icon {{ home_class }}" href="/">Home</a></li><li>
+			<a class="icon {{ blog_class }}" href="/blog/">Blog</a></li><li>
+			<a class="icon" href="https://github.com/duckinator">GitHub</a></li><li>
+			<a class="icon {{ resources_class }}" href="/resources/">Resources</a></li><li>
+			<a class="icon" href="/rot13-css/">ROT13 CSS</a></li><li>
+			<a class="icon {{ resume_class }}" href="/resume">Resume</a></li>
+		</ul>
+	</nav>
+</div>
+
+<div id="dynamic">
+	<div class="constraint">
+		{% if page.draft %}
+		<div class="draft">
+		This post is a draft! Please don't share it publicly while this message is visible.
+		</div>
+		{% endif %}
+
+{% case page.layout %}
+
+{% when 'post' %}
+	{% include layouts/post.html %}
+{% when 'raw' %}
+	{% include layouts/raw.html %}
+{% else %}
+	{% include layouts/default.html %}
+
+{% endcase %}
+
+	</div>
+</div>
+
+<script src="/js/all.js"></script>
+</body>
+</html>

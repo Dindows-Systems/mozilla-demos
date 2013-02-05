@@ -1,0 +1,23 @@
+
+
+.update, .draft {
+	display: inline-block;
+	/* margin: [top] [right] [bottom] [left] */
+	margin: 2em 0 1em 15px;
+	padding: 20px;
+
+	border: 1px solid;
+}
+
+.update:before {
+	display: inline-block;
+	content: 'Update:';
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+.draft {
+	background: rgba(248, 132, 107, 0.3);
+	font-weight: bold;
+}
+

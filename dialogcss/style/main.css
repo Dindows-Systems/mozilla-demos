@@ -1,0 +1,101 @@
+/* Common CSS */
+
+html, body {
+  margin: 0;
+  
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  
+  background: url(images/background.png);
+}
+
+footer {
+  width: 100%;
+  
+  padding: 5px;
+
+  position: fixed;
+  bottom: 0;
+  
+  opacity: .75;
+  
+  text-align: center;
+  
+  background: black;
+}
+
+a {
+  color: white;
+  text-shadow: none;
+  text-decoration: none;
+  
+  transition: all .5s;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+}
+
+a:hover {
+  color: #428eff;
+  text-shadow: none;
+  text-decoration: none;
+  
+  transition: all .5s;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+}
+
+#menu {  
+  display: inline-block;
+  
+  border-radius: 5px;
+  border: 1px solid black;
+
+  background: #292e33;
+  background-image: linear-gradient(#4d555f, #292e33);
+  background-image: -moz-linear-gradient(#4d555f, #292e33);
+  background-image: -webkit-linear-gradient(#4d555f, #292e33);
+  background-image: -o-linear-gradient(#4d555f, #292e33);
+  background-image: -ms-linear-gradient(#4d555f, #292e33);
+}
+
+#menu a {  
+  padding: 10px;
+  
+  display: inline-block;
+}
+
+input[type=text] {
+  padding: 5px;
+  
+  box-shadow: none;
+    
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+  font-size: 20px;
+  
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+input[type=text]:hover {
+  border: 1px solid #428eff;
+  
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+input[type=text]:focus {
+  box-shadow: 2px 2px 2px #428eff, 0 0 1em #428eff, 0 0 0.2em #428eff;
+  
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}

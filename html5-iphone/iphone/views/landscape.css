@@ -1,0 +1,39 @@
+/* iPhone */
+
+.iPhone {
+  width: 300px;
+  height: 500px;
+  
+  transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  
+  transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+}
+
+.screen {
+  width: 360px;
+  height: 270px;
+  
+  top: 15px;
+  bottom: 15px;
+  left: 70px;
+  right: 70px;
+  
+  transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);  
+  transform-origin: 22%;
+  -moz-transform-origin: 22%;
+  -webkit-transform-origin: 22%;
+  -o-transform-origin: 22%;
+  -ms-transform-origin: 22%;
+}

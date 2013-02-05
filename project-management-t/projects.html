@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Project Management Tool - Projects</title>
+	<link media="all" rel="stylesheet" type="text/css" href="css/all.css">
+		<link rel="stylesheet" href="js/google-code-prettify/prettify.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/localstoragedb.min.js"></script>
+	<script type="text/javascript" src="js/jquery.main.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+		/*global db, $, document, getCountTickets, getActiveProjects, addProject, deleteProject, setUnActiveProject, setActiveProject, htmlEntities, num_projects, num_tickets*/
+		$(document).ready(function() {
+			var projects = db.query('projects'), projects_len = projects.length, projects_str = '', i, project, active_class = '';
+
+			for(i = 0; i < projects_len; i+=1) {
+				project = projects[i];
+				if(project.active===1) {
+					active_class = ' active';
+				} else {
+					active_class = '';
+				}
+				projects_str += '<div class="project'+active_class+'" data-id="'+project.ID+'">';
+				projects_str += '<span>'+project.title+'</span>';
+				if(project.active!==1) {
+					projects_str += '<a href="#" class="del"></a>';
+				}
+				projects_str += '</div>';
+			}
+			$('#projects').html(projects_str);
+			$(document).on('click','#add_project', function(){
+				$('#add_project_form').toggle();
+				return false;
+			});
+			$(document).on('click','#add_project_submit', function(){
+				var projname = $(this).parent().find('#project_name').val(), projid, proj = '';
+				projid = addProject(projname);
+				proj += '<div class="project" data-id="'+projid+'">';
+				proj += '<span>'+htmlEntities(projname)+'</span>';
+				proj += '<a href="#" class="del"></a>';
+				proj += '</div>';
+				$('#projects').append(proj);
+				num_projects += 1;
+				$('.links a.ico1 span.num').text(num_projects);//do dopracowania
+				return false;
+			});
+			$(document).on('click', '.project a.del',function(){
+				var parent = $(this).parent(), projid = parent.data('id');
+				//console.log(projid);
+				deleteProject(projid);
+				parent.remove();
+				num_projects -= 1;
+				$('.links a.ico1 span.num').text(num_projects);//do dopracowania
+				//num_projects musi na biezaco sprawdzac (problem przy usunieciu np. 2 pod rzad)
+				return false;
+			});
+			$(document).on('click','.project', function() {
+				var proj = $(this), pid = proj.data('id');
+				if(proj.hasClass('active')) {
+					setUnActiveProject(pid);
+					num_tickets = getCountTickets(getActiveProjects());
+
+					proj.removeClass('active');
+					proj.append('<a class="del" href="#"></a>');
+				} else {
+					setActiveProject(pid);
+					num_tickets = getCountTickets(getActiveProjects());
+					proj.addClass('active');
+					proj.find('a.del').remove();
+				}
+				$('.links a.ico2 span.num').text(num_tickets);
+				return false;
+			});
+		});
+	</script>
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+</head>
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div class="c1">
+				<div class="controls">
+					<nav class="links">
+						<ul>
+							<li><a href="projects.html" class="ico1">Projects <span class="num">26</span></a></li>
+							<li><a href="tickets.html" class="ico2">Tickets <span class="num">5</span></a></li>
+							<li><a href="snippets.html" class="ico3">Snippets <span class="num">3</span></a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="tabs">
+
+					<article>
+							<div class="text-section">
+								<h1>Projects</h1>
+								<p>Choose project or <a href="#" id="add_project">add new project</a>:</p>
+								<div id="add_project_form">
+									<label>Project name:</label>
+									<input type="text" value="" name="project_name" id="project_name">
+									<input type="submit" value="Add" id="add_project_submit">
+								</div>
+								<div id="projects">
+									<div class="project" data-id="1">
+										<span>Around the World</span>
+										<a href="#" class="del"></a>
+									</div>
+								</div>
+							</div>
+					</article>
+				</div>
+			</div>
+		</div>
+		<aside id="sidebar">
+			<strong class="logo"><a href="index.html">lg</a></strong>
+			<ul class="tabset buttons">
+				<li class="active">
+					<a href="index.html" class="ico1"><span>Dashboard</span><em></em></a>
+					<span class="tooltip"><span>Dashboard</span></span>
+				</li>
+				<li>
+					<a href="tickets.html" class="ico2"><span>Tickets</span><em></em></a>
+					<span class="tooltip"><span>Tickets</span></span>
+				</li>
+				<li>
+					<a href="projects.html" class="ico3"><span>Projects</span><em></em></a>
+					<span class="tooltip"><span>Projects</span></span>
+				</li>
+				<li>
+					<a href="snippets.html" class="ico4"><span>Snippets</span><em></em></a>
+					<span class="tooltip"><span>Snippets</span></span>
+				</li>
+				<li>
+					<a href="archive.html" class="ico5"><span>Archive</span><em></em></a>
+					<span class="tooltip"><span>Archive</span></span>
+				</li>
+			</ul>
+			<span class="shadow"></span>
+		</aside>
+	</div>
+</body>
+</html>

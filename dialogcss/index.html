@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta charset="utf-8">
+      
+    <link href="style/images/favicon.png" rel="icon" type="image/x-icon" />
+    <link href="style/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+      
+    <title>dialog.css</title>
+        
+    <link rel="stylesheet" type="text/css" href="style/main.css" media="all" />        
+    <link rel="stylesheet" type="text/css" href="style/dialog.css" media="all" />    
+    
+  </head>
+  <body>
+  
+    <section role="main" id="main" style="text-align: center;">
+      <h1>Themes</h1> 
+      <section id="menu">
+        <a href="#default">Default (Slide)</a>
+        <a href="#mac">Mac</a>
+        <a href="#fall">Fall</a>
+      </section>
+      <footer>dialog.css was made by <a href="mailto:micovision@verizon.net">Joshua Smith</a>.  <a href="style/dialog.css" download>Easy Download Link</a></footer>
+    </section>
+   
+    <section class="dialog" id="default">
+      <section class="background"></section>
+      <section class="ui">
+        <section class="title"><a href="#" class="exit"><img src="style/images/exit.png" alt="x" /></a><h1>Title</h1></section>
+        <section class="content">
+          This is some content for the sample dialog with a <code>theme=default</code> attribute.  Click and hold outside the window to see the bounce animation.
+        </section>
+      </section>    
+    </section>
+   
+    <section class="dialog" id="mac" theme="mac">
+      <section class="background"></section>
+      <section class="ui">
+        <section class="title"><a href="#" class="exit"><img src="style/images/exit.png" alt="x" /></a><h1>Title</h1></section>
+        <section class="content">
+          Something...
+        </section>
+      </section>    
+    </section>
+   
+    <section class="dialog" id="fall" theme="fall">
+      <section class="background"></section>
+      <section class="ui">
+        <section class="title"><a href="#" class="exit"><img src="style/images/exit.png" alt="x" /></a><h1>Upload Image</h1></section>
+        <section class="content">
+          <form>
+            <input type="text" name="filename" style="width: 99%;" placeholder="url of the image to upload" />
+          </form>
+        </section>
+      </section>    
+    </section>
+   
+  </body>
+</html>

@@ -1,0 +1,89 @@
+html, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+input {
+  padding: 5px;
+  
+  box-shadow: none;
+    
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  
+  font-size: 20px;
+  
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+input:hover {
+  border: 2px solid #A1C7FD;
+  outline: none;
+  
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+input:focus {
+  border: 2px solid #428eff;
+  outline: none;
+  
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+.urlbar {
+  height: 30px;
+  padding: 5px;
+  
+  color: white;
+  
+  background: url(../../images/dark_bg.png) #4D4E53;
+}
+
+.urlbar img {
+  height: 30px;
+
+  float: right;
+}
+
+#locBar {
+  width: calc(100% - 50px);
+  width: -moz-calc(100% - 50px);
+  width: -webkit-calc(100% - 50px);
+  width: -o-calc(100% - 50px);
+  width: -ms-calc(100% - 50px);
+  height: 16px;
+  
+  border-radius: 20px;
+  
+  font-size: 14px;
+}
+
+.browser {
+  width: calc(100% - 2px);
+  width: -moz-calc(100% - 2px);
+  width: -webkit-calc(100% - 2px);
+  width: -o-calc(100% - 2px);
+  width: -ms-calc(100% - 2px);
+  height: calc(100% - 60px);
+  height: -moz-calc(100% - 60px);
+  height: -webkit-calc(100% - 60px);
+  height: -o-calc(100% - 60px);
+  height: -ms-calc(100% - 60px);
+  padding: 0px;
+  margin: 0px;
+  
+  position: absolute;
+  
+  outline: none;
+  border: none;
+}

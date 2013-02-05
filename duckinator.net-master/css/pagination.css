@@ -1,0 +1,20 @@
+#pagination {
+	margin-top: 20px;
+}
+
+#pagination a {
+	text-decoration: none;
+}
+
+#pagination .previous:before {
+	content: '\AB\20';
+}
+
+#pagination .next {
+	float: right;
+}
+
+#pagination .next:after {
+	content: '\20\BB';
+}
+

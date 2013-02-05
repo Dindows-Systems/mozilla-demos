@@ -1,0 +1,6 @@
+Hello,
+
+This is a demo for the Mozilla Dev Derby by Laurens Debackere.
+Licensed under GPL license, attribution is nice but not necessary.
+
+Follow me on twitter (@laurensdeb)

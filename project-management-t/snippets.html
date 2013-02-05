@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Project Management Tool - Snippets</title>
+	<link media="all" rel="stylesheet" type="text/css" href="css/all.css">
+		<link rel="stylesheet" href="js/google-code-prettify/prettify.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/localstoragedb.min.js"></script>
+	<script type="text/javascript" src="js/jquery.main.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+		/*global db, $, document, prettyPrint, addSnippet, htmlEntities, getCountSnippets, deleteSnippet*/
+		$(document).ready(function() {
+			var snippets = db.query('snippets'), snippets_len = snippets.length, snippets_str = '', i, snippet;
+
+			for(i = 0; i < snippets_len; i+=1) {
+				snippet = snippets[i];
+				snippets_str += '<div class="snippet" data-id="'+snippet.ID+'">';
+				snippets_str += '<span>'+snippet.title+'</span><a href="#" class="del"></a>';
+snippets_str += '<pre class="prettyprint">'+snippet.code+'</pre>';
+				snippets_str += '</div>';
+
+			}
+			$('#snippets').html(snippets_str);
+			prettyPrint();
+			$(document).on('click','.snippet', function() {
+				$(this).find('pre').toggle();
+			});
+			$(document).on('click','#add_snippet', function(){
+				$('#add_snippet_form').toggle();
+				return false;
+			});
+			$(document).on('click','#add_snippet_submit', function(){
+				var parent = $(this).parent(), snippetname = parent.find('#snippet_name').val(),
+				snippetcode = parent.find('#snippet_code').val(), snippetid, snippet = '';
+				snippetid = addSnippet(snippetname, htmlEntities(snippetcode));
+				snippet += '<div class="snippet" data-id="'+snippetid+'">';
+				snippet += '<span>'+htmlEntities(snippetname)+'</span>';
+				snippet += '<a href="#" class="del"></a>';
+				snippet += '<pre class="prettyprint">'+htmlEntities(snippetcode)+'</pre>';
+				snippet += '</div>';
+				$('#snippets').append(snippet);
+				prettyPrint();
+				$('.links a.ico3 span.num').text(getCountSnippets());
+				return false;
+			});
+			$(document).on('click', '.snippet a.del',function(){
+				var parent = $(this).parent(), snippetid = parent.data('id');
+				deleteSnippet(snippetid);
+				parent.remove();
+				$('.links a.ico3 span.num').text(getCountSnippets());
+				return false;
+			});
+		});
+	</script>
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+</head>
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div class="c1">
+				<div class="controls">
+					<nav class="links">
+						<ul>
+							<li><a href="projects.html" class="ico1">Projects <span class="num">26</span></a></li>
+							<li><a href="tickets.html" class="ico2">Tickets <span class="num">5</span></a></li>
+							<li><a href="snippets.html" class="ico3">Snippets <span class="num">3</span></a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="tabs">
+
+					<article>
+							<div class="text-section">
+								<h1>Snippets</h1>
+								<p><a href="#" id="add_snippet">add new snippet</a>:</p>
+								<div id="add_snippet_form">
+									<div><label>Snippet name:</label>
+									<input type="text" value="" name="snippet_name" id="snippet_name">
+									</div>
+									<label>Snippet code:</label>
+									<div><textarea id="snippet_code"></textarea>
+									</div>
+									<input type="submit" value="Add" id="add_snippet_submit">
+								</div>
+								<div id="snippets">
+
+								</div>
+							</div>
+					</article>
+				</div>
+			</div>
+		</div>
+		<aside id="sidebar">
+			<strong class="logo"><a href="index.html">lg</a></strong>
+			<ul class="tabset buttons">
+				<li class="active">
+					<a href="index.html" class="ico1"><span>Dashboard</span><em></em></a>
+					<span class="tooltip"><span>Dashboard</span></span>
+				</li>
+				<li>
+					<a href="tickets.html" class="ico2"><span>Tickets</span><em></em></a>
+					<span class="tooltip"><span>Tickets</span></span>
+				</li>
+				<li>
+					<a href="projects.html" class="ico3"><span>Projects</span><em></em></a>
+					<span class="tooltip"><span>Projects</span></span>
+				</li>
+				<li>
+					<a href="snippets.html" class="ico4"><span>Snippets</span><em></em></a>
+					<span class="tooltip"><span>Snippets</span></span>
+				</li>
+				<li>
+					<a href="archive.html" class="ico5"><span>Archive</span><em></em></a>
+					<span class="tooltip"><span>Archive</span></span>
+				</li>
+			</ul>
+			<span class="shadow"></span>
+		</aside>
+	</div>
+</body>
+</html>

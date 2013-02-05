@@ -1,0 +1,31 @@
+/* Wider displays */
+
+@media (min-width: 960px) {
+	#dynamic {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+
+	header img {
+		display: block;
+
+		float: left;
+		width: 200px;
+		height: 200px;
+		margin-right: 2em;
+	}
+
+	footer img {
+		display: block;
+		float: left;
+		height: 200px;
+		width: 200px;
+		/* margin: [top] [right] [bottom] [left] */
+		margin: 0px 20px 20px 0px;
+		border-radius: 0.5em;
+	}
+}

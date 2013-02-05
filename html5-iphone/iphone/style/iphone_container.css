@@ -1,0 +1,217 @@
+/* iPhone */
+.container {
+  width: 300px;
+  height: 100%;
+  margin: auto;
+  padding: 50px;
+}
+
+.iPhone {
+  width: 300px;
+  height: 500px;
+  margin: auto;
+  padding: 0px;
+  
+  position: absolute;
+  
+  box-shadow: 0px 0px 50px black;
+  
+  border: 3px outset #ccc;
+  border-radius: 36px;
+  -moz-border-radius: 36px;
+  -webkit-border-radius: 36px;
+  -o-border-radius: 36px;
+  -ms-border-radius: 36px;
+  
+  background-color: black;
+  
+  transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+}
+
+.screen {
+  width: 270px;
+  height: 360px;
+  
+  display: block;
+  position: absolute;
+  top: 70px;
+  bottom: 70px;
+  left: 15px;
+  right: 15px;
+  
+  border: none;
+  outline: none;
+  
+  background: white;
+}
+
+.top {
+  width: 100%;
+  max-height: 70px;
+  margin: 15px auto;
+  padding: 5px auto;
+  
+  display: block;
+  position: absolute;
+  top: 0px;
+}
+
+.bottom {
+  width: 100%;
+  max-height: 70px;
+  margin: 15px auto;
+  padding: 5px auto;
+  
+  display: block;
+  position: absolute;
+  bottom: 0px;
+}
+
+.home {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  
+  display: block;
+  
+  border: 2px solid #151515;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+
+  background: linear-gradient(left, rgba(114,114,114,1) 0%,rgba(0,0,0,1) 55%);
+  background: -moz-linear-gradient(left, rgba(114,114,114,1) 0%,rgba(0,0,0,1) 55%);
+  background: -webkit-linear-gradient(left, rgba(114,114,114,1) 0%,rgba(0,0,0,1) 55%);
+  background: -o-linear-gradient(left, rgba(114,114,114,1) 0%,rgba(0,0,0,1) 55%);
+  background: -ms-linear-gradient(left, rgba(114,114,114,1) 0%,rgba(0,0,0,1) 55%);
+  
+  transform: translateZ(18.6px);
+  -moz-transform: translateZ(18.6px);
+  -webkit-transform: translateZ(18.6px);
+  -o-transform: translateZ(18.6px);
+  -ms-transform: translateZ(18.6px);
+}
+
+.home .icon {
+  width: 10px;
+  height: 10px;
+  margin: 13px;
+  
+  display: block;
+  
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border: 2px solid #bbbbbb;
+  
+  background: linear-gradient(left, rgba(114,114,114,1) 0%,rgba(0,0,0,1) 55%);
+  background: -webkit-linear-gradient(left, rgba(114,114,114,1) 0%,rgba(0,0,0,1) 55%);
+  background: -o-linear-gradient(left, rgba(114,114,114,1) 0%,rgba(0,0,0,1) 55%);
+  background: -ms-linear-gradient(left, rgba(114,114,114,1) 0%,rgba(0,0,0,1) 55%);
+}
+
+.home:active .icon {
+  border: 2px solid grey;
+}
+
+.cam_sp {
+  width: 80px;
+  margin: 10px auto;
+}
+
+.speaker {
+  width: 36px;
+  height: 4px;
+  margin: auto;
+  padding: 3px 5px;
+  
+  display: inline-block;
+  
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border: 1px solid #111111;
+  
+  background: linear-gradient(top, rgba(0,0,0,1) 12%,rgba(91,91,91,1) 100%);
+  background: -moz-linear-gradient(top, rgba(0,0,0,1) 12%,rgba(91,91,91,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(0,0,0,1) 12%,rgba(91,91,91,1) 100%);
+  background: -o-linear-gradient(top, rgba(0,0,0,1) 12%,rgba(91,91,91,1) 100%);
+  background: -ms-linear-gradient(top, rgba(0,0,0,1) 12%,rgba(91,91,91,1) 100%);
+  
+  transform: translateZ(18.8px);
+  -moz-transform: translateZ(18.8px);
+  -webkit-transform: translateZ(18.8px);
+  -o-transform: translateZ(18.8px);
+  -ms-transform: translateZ(18.8px);
+}
+
+.speaker .inside {
+  width: 36px;
+  height: 4px;
+  margin: auto;
+  
+  border-radius: 1px;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -o-border-radius: 1px;
+  -ms-border-radius: 1px;
+  
+  background: gray;
+}
+
+.cam {
+  width: 6px;
+  height: 6px;
+  margin: auto;
+  padding: 4px;
+  
+  display: inline-block;
+  
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -o-border-radius: 7px;
+  -ms-border-radius: 7px;
+  
+  background: linear-gradient(top, rgba(20,20,20,1) 12%,rgba(91,91,91,1) 100%);
+  background: -moz-linear-gradient(top, rgba(20,20,20,1) 12%,rgba(91,91,91,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(20,20,20,1) 12%,rgba(91,91,91,1) 100%);
+  background: -o-linear-gradient(top, rgba(20,20,20,1) 12%,rgba(91,91,91,1) 100%);
+  background: -ms-linear-gradient(top, rgba(20,20,20,1) 12%,rgba(91,91,91,1) 100%);
+  
+  transform: translateZ(18.55px);
+  -moz-transform: translateZ(18.55px);
+  -webkit-transform: translateZ(18.55px);
+  -o-transform: translateZ(18.55px);
+  -ms-transform: translateZ(18.55px);
+}
+
+.cam .inside {
+  width: 4px;
+  height: 4px;
+  
+  display: block;
+  
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border: 1px solid #444444;
+  
+  background: radial-gradient(center, ellipse cover, rgba(147,180,255,1) 1%,rgba(124,68,255,1) 100%);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(147,180,255,1) 1%,rgba(124,68,255,1) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(147,180,255,1) 1%,rgba(124,68,255,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(147,180,255,1) 1%,rgba(124,68,255,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(147,180,255,1) 1%,rgba(124,68,255,1) 100%);
+}

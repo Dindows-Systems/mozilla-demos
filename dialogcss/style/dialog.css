@@ -1,0 +1,376 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	dialog.css is Copyright 2013 Joshua Smith - micovision.bugs3.com
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.dialog {
+  z-index: 200;
+}
+
+/* Themes */
+
+/* Default */
+.dialog[theme=default] .background, .dialog .background {
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  opacity: .7;
+  
+  background: black;
+}
+
+.dialog[theme=default] .ui, .dialog .ui {
+  width: 70%;
+  height: 70%;
+  min-width: 400px;
+  min-height: 450px;
+  
+  position: fixed;
+  top: 15%;
+  left: 15%;
+  
+  border: solid 1px white;
+  border-radius: 10px;
+  
+  color: black;
+  
+  background: white;  
+  
+  transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+}
+
+.dialog[theme=default] .ui .title, .dialog .ui .title {
+  height: 50px;
+
+  padding: 5px 5px 5px 5px;
+  
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: solid 2px #a3a3a3;
+
+  color: white;
+  text-align: center;
+  
+  background-image: linear-gradient(#4d555f, #292e33);
+  background-image: -moz-linear-gradient(#4d555f, #292e33);
+  background-image: -webkit-linear-gradient(#4d555f, #292e33);
+  background-image: -o-linear-gradient(#4d555f, #292e33);
+  background-image: -ms-linear-gradient(#4d555f, #292e33);
+}
+
+.dialog[theme=default] .ui .title h1, .dialog .ui .title h1 {
+  height: 100%;
+  max-width: 90%;
+  overflow: hidden;
+  
+  margin: 15px 5px 5px 5px;
+  
+  display: inline-block;
+  
+  text-overflow: ellipsis;
+  color: white;
+  text-shadow: 0px 0px 2px black;
+  font-size: 20px;
+  text-align: center;
+}
+
+.dialog[theme=default] .ui .title .exit, .dialog .ui .title .exit {
+  float: right;
+}
+
+.dialog[theme=default] .ui .title .exit img, .dialog .ui .title .exit img {
+  height: 20px;
+}
+
+.dialog[theme=default] .ui .content, .dialog .ui .content {
+  height: calc(100% - 85px);
+  height: -moz-calc(100% - 85px);
+  height: -webkit-calc(100% - 85px);
+
+  overflow: auto;
+
+  padding: 10px 10px 10px 10px;
+}
+
+/* Mac */
+
+.dialog[theme=mac] .background {
+  background: none;
+}
+
+.dialog[theme=mac] .ui {
+  position: fixed;
+  top: 0;
+  
+  opacity: .97;
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: 0; 
+  border-bottom: solid 1px #ccc; 
+  border-left: solid 1px #ccc; 
+  border-right: solid 1px #ccc; 
+  
+  box-shadow: 10px 20px 50px black;
+  
+  background: #e1e1e1;
+}
+
+.dialog[theme=mac] .ui .title {
+  height: 12px;
+
+  border-radius: 0px;
+  border-bottom: 1px solid #666;
+  
+  color: black;
+  
+  background-image: linear-gradient(#e1e1e1, #b9b9b9);
+  background-image: -moz-linear-gradient(#e1e1e1, #b9b9b9);
+  background-image: -webkit-linear-gradient(#e1e1e1, #b9b9b9);
+  background-image: -o-linear-gradient(#e1e1e1, #b9b9b9);
+  background-image: -ms-linear-gradient(#e1e1e1, #b9b9b9);
+}
+
+.dialog[theme=mac] .ui .title h1 {
+  margin: 0;
+  
+  font-size: 14px;
+  font-family: none;
+  color: black;
+  text-shadow: 0px 0px 2px white;
+}
+
+.dialog[theme=mac] .ui .title .exit {
+  padding: 0;
+  margin: 0;
+
+  float: left;
+  
+  border-radius: 12px;
+  
+  background: red;
+}
+
+.dialog[theme=mac] .ui .title .exit img {
+  height: 10px;
+  
+  padding: 2px;
+  
+  float: left;
+  
+  opacity: 0;
+  
+  transition: all .2s;
+  -moz-transition: all .2s;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+}
+
+.dialog[theme=mac] .ui .title .exit:hover img {
+  opacity: 1;
+  
+  transition: all .2s;
+  -moz-transition: all .2s;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+}
+
+.dialog[theme=mac] .ui .content {
+  height: calc(100% - 45px);
+  height: -moz-calc(100% - 45px);
+  height: -webkit-calc(100% - 45px);
+}
+
+
+/* Dialog Animation */
+
+/* Default */
+.dialog[theme=default] .ui, .dialog .ui {
+  visibility: hidden;
+  opacity: 0;
+  
+  transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  
+  transition: visibility 0s ease .4s, transform .4s ease, opacity .4s ease;
+  -moz-transition: visibility 0s ease .4s, -moz-transform .4s ease, opacity .4s ease;
+  -webkit-transition: visibility 0s ease .4s, -webkit-transform .4s ease, opacity .4s ease;
+  -o-transition: visibility 0s ease .4s, -o-transform .4s ease, opacity .4s ease;
+  -ms-transition: visibility 0s ease .4s, -ms-transform .4s ease, opacity .4s ease;
+}
+
+.dialog[theme=default]:target .ui, .dialog:target .ui {
+  visibility: visible;
+  opacity: 1;
+  
+  transform: none;
+  -moz-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  
+  transition: visibility 0s ease, transform .4s ease, opacity .4s ease;
+  -moz-transition: visibility 0s ease, -moz-transform .4s ease, opacity .4s ease;
+  -webkit-transition: visibility 0s ease, -webkit-transform .4s ease, opacity .4s ease;
+  -o-transition: visibility 0s ease, -o-transform .4s ease, opacity .4s ease;
+  -ms-transition: visibility 0s ease, -ms-transform .4s ease, opacity .4s ease;
+}
+
+.dialog[theme=default] .background, .dialog .background {
+  visibility: hidden;
+  opacity: 0;
+  
+  transition: visibility 0s ease .7s, opacity .7s ease;
+  -moz-transition: visibility 0s ease .7s, opacity .7s ease;
+  -webkit-transition: visibility 0s ease .7s, opacity .7s ease;
+  -o-transition: visibility 0s ease .7s, opacity .7s ease;
+}
+
+.dialog[theme=default]:target .background, .dialog:target .background {
+  visibility: visible;
+  opacity: .7;
+  
+  transition: visibility 0s ease, opacity .7s ease;
+  -moz-transition: visibility 0s ease, opacity .7s ease;
+  -webkit-transition: visibility 0s ease, opacity .7s ease;
+  -o-transition: visibility 0s ease, opacity .7s ease;
+}
+
+.dialog[theme=default]:target .background:active + .ui, .dialog:target .background:active + .ui {
+  animation: bounce .5s;
+  -moz-animation: bounce .5s;
+  -webkit-animation: bounce .5s;
+  -o-animation: bounce .5s;
+}
+
+@keyframes bounce {
+  25% { top: 12%; bottom: 12%; left: 12%; right: 12%; width: 76%; height: 76%; }
+  50% { top: 15%; bottom: 15%; left: 15%; right: 15%; width: 70%; height: 70%; }
+  75% { top: 12%; bottom: 12%; left: 12%; right: 12%; width: 76%; height: 76%; }
+  100% { top: 15%; bottom: 15%; left: 15%; right: 15%; width: 70%; height: 70%; }
+}
+
+@-moz-keyframes bounce {
+  25% { top: 12%; bottom: 12%; left: 12%; right: 12%; width: 76%; height: 76%; }
+  50% { top: 15%; bottom: 15%; left: 15%; right: 15%; width: 70%; height: 70%; }
+  75% { top: 12%; bottom: 12%; left: 12%; right: 12%; width: 76%; height: 76%; }
+  100% { top: 15%; bottom: 15%; left: 15%; right: 15%; width: 70%; height: 70%; }
+}
+
+@-webkit-keyframes bounce {
+  25% { top: 12%; bottom: 12%; left: 12%; right: 12%; width: 76%; height: 76%; }
+  50% { top: 15%; bottom: 15%; left: 15%; right: 15%; width: 70%; height: 70%; }
+  75% { top: 12%; bottom: 12%; left: 12%; right: 12%; width: 76%; height: 76%; }
+  100% { top: 15%; bottom: 15%; left: 15%; right: 15%; width: 70%; height: 70%; }
+}
+
+@-o-keyframes bounce {
+  25% { top: 12%; bottom: 12%; left: 12%; right: 12%; width: 76%; height: 76%; }
+  50% { top: 15%; bottom: 15%; left: 15%; right: 15%; width: 70%; height: 70%; }
+  75% { top: 12%; bottom: 12%; left: 12%; right: 12%; width: 76%; height: 76%; }
+  100% { top: 15%; bottom: 15%; left: 15%; right: 15%; width: 70%; height: 70%; }
+}
+
+/* Mac */
+
+.dialog[theme=mac] .ui {
+  visibility: hidden;
+  opacity: .97;
+  
+  transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  
+  transition: visibility 0s ease .5s, transform .5s ease;
+  -moz-transition: visibility 0s ease .5s, -moz-transform .5s ease;
+  -webkit-transition: visibility 0s ease .5s, -webkit-transform .4s ease;
+  -o-transition: visibility 0s ease .5s, -o-transform .5s ease;
+  -ms-transition: visibility 0s ease .5s, -ms-transform .5s ease;
+}
+
+.dialog[theme=mac]:target .ui {
+  visibility: visible;
+  opacity: .97;
+  
+  transform: none;
+  -moz-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  
+  transition: visibility 0s ease, transform .5s ease;
+  -moz-transition: visibility 0s ease, -moz-transform .5s ease;
+  -webkit-transition: visibility 0s ease, -webkit-transform .5s ease;
+  -o-transition: visibility 0s ease, -o-transform .5s ease;
+  -ms-transition: visibility 0s ease, -ms-transform .5s ease;
+}
+
+.dialog[theme=mac]:target .background:active + .ui {
+  animation: none;
+  -moz-animation: none;
+  -webkit-animation: none;
+  -o-animation: none;
+}
+
+/* Fall */
+
+.dialog[theme=fall] .ui {
+  width: 100%;
+  height: 100%;
+  
+  top: 0;
+  left: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  
+  transform: none;
+  -moz-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  
+  transition: visibility 0s ease .5s, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+  -moz-transition: visibility 0s ease .5s, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+  -webkit-transition: visibility 0s ease .5s, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+  -o-transition: visibility 0s ease .5s, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+  -ms-transition: visibility 0s ease .5s, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+}
+
+.dialog[theme=fall]:target .ui {
+  width: 70%;
+  height: 70%;
+  
+  top: 15%;
+  left: 15%;
+
+  visibility: visible;
+  opacity: 1;
+  
+  transform: none;
+  -moz-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  
+  transition: visibility 0s ease, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+  -moz-transition: visibility 0s ease, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+  -webkit-transition: visibility 0s ease, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+  -o-transition: visibility 0s ease, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+  -ms-transition: visibility 0s ease, width .5s ease, height .5s ease, top .5s ease, left .5s ease, opacity .5s ease;
+}

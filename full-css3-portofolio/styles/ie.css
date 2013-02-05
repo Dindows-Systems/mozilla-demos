@@ -1,0 +1,10 @@
+#image>div>.nav,.titre {
+	/*background-image: url('../images/ieBack.png');*/
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#88ffffff', endColorstr='#88ffffff'); /* IE */
+}
+.article {
+    filter:alpha(opacity=0); 
+}
+#nav {
+	behavior:url(PIE.htc);
+}

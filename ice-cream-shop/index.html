@@ -1,0 +1,65 @@
+<DOCTYPE html>
+<html lang="es">
+<head>
+	    <meta charset="utf-8"/>
+	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="shortcut icon"type="image/x-icon" href="favicon.ico"/>
+	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+
+	    <script type="text/javascript" src="js/jquery.js"></script>
+	    <script type="text/javascript" src="js/heladeria.js"></script>
+	    <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.9.2.custom.min.css">
+
+</head>
+
+<body>
+
+	<div id="sabores">
+		<img src='img/chocolate.png' id='chocolate'  class="helado"/>
+		<img src="img/fresa.png" id="strawberry"class="helado"/>
+		<img src="img/chicle.png" id="bubblegum" class="helado"/>
+		<img src="img/vainilla.png" id="vainilla" class="helado"/>
+		<img src="img/arequipe.png" id="arequipe" class="helado"/>
+		<img src="img/uva.png" id="grape" class="helado"/>
+	</div>
+
+	<section id="contCono">
+		<h2>Drop the flavor</h2>
+		<img src="img/cono.png" class="cono">
+	</section>
+
+	<section id="contBanana">
+			<h2>Drop 3 flavors</h2>
+		<img src="img/contBanana.png" class="banana">
+	</section>
+
+	<section id="inicio">
+		<h2> Welcome</h2>
+		To sort:<br /><br />
+			<img src="img/conito1.png" id="conito" onclick="clickConito()"/>
+
+			
+		<article id="conos">
+			
+			Select the number of flavors:<br/><br/>
+			
+			<select id="cmbConos">
+				<option selected="selected" value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+			</select> 
+			<input type="button" value ="Choose flavors" id="btnConos" onclick="clickBtnConos()"/>
+			
+		</article>
+		<br/>
+		<img src="img/banana1.png" id="banana" />
+
+	</section>
+
+	<div id="infoSabor"></div>
+	<div id="cuenta"></div>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+body {
+  overflow: hidden;
+
+  background: url(../images/water.jpg);
+}
+
+.titlebar {
+  height: 16px;
+  padding: 2px;
+  overflow: hidden;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  opacity: .7;
+
+  color: white;
+  text-align: center;
+
+  background: black;
+}
+
+#network {
+  position: fixed;
+  left: 2px;
+}
+
+#battery {
+  position: fixed;
+  right: 2px;
+}
+
+.home {
+  padding: 5px;
+
+  position: absolute;
+  top: 20px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+/* Dock */
+
+.dock {
+  width: calc(100% - 70px);
+  width: -moz-calc(100% - 70px);
+  width: -webkit-calc(100% - 70px);
+  width: -o-calc(100% - 70px);
+  width: -ms-calc(100% - 70px);
+  height: 43px;
+  margin: 0px;
+  padding: 0px 5px 0px 5px;
+  
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  left: 30px;
+  right: 30px;
+
+  background: url(../images/dock.png);
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+.dock .bar {
+  width: calc(100% - 70px);
+  width: -moz-calc(100% - 70px);
+  width: -webkit-calc(100% - 70px);
+  width: -o-calc(100% - 70px);
+  width: -ms-calc(100% - 70px);
+
+  z-index: 1;
+  position: fixed;
+  bottom: 0px;
+  
+  color: white;
+  text-shadow: 2px 0px 4px black, -2px 0px 4px black, 0px 2px 4px black, 0px -2px 4px black;
+  text-align: center;
+  font-size: 12px;
+}
+
+.dock .bar a {
+  color: white;
+  text-decoration: none;
+}
+
+.dock .bar br {
+  margin: 0px;
+}
+
+.dock_before {
+  width: 30px;
+  height: 43px;
+  margin: 0px;
+  padding: 0px;
+  
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  
+  background: url(../images/dock_before.png);
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+.dock_after {
+  width: 30px;
+  height: 43px;
+  margin: 0px;
+  padding: 0px;
+  
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  
+  background: url(../images/dock_after.png);
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+/* App Page */
+
+.appPage {
+  width: 100%;
+  height: calc(100% - 60px);
+  height: -moz-calc(100% - 60px);
+  height: -webkit-calc(100% - 60px);
+  height: -o-calc(100% - 60px);
+  height: -ms-calc(100% - 60px);
+  
+  color: white;
+  text-shadow: 2px 0px 4px black, -2px 0px 4px black, 0px 2px 4px black, 0px -2px 4px black;
+  text-align: center;
+  font-size: 12px;
+}
+
+.appPage tr {
+  height: 20%;
+}
+
+.appPage td {
+  height: 33%;
+  width: 33%;
+  overflow: hidden;
+  
+  text-overflow: ellipsis;  
+}
+
+.appPage a {
+  color: white;
+  text-decoration: none;
+  
+  display: block;
+}
+
+.appPage td img, .dock .bar img {
+  height: 45px;
+  margin: 0px;
+  
+  transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+}
+
+@media all and (orientation: landscape) {
+.dock, .dock_before, .dock_after {
+  height: 35px;
+}
+
+.dock .bar, .appPage {
+  font-size: 11px;
+}
+
+.appPage td img, .dock .bar img {
+  height: 40px;
+  
+  transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+}
+}
+
+/* Apps */
+
+.app {
+  z-index: 100;
+  position: fixed;
+  
+  background: white;
+}
+
+.app {  
+  top: 70px;
+  bottom: 50px;
+  left: 50px;
+  right: 50px;
+  overflow: hidden;
+
+  visibility: hidden;
+  opacity: 0;
+  
+  transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+}
+
+.app:target {  
+  top: 20px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+
+  visibility: visible;
+  opacity: 1;
+  
+  transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+}
+
+.app iframe {
+  width: 100%;
+  height: calc(100%);
+  height: -moz-calc(100%);
+  height: -webkit-calc(100%);
+  height: -o-calc(100%);
+  height: -ms-calc(100%);
+  padding: 0px;
+  margin: 0px;
+  
+  outline: none;
+  border: none;
+}

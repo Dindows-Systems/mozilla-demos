@@ -1,0 +1,163 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	overflow: hidden;
+}	
+
+h1 {
+	margin: 0 auto;
+	font-family: 'Walter Turncoat', cursive;
+}
+
+h2 {
+	font-family: 'Walter Turncoat', cursive;
+	font-size: 18px;
+	margin-top: 0px;
+}
+
+h3 {
+	font-family: 'Walter Turncoat', cursive;
+	font-size: 15px;
+	margin: 0 auto;
+}
+
+a {
+	color: #000000;
+}
+a:visited {
+	color: #000000;
+}
+a:hover {
+	color: #008000;
+}
+
+#container {
+	text-align: center;
+	height: 100%;
+	background: #efefef;
+}
+
+#header {
+	border-bottom: 1px #afafaf solid;
+	height: 80px;
+	background: #ffffff;
+}
+
+	#header_right {
+		padding: 10px; 
+		position: absolute; 
+		right: 0px; 
+		text-align: left;
+	}
+
+#content {
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	top: 80px;
+	bottom: 0px;
+}
+
+	#content_center {
+		width: 80%;
+		margin: 0 auto;
+		text-align: left;
+	}
+
+	#content_tasksvg
+	{
+		background: #efefef;
+		position: relative;
+		text-align: center;
+		margin: 0 auto;
+	}
+	
+	#content_tasksvg_group {
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+		#content_tasksvg_bg
+		{
+			fill: transparent;
+		}	
+		.content_tasksvg_task_box
+		{
+			fill: #ffffff; 
+			stroke-width: 1;
+			stroke: #afafaf;
+		}
+		.pending .content_tasksvg_task_box
+		{
+			fill: #f1f1f1; 
+			stroke-width: 1;
+			stroke: #cfcfcf;
+		}
+		.content_tasksvg_task_text
+		{
+			fill: #afafaf;
+		}
+		.content_tasksvg_task_close
+		{
+			fill: #afafaf;
+			cursor: pointer;
+		}
+		.content_tasksvg_task_min
+		{
+			fill: #afafaf;
+			cursor: pointer;
+		}
+		.content_tasksvg_connector
+		{ 
+			stroke-width: 1;
+			stroke: #000000;
+		}
+		.pending .content_tasksvg_connector
+		{
+			stroke-width: 1;
+			stroke: #cfcfcf;
+		}
+		
+		/* The container for the form to edit a task */
+		.content_tasksvg_task_textfield_container {
+			height: 99%;
+			width: 99%;
+			background: #ffffff;
+			border: 1px #cfcfcf solid;
+			border-radius: 8px;
+		}
+
+#footer
+{
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+	padding: 4px;
+	position: fixed; bottom: 0px;
+	color: #afafaf;
+}
+
+
+/* width where header title collides with header_right */
+@media all and (max-width: 690px), (max-height: 610px) {
+	h1 {font-size: 12px;}
+	h2 {font-size: 10px;}
+	h3 {font-size: 8px;}
+	#header {height: 60px;}
+	#header_right {padding: 4px 4px 0 0;}
+	#content {top: 60px;}
+}
+
+/* width where header title collides with header_right again */
+@media all and (max-width: 360px), (max-height: 350px) {
+	h1 {font-size: 9px;}
+	h2 {font-size: 7px;}
+	h3 {font-size: 5px;}
+	#header {height: 40px;}
+	#header_right {padding: 2px 2px 0 0;}
+	#content {top: 40px;}
+}
+

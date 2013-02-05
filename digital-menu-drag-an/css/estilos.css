@@ -1,0 +1,284 @@
+@font-face{
+	font-family:"cal";
+	src:url("../fonts/cal.ttf") format("truetype");
+	font-weight:normal;
+    font-style:normal;	
+}
+@font-face{
+	font-family:"lauren";
+	src:url("../fonts/LaurenScript.ttf") format("truetype");
+	font-weight:normal;
+    font-style:normal;	
+}
+@font-face{
+	font-family:"fra";
+	src:url("../fonts/typo.ttf") format("truetype");
+	font-weight:normal;
+    font-style:normal;	
+}
+body{
+	margin: 0;
+	padding: .5em;
+	background:#444;
+	margin-top:1em;
+}
+
+#carta{
+	position: relative;
+	width: 52em;
+	height: 30em;
+	color:#FFF;
+	padding: 1%;
+	overflow-y: scroll;
+	z-index: 200;
+	font-family: "lauren";
+	text-shadow:1px 1px 4px #000;
+
+	
+	
+}
+#carta h2{
+	font-family: "cal";
+	font-size: 3em;
+	margin-left:20%;
+	margin-top: -7%;
+	 text-shadow:3px 3px 10px white;
+	
+}
+
+
+.nombre{
+	width: 320px;
+
+}
+.plato img{
+	position: relative;
+	box-shadow: 2px 2px 5px #000;
+	border-radius: 1em;
+}
+.plato img,.nombre{
+	
+	vertical-align: middle;
+	display: inline-block;
+
+}
+
+.plato img:hover{
+	cursor: move;
+}
+.plato{
+	margin-top: 7px;
+	min-height: 100px;
+}
+
+#cuenta{
+	position: relative;
+	width: 440px;
+	height: 35em;
+	padding: 1%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background: linear-gradient(#FFF, #ccc);
+	font-family: fra;
+	font-size: 14px;
+
+
+}
+
+
+#cuenta,#carta{
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+
+#dropp {
+	position: fixed;
+	width: 300px;
+	height: 200px;
+	box-shadow: -3px -3px 5px #000;
+	margin-left: 3%;
+	margin-top: 5px;
+	z-index: 2;
+
+}
+
+#dropp2 {
+	background:rgba(255,255,255,0.4);
+	position: absolute;
+	width: 9em;
+	height:29em;
+	left: 0;
+	top: 5em;
+	display: none;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-family: cursive;
+}
+
+
+#dropp,#platos{
+
+	display: inline-block;	
+	vertical-align: top;
+}
+
+#platosDropp{
+	position: relative;
+	margin-top: 68%;
+	width: 90%;
+	height:auto;
+	max-height: 60px;
+	border:1px solid black;
+	padding: 5%;
+	overflow-y: scroll;
+}
+.peq{
+	width: 40px;
+	height: 40px;
+	margin: 2px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 4px #000;
+}
+
+.plato span{
+	position: absolute;
+	right: 60%;
+	margin-top:5em;
+	background-color: #FFF;
+	border-radius: 1em;
+	color:#000;
+	width: 60px;
+	text-align: center;
+	font-weight: bold;
+	font-family: arial;
+	font-size: 14px;
+	box-shadow: 1px 1px 4px #000;
+	text-shadow: none;
+
+}
+
+#cuenta p {
+	position: relative;
+	left: 360px;
+	top:-17px;
+	width: 100px;
+	height: auto;
+	margin: -4px;
+	font-family: cursive;
+	font-weight: bold;
+}
+
+#total{
+	width: auto;
+	height: auto;
+	background-color:#D43B29;
+	color: #FFF;
+	position: absolute;
+	right: 2.3em;
+	top:25.5em;
+	z-index: 3001;
+	text-align: center;
+	padding: 4px;
+	font-size: 20px;
+
+}
+
+
+
+#der,#izq{
+	cursor: pointer;
+	border-radius: 3em;
+}
+#der{
+	margin-left: 0.6em;
+}
+
+#der:hover,#izq:hover{
+	opacity: 0.9;
+	box-shadow: 3px 3px 12px #BBB;
+	
+	
+}
+#der:active,#izq:active{
+	box-shadow: 3px 3px 5px #111;
+	width: 48px;
+	height: 48px;
+	}
+
+
+hr{
+	border: 1px dashed #FFF;
+}
+
+#descripcion{
+	position: absolute;
+	width: 52em;
+	height: 27em;
+	left: 0;
+	top: 0;
+	background:rgba(0,0,0,0.9);
+	color: #FFF;
+	display: none;
+}
+
+.imgDes{
+	position: absolute;
+	width: 15em;
+	height:15em;
+	right: 1em;
+	margin-right: 4em;
+	margin-top: 5em;
+	border:3px solid #FFF;
+	
+}
+
+
+#descripcion p{
+	position: absolute;
+	width: 25em;
+	margin-left: 4em;
+	margin-top: 6em;
+	font-family: lauren;
+
+}
+
+.back{
+	position: absolute;
+	width: 3.5em;
+	height: 2.5em;
+	right: 1em;
+	top: 1em;
+	cursor: pointer;
+}
+
+.back:hover{
+	opacity: 0.7;
+}
+
+.back:active{
+	right:1.2em;
+}
+
+#mon1,#mon2,#mon3{
+	position: absolute;
+	top:42em;
+	left: 13em;
+	cursor: move;
+
+}
+#mon2{
+	
+	
+	left: 18em;
+}
+#mon3{
+	
+	
+	left: 23em;
+}
+#mesero{
+	box-shadow: 1px 1px 4px black;
+	
+}

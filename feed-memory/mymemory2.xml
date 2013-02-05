@@ -1,0 +1,10 @@
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+        <title>My memory</title>
+        <description>drop this file in the game</description>
+        <image><width>150</width><height>84</height></image>
+            <item><media:thumbnail url="file:///C:/Users/dj/Pictures/2012/kroatien/DSC_0090.jpg"/><title>Kran</title></item>
+            <item><media:thumbnail url="file:///C:/Users/dj/Pictures/2012/kroatien/DSC_0095.jpg"/><title> </title></item>
+            <item><media:thumbnail url="file:///C:/Users/dj/Pictures/2012/kroatien/DSC_0097.jpg"/><title> </title></item>            
+</channel>
+</rss>

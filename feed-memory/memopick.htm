@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+<script>
+function aus() {
+void(window.open('index.html?http://'+document.getElementById("feed").value.replace(/'\+tag\+'/, document.getElementById("search").value),'memory','width=425,height=340'))
+}
+</script>
+
+<head>
+<body>
+Create a game with pictures:</br>
+<select id="feed">
+  <option value="picasaweb.google.com/data/feed/base/all?alt=rss&kind=photo&access=public&filter=1&q='+tag+'&imgmax=1600&hl=de">Picasa</option>
+  <option value="instagram.com/tags/'+tag+'/feed/recent.rss">Instagram</option>
+  <option value="backend.deviantart.com/rss.xml?q=boost%3Apopular+'+tag+'">Deviantart</option>
+</select></br>
+<input type="text" id="search">
+<input type="button" value="search" onclick='aus()'>  
+</body>
+</html>

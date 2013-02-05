@@ -1,0 +1,45 @@
+#posts {
+	margin: 0;
+	padding: 0;
+}
+
+#posts a {
+	text-decoration: none;
+}
+
+#posts li {
+	list-style: none;
+	display: block;
+	border-bottom-width: 0px;
+	clear: both;
+}
+
+#posts h3,
+#posts time {
+	margin: 0;
+	padding: 10px;
+}
+
+#posts h3 {
+	display: inline-block;
+	border-bottom-width: 1px;
+}
+
+#posts time {
+	text-align: right;
+	display: none;
+}
+
+
+@media (min-width: 960px) {
+	#posts li {
+		border-bottom-width: 1px;
+	}
+
+	#posts h3,
+	#posts time {
+		width: 49%;
+		display: inline-block;
+		border-bottom-width: 0px;
+	}
+}

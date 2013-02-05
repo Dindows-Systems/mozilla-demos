@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="directives">
+    <head>
+        <title>Beyer Music Player // Mozilla Dev Derby</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/foundation/3.2.4/stylesheets/foundation.min.css">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+        <script type="text/javascript" src="//raw.github.com/aadsm/JavaScript-ID3-Reader/master/src/id3.js"></script>
+
+        <script type="text/javascript" src="js/playlist.js"></script>
+        <script type="text/javascript" src="js/controller.js"></script>
+        <script type="text/javascript" src="js/spectrum.js"></script>
+        <script type="text/javascript" src="js/fft.js"></script>
+        <script type="text/javascript" src="js/ngsortable.js"></script>
+    </head>
+
+    <body id="dropzone" ng-controller="Beyer.controller">
+        <div class="row">
+            <h1>
+                Beyer Music Player
+            </h1>
+
+            <hr>
+
+            <div id="errors" ng-show="playlist.errors.length">
+                <div class="alert-box alert" ng-repeat="error in playlist.errors">
+                    {{ error }}
+                    <a href="" class="close" ng-click="playlist.removeError(error)">&times;</a>
+                </div>
+            </div>
+
+            <div id="player" class="panel radius" ng-show="playlist.trackList.length">
+                <h4 class="subheader">
+                    {{ playlist.trackList[playlist.getIndex()].name }}
+                </h4>
+                <div id="seeker" class="progress" ng-show="playlist.audio">
+                    <span id="progressbar" class="meter" style="width: {{ playlist.elapsed.percent }}%"></span>
+                    <span id="timer">{{ playlist.elapsed.minutes }}:{{ playlist.elapsed.seconds }} / {{ playlist.duration.minutes }}:{{ playlist.duration.seconds }}</span>
+                </div>
+                <ul class="button-group radius">
+                    <li>
+                        <a href="" class="button radius" ng-show="!playlist.isPlaying" ng-click="playlist.togglePlay()">Play</a>
+                        <a href="" class="button radius" ng-show="playlist.isPlaying" ng-click="playlist.togglePlay()">Pause</a>
+                    </li>
+                    <li>
+                        <a href="" class="button radius" ng-click="playlist.prev()">Prev</a>
+                    </li>
+                    <li>
+                        <a href="" class="button radius" ng-click="playlist.next()">Next</a>
+                    </li>
+                    <li class="controls">
+                        <label for="loop"><input type="checkbox" id="loop" ng-model="playlist.config.loop" ng-click="playlist.syncShuffle()"><span class="custom checkbox"></span> Loop</label>
+                        <label for="shuffle"><input type="checkbox" id="shuffle" ng-model="playlist.config.shuffle" ng-click="playlist.syncLoop()"><span class="custom checkbox"></span> Shuffle</label>
+                    </li>
+                    <li class="controls">
+                        <label for="mute"><input type="checkbox" id="mute" ng-model="playlist.config.muted" ng-click="playlist.toggleMute()"><span class="custom checkbox"></span> Mute</label>
+                        <label for="spectrum"><input type="checkbox" id="spectrum" ng-model="playlist.config.spectrum"><span class="custom checkbox"></span> Spectrum</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="alert-box alert" ng-show="playlist.config.spectrum && playlist.audio && !playlist.config.canSpectrum">
+                Please use Mozilla Firefox to enable the spectrum analyzer.
+            </div>
+            <canvas id="spectrumcanvas" class="panel radius" ng-show="playlist.config.spectrum && playlist.audio && playlist.config.canSpectrum">
+            </canvas>
+
+            <h2 class="subheader">
+                Playlist
+            </h2>
+            <div id="playlist" class="panel radius">
+                <div class="empty" ng-hide="playlist.trackList.length">
+                    Drop music here
+                </div>
+                <ol ng-sortable="playlist.trackList" id="tracklist">
+                    <li id="track{{ $index }}" ng-repeat="track in playlist.trackList"
+                        ng-class="{track: 1,
+                                   active: $index==playlist.getIndex(),
+                                   stopafter: $index==playlist.stopAt}"
+                        draggable="true">
+                        <span class="trackname" ng-click="playlist.playAt($index)">{{ track.name }}</span>
+                        <div class="options">
+                            <a href="" title="Stop playing after this track" ng-click="playlist.toggleStopAt($index)">s</a>
+                            <a href="" title="Remove" class="close" ng-click="playlist.removeTrack($index)">&times;</a>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <footer>
+            <div class="row">
+                <div>
+                    By <a href="https://twitter.com/tuxie_">Alvaro Mouri&ntilde;o</a>
+                    for the <a href="https://developer.mozilla.org/en/demos/devderby">Mozilla Dev Derby</a>.
+                    Feel free to <a href="https://github.com/tooxie/javascript-beyer">fork it</a>.
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

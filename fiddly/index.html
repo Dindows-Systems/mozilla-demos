@@ -1,0 +1,164 @@
+<!doctype html>
+ <html lang="en" manifest="fiddly.appcache">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Fiddly</title>
+        </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+ <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="apple-touch-icon" href="apple-touch-icon-precomposed.png"/>
+        <style>
+        body{
+    background-color: #0080ff;}
+h1{
+    color: white}
+</style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- The header -->
+        <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Fiddly</a></a>
+        <div class="nav-collapse">
+          <ul class="nav pull-right">
+  
+    <li><a href="#" onClick="showStore()" style="color: white !important" data-toggle="modal"><i class="icon-th-large icon-white"></i> Libraries</a></li>
+    <li><a href="#" onClick="shareURL()" style="color: white !important" data-toggle="modal"><i class="icon-share icon-white"></i> Share</a></li>
+    <li><a href="#" onClick="showHelp()" style="color: white !important">&nbsp;<strong style="color: white">?</strong>&nbsp; Help</a></li>
+  <li><div class="btn-group"><button type="button" class="btn btn-success" id="run"><i class="icon-share-alt icon-white"></i>&nbsp;Run</button><button style="color: white !important" class="btn btn-danger" type="button" id="fullscreenr" onClick="fullScreen();"><i class="icon-resize-full icon-white"></i> Fullscreen</button><button class="btn btn-success" type="button" id="smallscreenr" onClick="exit();"><i class="icon-resize-small icon-white"></i> Exit</button></div></li>
+</ul>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+ 
+    </div>
+  </div>
+</div>
+
+<!-- The Textare + Header -->
+<div class="contains" style="top: -5%; width: 30%;">
+      <h1>Your Code</h1><textarea id="html" style="height: 30%; width: 60%;"></textarea>
+</div>
+
+<!-- Output -->
+<div class="output grid">
+	<iframe id="framer">
+	</iframe>
+</div>
+
+
+<!-- The Modals */ -->
+
+<div class="modals">
+  <div class="modal hide fade" id="libs">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h2>Libraries</h2>
+  </div>
+  <div class="modal-body">
+    <p>Don't you hate searching for hosted scripts and stylesheets?</p>
+    <p>Well, here you'll find URLs to common JS and CSS libraries.</p>
+   <h2>How do I use these libs?</h2>
+   <h4><strong>For css libraries:</strong></h4><br>
+    <pre>&lt;link rel="stylesheet" href="[THE URL]"&gt;</pre>
+    <p>PS: Replace [THE URL] with the URL of the library you want to use.</p>
+    <h4><strong>For js libraries:</strong></h4><br>
+    <pre>&lt;script src="[THE URL]"&gt;&lt;/script&gt;</pre>
+    <p>PS: Replace [THE URL] with the URL of the library you want to use.</p>
+    <h2>Some handy libs</h2>
+    <h3><strong>CSS</strong></h3>
+    <p><strong><a style="color: black !important" href="http://960.gs/">The 960 Grid System</a></strong</p><br>
+    <pre>//cdnjs.cloudflare.com/ajax/libs/960gs/0/960.css</pre>
+     <p><strong><a style="color: black !important" href="http://necolas.github.com/normalize.css/">Normalize</a></strong</p><br>
+    <pre>//cdnjs.cloudflare.com/ajax/libs/normalize/2.0.1/normalize.css</pre>
+    <p><strong><a style="color: black !important" href="http://cssgrid.net/">The 1140 Grid System</a></strong</p><br>
+    <pre>//cdnjs.cloudflare.com/ajax/libs/1140/2.0/1140.css</pre>
+    <h3><strong>JS</strong></h3>
+    <p><strong><a style="color: black !important" href="http://momentjs.com/">MomentJS</a></strong</p><br>
+    <h6>Working with time, made easy!</h6><br>
+    <pre>//cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js</pre>
+    <p><strong><a style="color: black !important" href="http://foundation.zurb.com/">Foundation (JS Only!)</a></strong</p><br>
+    <h6>An alternative for Twitter Bootstrap!</h6><br>
+    <pre>//cdnjs.cloudflare.com/ajax/libs/foundation/3.2.2/javascripts/foundation.min.js</pre>
+    <p><strong><a style="color: black !important" href="http://hpneo.github.com/gmaps/">gmaps.js</a></strong</p><br>
+    <h6>Working with Google Maps, made easy!</h6><br>
+    <pre>//cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.2.27/gmaps.min.js</pre>
+    <p><strong><a style="color: black !important" href="http://keith-wood.name/countdown.html">jQuery Countdown</a></strong</p><br>
+    <h6>Cool and easy jQuery countdowns!</h6><br>
+    <pre>//cdnjs.cloudflare.com/ajax/libs/jquery-countdown/1.6.0/jquery.countdown.min.js</pre>
+    <p><strong><a style="color: black !important" href="http://jquery.com/">jQuery</a></strong</p><br>
+    <h6>You know what this is!</h6><br>
+    <pre>//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js</pre>
+    <p><strong><a style="color: black !important" href="http://jquery.com/">jQuery UI</a></strong</p><br>
+    <h6>You know what this is!</h6><br>
+    <pre>//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js</pre>
+    <h2>Can't find what you're looking for?</h2>
+    <p>These are only some of my personal favorites,<p>
+    <p>you can find many other libs via <a style="color: black !important;" href="http://www.cdnjs.com">cdnjs.com</a> and <a style="color: black !important;" href="https://developers.google.com/speed/libraries/devguide">Google Hosted Libraries</a>.</p>
+  </div>
+  </div>
+  <div class="modal hide fade" id="help">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h2>Help</h2>
+  </div>
+  <div class="modal-body">
+    <h3>Havin' trouble?</h3>
+    <p>Well, these are some neat docs with some tips and tricks</p>
+    <h2>Solving problems</h2>
+    <p>1. When you don't know what the problem is always <strong>check the console.</strong></p>
+    <p>2. Try doin' a google search on your problem.</p>
+    <p>3. Try a search on <a style="color: black !important" href="http://developer.mozilla.org">MDN</a>.</p>
+    <strong>If you really don't know what the problem is</strong><br>
+    <p>Make a Fiddly, click on the share button and place it on StackOverflow.</p>
+    <p>I hope that'll solve the problem!</p>
+    <h2>Some neat tricks</h2>
+    <p>1. Use <a style="color: black !important" href="http://www.cdnjs.com">cdnjs.com</a> if you need external libs like jQuery, Twitter Bootstrap, ...</p>
+    <p>2. Hate the default Twitter Bootstrap look? Use <a style="color: black !important" href="http://bootswatch.com">Bootswatch</a>. There you'll find some awesome themes that'll make Bootstrap look awesome.</p>
+    <h6>By the way: We used Bootswatch Cosmo to make this demo look awesome!</h6>
+    <p>3. Always keep in mind that Fiddly actually edits the &lt;body&gt;
+      of the HTML document.</p>
+    <p><strong>4. Your code isn't saved untill you press the Run-button!</strong></p>
+    <p>5. Fiddly works fully offline thanks to HTML5 LocalStorage and Offline Cache but remind that your external scripts and styles aren't saved offline!</p>
+    <h2>Snippets</h2>
+    <p>I personally love using snippets!</p>
+    <p>You can find some neat snippets on <a style="color: black !important" href="http://css-tricks.com/snippets/">css-tricks.com</a>.</p>
+    <h2>Credits</h2>
+    In this demo I used:
+    <h4><strong><a style="color: black !important" href="http://sindresorhus.com/screenfull.js">Screenfull.js</a></strong></h3>
+    <p>Screenfull.js is used to add fullscreen functionality to this demo</p>
+    <h4><strong><a style="color: black !important" href="http://net.tutsplus.com/tutorials/html-css-techniques/how-to-inject-custom-html-and-css-into-an-iframe/">How to Inject Custom HTML and CSS into an iframe - Nettuts+ - by Jeffrey Way</a></strong></h4>
+    <p>The code in this Tutorial was modified to work offline</p>
+    <h4><strong><a style="color: black !important" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a></strong></h4>
+    <p>Used to make this demo look awesome</p>
+    <h4><strong><a style="color: black !important" href="http://bootswatch.com/cosmo">Bootswatch Cosmo</a></strong></h4>
+    <p>Used to make Bootstrap look awesome!</p>
+    <h4><strong>My parents</strong></h4>
+    <p>For signing my parental consent form!</p>
+    Thank you all!
+    <h2>
+  </div>
+  </div>
+</div>
+<script src="js/vendor/jquery-1.8.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/screenfull.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

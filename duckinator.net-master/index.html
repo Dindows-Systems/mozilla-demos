@@ -1,0 +1,36 @@
+---
+title: 
+layout: default
+---
+
+{% comment %}
+/blog/index.html is a dupe of this page! Figure out if there's a way to have that copied automgically.
+{% endcomment %}
+
+<h2>Posts</h2>
+
+<ul id="posts">
+
+{% for post in paginator.posts %}
+	{% unless post.draft %}
+	<li>
+		<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+		<time datetime="{{ post.date | date: '%Y-%m-%d' }}T00:00:00-05:00">{{ post.date | date: '%d %B %Y' }}</time>
+	</li>
+	{% endunless %}
+{% endfor %}
+
+</ul>
+
+{% if paginator.previous_page or paginator.next_page %}
+<!-- Pagination links -->
+<div id="pagination">
+  {% if paginator.previous_page %}
+    <a href="/page{{paginator.previous_page}}" class="previous">Previous</a>
+  {% endif %}
+  <!--<span class="page_number ">Page: {{paginator.page}} of {{paginator.total_pages}}</span>-->
+  {% if paginator.next_page %}
+    <a href="/page{{paginator.next_page}}" class="next">Next</a>
+  {% endif %}
+</div>
+{% endif %}

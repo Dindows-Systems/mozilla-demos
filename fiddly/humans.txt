@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Laurens Debackere - Dev, designer, writer - @laurensdeb
+
+# THANKS
+
+    Jeffrey Way - Nettuts+
+    The Bootstrap Team
+    The Bootswatch Theme
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, LocalStorage,
+    Offline Cache,..

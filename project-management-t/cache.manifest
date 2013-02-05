@@ -1,0 +1,12 @@
+CACHE MANIFEST
+#v4
+
+CACHE:
+index.html
+archive.html
+projects.html
+tickets.html
+snippets.html
+js/*
+css/*
+images/*

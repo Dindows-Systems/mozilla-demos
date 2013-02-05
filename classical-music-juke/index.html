@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Drag and Drop Demo</title>
+    <link href="css/playground.css" type="text/css" rel="stylesheet"/>
+    <link href="css/dragdrop.css" type="text/css" rel="stylesheet"/>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <div class="container">
+	  <div id="alerts-container"></div>
+      <div class="row-fluid">	  
+        <div class="span9">
+          <section id="music-player" class="">
+			<div class="drop-zone row-fluid">
+				<div class="span6">
+					<div class="popover left info">
+						<div class="arrow"></div>
+						<h1 class="popover-title">Music Player</h1>
+						<div class="popover-content">
+							<p>Take an album from the right column and drop it here.</p>
+						</div>
+					</div>
+				</div>
+				<div class="span6 gramophone">
+					&nbsp;
+				</div> 
+			</div>
+			<a href="#" class="playing-album"></a>
+			<a href="#help01" data-for="help01" class="help btn btn-small"><i class="icon-question-sign"></i></a>
+			<div id="help01">
+				<ol>
+					<li>
+						Drag an album from the right column to the disc player to play its contents.
+					</li>
+					<li>
+						Drag the playing album back to the right column to return it.
+					</li>
+					<li>
+						After an album is set to play,
+						you can also use drag & drop any track from the list to its playing order.
+					</li>
+				</ol>
+			</div>
+          </section>
+          <section id="music-playlist">
+          </section>
+        </div>
+
+        <div class="span3">
+			<div id="music-catalog" class="albums-container">
+			</div>
+        </div>
+      </div>
+    </div><!-- bootstrap container -->
+
+    <!--  
+      Templates
+     -->
+  <script type="text/mustache" id="album-template">
+	<div class="album-ghost"></div>
+	<div class="album-contents">
+		<img src="{{img}}" alt="{{autor}}" 	class="img-polaroid cover" border="0"/>
+		<p>
+			<span class="autor">{{autor}}</span><br>
+			<small class="numtracks">{{tracks.length}} songs</small>
+		</p>
+	</div>
+  </script>
+
+   <script type="text/mustache" id="play-template">
+		<div class="row-fluid">
+			<div class="span6">
+				<div class="popover left info">
+					<div class="arrow"></div>
+					<h1 class="popover-title">{{autor}}</h1>
+					<div class="popover-content">
+						<div class="row-fluid">
+							<div class="span6 cover">
+								<img src="{{img}}" alt="{{autor}}" border="0" class="img-polaroid"/>
+								<div class="btn-group controls"></div>
+							</div>
+							<div class="span6">
+							{{#tracks}}
+								<strong> {{name}}</strong><br>
+								By:
+								{{^link}}
+									{{performer}}<br>
+								{{/link}}
+								{{#link}}
+									<a href="{{link}}" target="_blank">{{performer}}</a><br>
+								{{/link}}
+								
+								<span class="time" style="display:none;">
+								Time: <span class="currentTime"></span> (<span class="duration"></span>) 
+								</span>
+								
+								<span class="loading">
+									Loading...
+								</span>
+							{{/tracks}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6 gramophone">
+				&nbsp;
+			</div> 
+		</div>
+	</script>
+	
+	<script type="text/mustache" id="controls-template">
+		<button class="btn btn-small back" {{^prev}}disabled="disabled"{{/prev}} title="Previous Track">
+			<i class="icon-step-backward"></i>
+		</button>
+		<button class="btn btn-small play" title="Play Track">
+			{{#paused}}
+			<i class="icon-play"></i>
+			{{/paused}}
+			{{^paused}}
+			<i class="icon-pause"></i>
+			{{/paused}}
+		</button>
+		<button class="btn btn-small stop" {{#paused}}disabled="disabled"{{/paused}} title="Stop Playing">
+			<i class="icon-stop"></i>
+		</button>
+		<button class="btn btn-small frwd" {{^next}}disabled="disabled"{{/next}} title="Next Track">
+			<i class="icon-step-forward"></i>
+		</button>
+	</script>
+
+	<script type="text/mustache" id="audio-template">
+		<audio autoplay="autoplay" class="hiden-audio">
+			<source src="{{src}}" type="audio/{{type}}" />
+			Your browser does not support the audio element.
+		</audio>
+	</script>
+
+	<script type="text/mustache" id="tracks-template">
+		{{#.}}
+		<a href="#track/{{index}}" data-index="{{index}}" class="track">
+			<div class="row-fluid">
+				<div class="span1">
+					<button class="btn btn-mini play">
+						<i class="icon-play"></i>
+					</button>
+					<i class="icon-volume-up"></i>
+				</div>
+				<div class="span6">{{name}}</div>
+				<div class="span5">{{performer}}</div>
+			</div>
+		</a>
+		{{/.}}
+		<div class="track last">&nbsp;</div>
+	</script>
+	
+    <!-- Javascript
+         Placed at the end of the document so the pages load faster 
+    -->   
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="js/lib/underscore.min.js" type="text/javascript"></script>
+    <script src="js/lib/backbone.min.js" type="text/javascript"></script>
+    <script src="js/lib/mustache.min.js" type="text/javascript"></script>
+    <script src="js/lib/bootstrap.min.js" type="text/javascript"></script>
+	
+    <script src="js/albums.js" type="text/javascript"></script>
+    <script src="js/dragdrop.js" type="text/javascript"></script>
+    <script src="js/demo.js" type="text/javascript"></script>
+	</body>
+</html>

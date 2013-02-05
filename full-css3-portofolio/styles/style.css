@@ -1,0 +1,140 @@
+#filtre {
+	z-index:3;
+	background-image:url(../images/hachures.png)
+}
+#filtre,#image {
+	height:100%;
+	width:100%;
+	position:fixed;
+	top:0;
+	left:0
+}
+#image >div{
+	background-color: white;
+	background-image: url('../images/stripes.jpg')/*url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGElEQVQYV2N4DwX/oYBhgARgDJjEAAkAAEC99wFuu0VFAAAAAElFTkSuQmCC')*/
+}
+#image>div>img {
+	z-index:0;
+	min-height:100%;
+	max-height:100%
+}
+#image>div {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	text-align:center
+}
+.article>pre, .article {
+	overflow: hidden
+}
+.article {
+	opacity:0;
+	height:0;
+	width:100%;
+	font-family:MuseoSans;
+	font-size: 14px;
+}
+.titre>a:after {
+	content:"Lire plus / Read More";
+	display:block;
+	position:absolute;
+	left:50%;
+	margin-left:-110px
+}
+#image>div:last-child>.droite,#image>div:first-child>.gauche {
+	display:none
+}
+.droite {
+	right:0
+}
+.gauche {
+	left:0
+}
+.nav>* {
+	margin:0
+}
+#igation {
+	opacity: 0
+}
+#image>div>.nav,.titre {
+	width:auto;
+	height:auto;
+	position:absolute;
+	bottom:0;
+	background-color:rgba(255,255,255,0.8);
+	font-size:24px;
+	margin:30px;
+	padding:10px
+}
+#image>div>.nav:hover {
+	color:blue
+}
+#nav {
+	-moz-border-radius:100px 100px 0;
+	-ms-border-radius:100px 100px 0;
+	-o-border-radius:100px 100px 0;
+	-webkit-border-radius:100px 100px 0;
+	border-radius:100px 100px 0;
+	background-color:#FFF;
+	padding-left:100px;
+	width:auto;
+	height:100px;
+	position:fixed;
+	right:0;
+	bottom:45%;
+	font-family:Mido;
+	text-align: center
+}
+#nav>p {
+	margin-left:-100px;
+	padding:15px 0 0 30px
+}
+#navigation {
+	width:0;
+	height:100%
+}
+.titre {
+	font-family:Mido;
+	left:50%;
+	text-align:center;
+	width:750px;
+	margin-left:-375px;
+	height: auto;
+	padding-bottom: 30px
+}
+a,a:visited,a:link,a:active {
+	color:inherit;
+	text-decoration:none
+}
+* {
+	z-index:2
+}
+.gt {
+	margin-left: -70px;
+	font-family:District
+}
+@font-face {
+	font-family:District;
+	src:url(../fonts/District.otf)
+}
+@font-face {
+	font-family:Mido;
+	src:url(../fonts/Mido.otf)
+}
+@font-face {
+	font-family:MuseoSans;
+	src:url(../fonts/MuseoSans.eot?#iefix),
+	url(../fonts/MuseoSans.woff),
+	url(../fonts/MuseoSans.ttf),
+	url(../fonts/MuseoSans.otf)
+}
+body {
+	width:100%;
+	height:100%
+}
+html,body {
+	margin:0;
+	padding: 0
+}

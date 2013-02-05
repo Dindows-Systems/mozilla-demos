@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta charset="utf-8">
+      
+    <link href="../style/images/favicon.png" rel="icon" type="image/x-icon" />
+    <link href="../style/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+      
+    <title>iPhone</title>
+        
+    <link rel="stylesheet" type="text/css" href="iphone/style/main.css" />  
+    
+  </head>
+  <body onload="startTime()">
+   
+    <header class="titlebar">
+      <span id="network">iPhone</span><span id="time"></span><span id="battery">100%</span>
+    </header>
+   
+    <section class="home">
+    
+      <table class="appPage">
+        <tr>
+          <td><img src="iphone/images/games.png" alt="" /><br />Game Center</td>
+          <td><a href="#firefox"><img src="iphone/apps/firefox/icon.png" alt="" /><br />Firefox</a></td>
+          <td><img src="iphone/images/mail.png" alt="" /><br />Mail</td>
+        </tr>
+        <tr>
+          <td><img src="iphone/images/chat.png" alt="" /><br />Messages</td>
+          <td><img src="iphone/images/music.png" alt="" /><br />Music</td>
+          <td><img src="iphone/images/photos.png" alt="" /><br />Photos</td>
+        </tr>
+        <tr>
+          <td><img src="iphone/images/maps.png" alt="" /><br />Maps</td>
+        </tr>
+      </table>
+    
+      <div class="dock_before"></div><section class="dock">
+        <table class="bar">
+          <tr>
+            <td><a href="#about"><img src="iphone/apps/about/icon.png" alt="" /><br>About</br></a></td>
+            <td><img src="iphone/images/videos.png" alt="" /><br>Videos</br></td>
+            <td><img src="iphone/images/store.png" alt="" /><br>Store</br></td>
+          </tr>
+        </table>
+      </section><div class="dock_after"></div>
+      
+    </section>
+    
+    <section class="app" id="about">
+      <iframe src="iphone/apps/about/index.html"></iframe>
+    </section>
+    
+    <section class="app" id="firefox">
+      <iframe src="iphone/apps/firefox/index.html"></iframe>
+    </section>
+   
+    <script type="text/javascript" src="iphone/js/iphone.js"></script> 
+   
+  </body>
+</html>

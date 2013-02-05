@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" ng-app="spoonmod"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Spoonerisms</title>
+  
+ 
+  
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
+  <link rel="stylesheet" href="stylesheets/font-awesome.css">
+  <script src="javascripts/modernizr.foundation.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+</head>
+<body ng-controller="SpoonController">
+<!-- Header and Nav -->
+  <nav class="top-bar">
+    <ul>
+      <!-- Title Area -->
+      <li class="name">
+        <h1>
+          <a href="#">
+            Angular Spoonerisms
+          </a>
+        </h1>
+      </li>
+      <li class="divider"></li>
+    </ul>
+  </nav>
+  <!-- End Header and Nav -->
+
+<!-- Content -->
+
+  <!-- Sidebar -->
+   <aside class="three columns">
+
+      <h5><span class="round alert label">{{spoons.length}}</span> Spoonerisms Made <a class="small secondary radius button has-tip" title="Clear Selected" ng-click="archive()"> <i style="font-size: 18px;" class="icon-trash"></i></a>
+
+      </h5>
+      <hr>
+      
+      
+      <div class="custom">
+      <ul class="side-nav">
+        <li ng-repeat="spoon in spoons">
+                <input type="checkbox" ng-model="spoon.done">
+                <span class="done-{{spoon.done}}">{{spoon.firstWord}}  {{spoon.secondWord}}</span>
+              </li>
+      </ul>
+      </div>
+      
+
+    </aside>
+
+    
+
+<div class="vertical-line nine columns">
+
+     <h5 class="subheader">This is a little twist on the the typical to-do list, instead it makes spoonerisms and stores them in the local storage, powered by <a href="http://angularjs.org" target="_blank" >AngularJS</a>, coded by <a href="http://twitter.com/oojx" target="_blank" >@oojx</a></h5>
+<div class="panel">
+         <blockquote>
+        <p>A spoonerism is an error in speech or deliberate play on words in which corresponding consonants, vowels, or morphemes are switched 
+        <cite>Source: Wikipedia</cite></p>
+      </blockquote>
+      </div>
+
+<div href="#" id="spoonButton" class="large button">Create a Spoonerism!</div>
+
+    </div>
+  
+  
+  <div id="spoonForm" class="reveal-modal" >
+  <h2>Create A Spoonerism</h2>
+  <p>You Just need two words to make a spoonerism, for example: if the first world was <em>hello</em> and the second word was <em>world</em> the resulting spoonerism will be <em>wello horld</em>. Try it out!</p>
+  <form >
+  <fieldset>
+    <label><strong>First Word</strong></label>
+    <input type="text"/ ng-model="spoonText">
+
+    <label><strong>Second Word</strong></label>
+    <input type="text" ng-model="spoonText2" />
+  </fieldset>
+</form>
+
+<div href="#" id="createButton" class="secondary round button" ng-click="addSpoon()">Create</div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+ 
+  <script src="javascripts/libs/jquery.js"></script>
+  <script src="javascripts/libs/foundation.min.js"></script>
+  <script src="javascripts/libs/angular.min.js"></script>
+
+  <script src="javascripts/app.js"></script>
+  <script src="javascripts/module.js"></script>
+  <script src="javascripts/controllers/spoonCtrl.js"></script>
+  <script src="javascripts/services/spoonStorage.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#spoonButton").click(function() {
+      $("#spoonForm").reveal();
+    });
+    $('#createButton').click(function(){
+      $("#spoonForm").trigger('reveal:close');
+  });
+  });
+</script>
+</body>
+</html>

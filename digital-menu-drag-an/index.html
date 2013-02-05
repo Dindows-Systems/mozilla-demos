@@ -1,0 +1,79 @@
+<DOCTYPE html>
+<html lang="es">
+<head>
+	    <meta charset="utf-8"/>
+	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="shortcut icon"type="image/x-icon" href="favicon.ico"/>
+	    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+
+	    <script type="text/javascript" src="js/jquery.js"></script>
+	    <script type="text/javascript" src="js/restaurante.js"></script>
+	    <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.9.2.custom.min.css">
+		<title>Digital Menu</title>
+</head>
+
+<body>
+	<section id="carta" >
+		<img src="img/izq.png" id="izq" onMouseDown="clickIzquierda()"/>
+		<img src="img/der.png" id="der" onMouseDown="clickDerecha()"/>
+		<h2 id="categoria">Entrees</h2>  
+		<div id="platos">
+			<article class="plato" id="p1">
+				<div class="nombre" id="nom1">Shrimp cocktail and seafood </div> 
+				 <span class="precio" id="pre1">$15</span>
+				<img src="img/entrada1.png"  class="imagen" id="img1"/>
+				
+			</article>
+			<hr>
+			<article class="plato" id="p2">
+				<div class="nombre" id="nom2">Chicken Crepes with Mushrooms</div> <span class="precio" id="pre2">$17</span>
+				<img src="img/entrada2.png" class="imagen" id="img2"/>
+			</article>
+<hr>
+			<article class="plato" id="p3">
+				<div class="nombre"  id="nom3">Mushrooms stuffed with ham and cheese</div>   <span class="precio" id="pre3">$16</span>
+				<img src="img/entrada3.png" class="imagen" id="img3"/>
+			</article>	
+<hr>
+			<article class="plato" id="p4">
+				<div class="nombre"  id="nom4">Pork ribs in barbecue sauce</div>  <span class="precio" id="pre4">$18</span>
+				<img src="img/entrada4.png" class="imagen" id="img4"/>
+			</article>
+
+
+
+			<BR>
+		</div>
+		<div id="dropp">
+			<div id="platosDropp">
+			</div>
+
+
+	
+		</div>
+		<div id="dropp2">
+
+		</div>
+
+
+		<br><img src="img/mesero.png" id="mesero"/><br>><br>
+				
+		<img src="img/mon1.png" id="mon1" class="moneda" value="1"/> 
+		<img src="img/mon2.png" id="mon2" class="moneda"  value="5"/>
+		<img src="img/mon3.png" id="mon3" class="moneda"  value="10"/>
+	</section>
+
+	<div id="cuenta" >
+		<h3>Bill</h3>
+		
+	</div>
+	<div id="total">Total:</div>
+
+	<section id="descripcion">
+
+
+	</section>	
+
+</body>
+</html>

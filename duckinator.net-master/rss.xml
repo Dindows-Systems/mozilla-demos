@@ -1,0 +1,29 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom">
+  <channel>
+    <title>duckinator.net</title>
+    <link>https://duckinator.net/</link>
+    <atom:link href="https://duckinator.net/rss.xml" rel="self" type="application/rss+xml" />
+    <description>duckinator's blog</description>
+    <language>en-us</language>
+    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+
+    {% for post in site.posts %}
+      {% unless post.draft %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>https://duckinator.net/blog/{{ post.url }}</link>
+      <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+      <author>Nick Markwell</author>
+      <guid>https://duckinator.net/blog/{{ post.id }}</guid>
+      <description>{{ post.content | xml_escape }}</description>
+    </item>
+      {% endunless %}
+    {% endfor %}
+
+  </channel>
+</rss>

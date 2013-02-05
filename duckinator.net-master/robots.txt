@@ -1,0 +1,12 @@
+# See http://www.robotstxt.org/ for documentation on how to use the robots.txt file
+
+User-Agent: *
+Allow: /
+Disallow: /dux/iso/
+Disallow: /dux/tar
+Disallow: /images/
+Disallow: /js/
+Disallow: /css/
+Disallow: /themes/
+Disallow: /preview/
+

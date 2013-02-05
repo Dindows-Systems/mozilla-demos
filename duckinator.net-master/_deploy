@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function fail() {
+  echo
+  echo "[FAIL] $@"
+  exit 1
+}
+
+jekyll || fail "Error running jekyll"
+

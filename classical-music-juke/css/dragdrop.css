@@ -1,0 +1,177 @@
+@import url(http://fonts.googleapis.com/css?family=Gentium+Basic:700italic);
+
+/*h1 {
+	font-family: 'Gentium Basic', serif;
+}*/
+
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable],
+.draggable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: move;
+  display: block;
+}
+
+.album .album-contents {
+	margin-bottom: 0.5em;
+	position: relative;
+
+	-webkit-transition:-webkit-transform 0.2s ease-out;
+	   -moz-transition:-moz-transform 0.2s ease-out;
+		-ms-transition:-ms-transform 0.2s ease-out;
+	     -o-transition:-o-transform 0.2s ease-out;
+}
+
+.album .album-contents p {
+	font-family: 'Gentium Basic', serif;
+	margin: 0 10px;
+	width: 90px;
+	position: absolute;
+	top:  15px;
+	left: 0px;
+	color: white;
+	font-size: 1.5em;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, 0.75);
+}
+
+.album.drag-start .album-contents{
+	opacity: 0.5;
+	-webkit-transform:scale(0.8);
+	   -moz-transform:scale(0.8);
+	    -ms-transform:scale(0.8);
+	     -o-transform:scale(0.8);
+}
+
+.album  .album-ghost {
+	-webkit-transition:-webkit-transform 0.2s ease-out;
+	   -moz-transition:-moz-transform 0.2s ease-out;
+		-ms-transition:-ms-transform 0.2s ease-out;
+	     -o-transition:-o-transform 0.2s ease-out;
+	height: 0px;
+	width: 0px;
+}
+
+.album.drag-over .album-ghost {
+  border: 1px dashed #ccc;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  height: 100px;
+  width:  100px;
+  padding: 0.2em;
+  margin-bottom: 0.5em;
+  background: #EBEBEB;
+}
+
+#music-player .drop-zone{
+	padding: 0.5em;
+	border: 1px solid #fff;
+}
+
+#music-player .drop-zone.drag-over {
+  border: 1px dashed #ccc;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#music-player .info {
+	display:block;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+#music-player .drag-over .info {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 136, 204, 0.5);
+  -moz-box-shadow: 0 5px 10px rgba(0, 136, 204, 0.5);
+  box-shadow: 0 5px 10px rgba(0, 136, 204, 0.5);
+}
+
+#music-player .popover-title {
+	font-family: 'Gentium Basic', serif;
+	font-size: 	 3em;
+	line-height: 0.8em;
+}
+#music-player .drag-over .popover-title {
+	color: #08c;
+}
+
+#music-player .popover-content {
+	background: url("../img/bk.png") repeat scroll 0 0 transparent
+}
+
+#music-player .gramophone {
+	background: transparent url(../img/gramophone.png) no-repeat left top;
+	height: 250px;
+}
+
+#music-player .drag-over .gramophone {
+	background: transparent url(../img/gramophone-over.png) no-repeat left top;
+}
+
+#music-player .cover  {
+	-webkit-transition:-webkit-transform 0.2s ease-out;
+	   -moz-transition:-moz-transform 0.2s ease-out;
+		-ms-transition:-ms-transform 0.2s ease-out;
+	     -o-transition:-o-transform 0.2s ease-out;
+}
+#music-player .drag-start .cover  {
+	opacity: 0.5;
+	-webkit-transform:scale(0.8);
+	   -moz-transform:scale(0.8);
+	    -ms-transform:scale(0.8);
+	     -o-transform:scale(0.8);
+}
+
+#music-playlist {
+	margin-top: 1em;
+}
+
+.track {
+	border-top: 1px solid #E3E3E3;
+	margin-top: 1px;
+}
+
+.track .play {
+	display: none;
+    margin-top: 0.3em;
+    padding: 0.1em 0.25em;
+
+	-webkit-border-radius: 500px;
+	-moz-border-radius: 500px;
+	border-radius: 500px;
+}
+
+.track .icon-volume-up {
+	display: none;
+	margin-left: 0.5em;
+	margin-top: 0.5em;
+}
+
+.current .icon-volume-up {
+	display: inline-block;
+}
+
+.track:hover {
+	background: #F5F5F5;
+}
+
+.track:hover  .play {
+	display: inline-block;
+}
+.current:hover  .play {
+	display: none;
+}
+
+
+.track.drag-start {
+  color: #E3E3E3;
+}
+
+.track.drag-over {
+	border-top: 1px solid #777;
+	margin-top: 0px;
+}

@@ -1,0 +1,17 @@
+Spieleeinladung Memory: (auch für Android)
+
+Spiele Memory mit beliebigen Fotos aus dem Internet
+( Fototag eingeben oder Feed an URL anhängen, z.B. 
+?http://instagram.com/tags/halloween/feed/recent.rss )
+
+mit Sound, animiert
+zeigt Fehlpaare und Paare bis 4 Spieler an
+
+auch mit lokalen Fotos spielbar
+(ziehe Fotos oder Wiedergabeliste ins Spiel oder
+stelle "bild_1.jpg", ... in selben Ordner)
+
+schütteln neues Spiel
+
+zeigt bekannte Paare :) ...
+

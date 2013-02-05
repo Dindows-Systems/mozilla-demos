@@ -1,0 +1,36 @@
+.meta {
+	font-weight: bold;
+}
+
+.tags {
+	list-style: none;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+.tags li {
+	font-size: 0.8em;
+	list-style: none;
+	display: inline;
+	/* padding: [top] [right] [bottom] [left] */
+	padding: 0 5px 0 0;
+	margin: 0;
+}
+
+@media (min-width: 960px) {
+	#posts li {
+		border-bottom-width: 1px;
+	}
+
+	#posts h3,
+	#posts time {
+		width: 49%;
+		display: inline-block;
+		border-bottom-width: 0px;
+	}
+
+	.meta .tags {
+		margin-left: 1em;
+	}
+}

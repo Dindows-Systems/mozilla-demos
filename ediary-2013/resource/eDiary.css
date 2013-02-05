@@ -1,0 +1,135 @@
+/* eDiary.css for eDiary 2013 */
+.clsOver{ position: absolute; background-color: #FFD39B; top:0px; left:0px; text-align: center; z-index: 1001; }
+.bookCover{ background-color: #1F3642; height:88.5%; width:87.5%;  /* margin:0px; margin:auto; margin-top:5%; EDEDE7 */
+    border: 35px solid transparent; border-image:url(images/front_cover.png) 35 35 repeat; text-align: center; vertical-align: middle; }
+.bookCover>div, .clsOver>div{ left: 43.5%; position: absolute; top: 35%; } /*margin-top:35%; */
+.bookCover>div h2{ color: white; }
+#status{ margin-left:30%; }
+.coverEnd{ font-size:small; height:88.5%; width:87.5%; text-align: center; display: table;vertical-align: bottom; background-color: #1F3642;
+            border: 35px solid transparent; border-image:url(images/back_cover.png) 35 35 repeat; }
+.coverEnd>div{ display: table-cell; vertical-align: bottom; width:95%; }
+.coverCal{
+  font-family:Verdana,sans-serif;
+  font-size:8pt;
+  background-color: #1F3642;
+  color:white;
+  text-align: center; 
+  height:100%; 
+  width:98%; 
+  padding-left: 10px;
+  overflow: auto;
+}
+.coverCal>table{ margin-top:10px; height: 530px; }
+.coverCal .title{ background-color:#331726; }
+.coverCal .headings{ background-color:#B9B79E; color:#2C241D; }
+/*----*/
+*, *.*
+{
+    margin: 0px;
+    padding: 0px;
+}
+body
+{
+    background: #FFD39B url(images/Wood_floor_by_gnrbishop.jpg) repeat;
+    overflow: hidden;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+html, body, .pageFit, .clsEmpty, .foldRight, .foldLeft, .contentRight, .contentLeft
+{
+    height: 100%;
+}
+.clsEmpty
+{
+    background-image: url(images/lrock.jpg);
+}
+.contentLeft
+{
+    clear: left;
+}
+.contentRight
+{
+    clear: right;
+}
+.foldRight
+{
+    background:-webkit-linear-gradient(left, #D3D3D3 0%, #EFEFEF 40%);
+    background: linear-gradient(to right, #D3D3D3 0%, #EFEFEF 40%);
+    width: 5%;
+    float: left;
+}
+.foldLeft
+{    
+    background:-webkit-linear-gradient(left, #FFFFFF 60%, #D3D3D3 100%);
+    background: linear-gradient(to right, #FFFFFF 60%, #D3D3D3 100%);
+    width: 5%;
+    float: right;
+}
+.pageTopHead
+{
+    border-bottom: 1px double #a9a9a9;
+    height: 30px;
+    margin-bottom: auto;
+}
+.pageTopHead:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+.clearFix
+{
+    font-size: 10px;
+    line-height: 1px;
+    visibility: hidden;
+}
+h5
+{
+    color: #A9A9A9;
+    margin-bottom: 8px;
+    margin-top: 0;
+    padding-top: 8px;
+}
+h5.left
+{
+    float: left;
+    width: 80%;
+    padding-left: 25px;
+}
+h5.right
+{
+    float: right;
+    text-align: right;
+}
+h5.left_r
+{
+    padding-left: 0px;
+}
+h5.right_r
+{
+    margin-right: 25px;
+}        
+.editHolder
+{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+.editorContainerLeft
+{
+    margin:8px 0px 10px 20px;
+    height: 78%;
+    overflow: auto;           
+}
+.editorContainerRight
+{
+    margin:8px 20px 10px 5px;   
+    height: 78%;
+    overflow: auto;
+}
+/*---tinymce---*/
+form{ height:95%; }
+form > span > table { margin: auto!important; }

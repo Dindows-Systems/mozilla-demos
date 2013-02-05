@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Project Management Tool - Archive</title>
+	<link media="all" rel="stylesheet" type="text/css" href="css/all.css">
+		<link rel="stylesheet" href="js/google-code-prettify/prettify.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/localstoragedb.min.js"></script>
+	<script type="text/javascript" src="js/jquery.main.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+		/*global db, $, document, active_project, comparePublishedDate, deleteTicket, editTicket, getCountTickets, htmlEntities, getActiveProjects, getTickets*/
+		$(document).ready(function() {
+			var activeprojects = getActiveProjects(), tickets = getTickets(activeprojects,'closed'), tickets_len = tickets.length, tickets_str = '', i, ticket;
+
+			for(i = 0; i < tickets_len; i+=1) {
+				ticket = tickets[i];
+				tickets_str += '<div class="'+htmlEntities(ticket.priority)+'" data-id="'+ticket.ID+'"><span><span class="priority">'+htmlEntities(ticket.priority.toUpperCase())+'</span> <span class="title">'+htmlEntities(ticket.title)+'</span></span>';
+				tickets_str += '<a href="#" class="edit">EDIT</a><a href="#" class="del"></a><span class="date">'+(new Date(ticket.date))+'</span></div>';
+			}
+			$('#tickets').html(tickets_str);
+
+			$(document).on('click', '#tickets div a.del',function() {
+				var parent = $(this).parent(), ticketid = parent.data('id'), activeprojects = getActiveProjects();
+				deleteTicket(ticketid);
+				parent.remove();
+				$('.links a.ico2 span.num').text(getCountTickets(activeprojects));
+				return false;
+			});
+
+			$(document).on('click', '#tickets div a.edit',function() {
+				var i, sel, form = '', options = ['high', 'normal', 'low'], parent = $(this).parent(), ticketid = parent.data('id'),
+				tickettitle = parent.find('span span.title').text(), ticketpriority = parent.find('span span.priority').text();
+
+				form += '<div id="ticket_edit_form">';
+				form += '<div><label>Ticket:</label><textarea id="ticket_name">'+tickettitle+'</textarea></div><div><label>Priority:</label>';
+				form += '<select id="ticket_priority">';
+				for (i=0; i < 3; i+=1) {
+					if(options[i]===ticketpriority.toLowerCase()) {
+						sel = ' selected="selected"';
+					} else {
+						sel = '';
+					}
+					form += '<option value="'+options[i]+'"'+sel+'>'+options[i].toUpperCase()+'</option>';
+				}
+				form += '</select></div><div><label>Status:</label><select id="ticketstatus"><option value="open">Open</option><option value="closed" selected="selected">Close</option></select></div>';
+				form += '<input type="hidden" id="ticketid" value="'+ticketid+'"><input type="submit" id="edit_ticket_submit" value="Edit">';
+				form += '</div>';
+				if(!$('#ticket_edit_form').length) {
+					parent.append(form);
+				} else {
+					$('#ticket_edit_form').remove();
+				}
+				return false;
+			});
+
+			$(document).on('click','#edit_ticket_submit', function() {
+				var i, parent = $(this).parent(), activeprojects = getActiveProjects(),
+				ticketid = parent.find('#ticketid').val(),
+				ticketname = parent.find('#ticket_name').val(),
+				ticketpriority = parent.find('#ticket_priority').val(),
+				ticketstatus = parent.find('#ticketstatus').val(), tickets, tickets_len, tickets_str = '';
+				editTicket(ticketid, ticketname, ticketpriority, ticketstatus);
+
+				tickets = getTickets(activeprojects,'closed');
+				tickets_len = tickets.length;
+				for(i = 0; i < tickets_len; i+=1) {
+					ticket = tickets[i];
+					tickets_str += '<div class="'+htmlEntities(ticket.priority)+'" data-id="'+ticket.ID+'"><span><span class="priority">'+htmlEntities(ticket.priority.toUpperCase())+'</span> <span class="title">'+htmlEntities(ticket.title)+'</span></span>';
+					tickets_str += '<a href="#" class="edit">EDIT</a><a href="#" class="del"></a><span class="date">'+(new Date(ticket.date))+'</span></div>';
+				}
+				$('#tickets').html(tickets_str);
+				$('.links a.ico2 span.num').text(getCountTickets(activeprojects));
+				$('#ticket_edit_form').remove();
+				return false;
+			});
+		});
+	</script>
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+</head>
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div class="c1">
+				<div class="controls">
+					<nav class="links">
+						<ul>
+							<li><a href="projects.html" class="ico1">Projects <span class="num">26</span></a></li>
+							<li><a href="tickets.html" class="ico2">Tickets <span class="num">5</span></a></li>
+							<li><a href="snippets.html" class="ico3">Snippets <span class="num">3</span></a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="tabs">
+					<article>
+							<div class="text-section">
+								<h1>Archive</h1>
+								<p>List closed (archived) tickets:</p>
+								<div id="tickets" class="tickets">
+								</div>
+							</div>
+					</article>
+				</div>
+			</div>
+		</div>
+		<aside id="sidebar">
+			<strong class="logo"><a href="index.html">lg</a></strong>
+			<ul class="tabset buttons">
+				<li class="active">
+					<a href="index.html" class="ico1"><span>Dashboard</span><em></em></a>
+					<span class="tooltip"><span>Dashboard</span></span>
+				</li>
+				<li>
+					<a href="tickets.html" class="ico2"><span>Tickets</span><em></em></a>
+					<span class="tooltip"><span>Tickets</span></span>
+				</li>
+				<li>
+					<a href="projects.html" class="ico3"><span>Projects</span><em></em></a>
+					<span class="tooltip"><span>Projects</span></span>
+				</li>
+				<li>
+					<a href="snippets.html" class="ico4"><span>Snippets</span><em></em></a>
+					<span class="tooltip"><span>Snippets</span></span>
+				</li>
+				<li>
+					<a href="archive.html" class="ico5"><span>Archive</span><em></em></a>
+					<span class="tooltip"><span>Archive</span></span>
+				</li>
+			</ul>
+			<span class="shadow"></span>
+		</aside>
+	</div>
+</body>
+</html>

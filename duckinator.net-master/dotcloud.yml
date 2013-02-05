@@ -1,0 +1,12 @@
+www:
+    approot: _site
+    type: static
+#    approot: .
+#    type: ruby
+#    config:
+#        ruby-version: 1.9.2
+#    requirements:
+#        - jekyll
+#        - maruku
+#        - liquid
+

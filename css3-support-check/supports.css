@@ -1,0 +1,819 @@
+@charset "utf-8";
+@import 'import.css';
+@namespace test "http://www.w3.org/1999/xhtml";
+/*This work by @JonasWitmer is licensed under the Creative Commons Namensnennung 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.*/
+body {background:black; margin:10px;}
+nav, a, p, h1, h2, h3 {color:white;}
+h1, p {max-width:75%;}
+p {font-style:italic}
+a:hover {text-decoration:none;}
+nav {right:10px; position:fixed; display:block; font-weight:bold; line-height:150%; top:0px;}
+.red {color:red;}
+.green {color:green;}
+.orange {color:orange;}
+.grey {color:grey;}
+.check:focus:after {content:"Failed";color:red;}
+@supports not (testtest:testtest) {.check:focus:after {content:"OK";color:green;}}
+@media all and (max-width: 600px), (max-device-width: 600px) {
+	nav, aside {display:none;}
+	table {width:100%;}
+}
+ul{list-style:none;}
+table {width:80%; line-height:150%;}
+td {width:33%;}
+#normal, #rules, #rules-prefixed, #moz-prefixed, #o-prefixed, #webkit-prefixed, #ms-prefixed {color:red;}
+#moz-experimentell, #moz-outdated, #o-experimentell, #o-outdated, #webkit-experimentell, #webkit-outdated, #ms-experimentell, #ms-outdated {color:orange;}
+footer {margin-top:100px; text-align:center; width:100%; color:white;}
+/*~~~Tester~~~*/
+/*CSS Tags*/
+@supports (align-content:inherit) {#align-content {color:green;}}
+@supports (align-items:inherit) {#align-items {color:green;}}
+@supports (alignment-adjust:inherit) {#alignment-adjust {color:green;}}
+@supports (alignment-baseline:inherit) {#alignment-baseline {color:green;}}
+@supports (align-self:inherit) {#align-self {color:green;}}
+@supports (animation:inherit) {#animation {color:green;}}
+@supports (animation-delay:inherit) {#animation-delay {color:green;}}
+@supports (animation-direction:inherit) {#animation-direction {color:green;}}
+@supports (animation-duration:inherit) {#animation-duration {color:green;}}
+@supports (animation-fill-mode:inherit) {#animation-fill-mode {color:green;}}
+@supports (animation-iteration-count:inherit) {#animation-iteration-count {color:green;}}
+@supports (animation-name:inherit) {#animation-name {color:green;}}
+@supports (animation-play-state:inherit) {#animation-play-state {color:green;}}
+@supports (animation-timing-function:inherit) {#animation-timing-function {color:green;}}
+@supports (appearance:inherit) {#appearance {color:green;}}
+@supports (backface-visibility:inherit) {#backface-visibility {color:green;}}
+@supports (background:inherit) {#background {color:green;}}
+@supports (background-attachment:inherit) {#background-attachment {color:green;}}
+@supports (background-break:inherit) {#background-break {color:green;}}
+@supports (background-clip:inherit) {#background-clip {color:green;}}
+@supports (background-color:red) {#background-color {color:green;}}
+@supports (background-image:inherit) {#background-image {color:green;}}
+@supports (background-origin:inherit) {#background-origin {color:green;}}
+@supports (background-position:inherit) {#background-position {color:green;}}
+@supports (background-repeat:inherit) {#background-repeat {color:green;}}
+@supports (background-size:inherit) {#background-size {color:green;}}
+@supports (baseline-shift:inherit) {#baseline-shift {color:green;}}
+@supports (binding:inherit) {#binding {color:green;}}
+@supports (bookmark-label:inherit) {#bookmark-label {color:green;}}
+@supports (bookmark-level:inherit) {#bookmark-level {color:green;}}
+@supports (bookmark-target:inherit) {#bookmark-target {color:green;}}
+@supports (border:inherit) {#border {color:green;}}
+@supports (border-bottom:inherit) {#border-bottom {color:green;}}
+@supports (border-bottom-color:red) {#border-bottom-color {color:green;}}
+@supports (border-bottom-left-radius:inherit) {#border-bottom-left-radius {color:green;}}
+@supports (border-bottom-right-radius:inherit) {#border-bottom-right-radius {color:green;}}
+@supports (border-bottom-style:inherit) {#border-bottom-style {color:green;}}
+@supports (border-bottom-width:inherit) {#border-bottom-width {color:green;}}
+@supports (border-break:inherit) {#border-break {color:green;}}
+@supports (border-collapse:inherit) {#border-collapse {color:green;}}
+@supports (border-color:red) {#border-color {color:green;}}
+@supports (border-image:inherit) {#border-image {color:green;}}
+@supports (border-image-outset:inherit) {#border-image-outset {color:green;}}
+@supports (border-image-repeat:inherit) {#border-image-repeat {color:green;}}
+@supports (border-image-slice:inherit) {#border-image-slice {color:green;}}
+@supports (border-image-source:inherit) {#border-image-source {color:green;}}
+@supports (border-image-width:inherit) {#border-image-width {color:green;}}
+@supports (border-left:inherit) {#border-left {color:green;}}
+@supports (border-left-color:red) {#border-left-color {color:green;}}
+@supports (border-left-style:inherit) {#border-left-style {color:green;}}
+@supports (border-left-width:inherit) {#border-left-width {color:green;}}
+@supports (border-length:inherit) {#border-length {color:green;}}
+@supports (border-radius:inherit) {#border-radius {color:green;}}
+@supports (border-right:inherit) {#border-right {color:green;}}
+@supports (border-right-color:red) {#border-right-color {color:green;}}
+@supports (border-right-style:inherit) {#border-right-style {color:green;}}
+@supports (border-right-width:inherit) {#border-right-width {color:green;}}
+@supports (border-spacing:inherit) {#border-spacing {color:green;}}
+@supports (border-style:inherit) {#border-style {color:green;}}
+@supports (border-top:inherit) {#border-top {color:green;}}
+@supports (border-top-color:red) {#border-top-color {color:green;}}
+@supports (border-top-left-radius:inherit) {#border-top-left-radius {color:green;}}
+@supports (border-top-right-radius:inherit) {#border-top-right-radius {color:green;}}
+@supports (border-top-style:inherit) {#border-top-style {color:green;}}
+@supports (border-top-width:inherit) {#border-top-width {color:green;}}
+@supports (border-width:inherit) {#border-width {color:green;}}
+@supports (bottom:inherit) {#bottom {color:green;}}
+@supports (box-align:inherit) {#box-align {color:green;}}
+@supports (box-decoration-break:inherit) {#box-decoration-break {color:green;}}
+@supports (box-direction:inherit) {#box-direction {color:green;}}
+@supports (box-flex:inherit) {#box-flex {color:green;}}
+@supports (box-flex-group:inherit) {#box-flex-group {color:green;}}
+@supports (box-lines:inherit) {#box-lines {color:green;}}
+@supports (box-ordinal-group:inherit) {#box-ordinal-group {color:green;}}
+@supports (box-orient:inherit) {#box-orient {color:green;}}
+@supports (box-pack:inherit) {#box-pack {color:green;}}
+@supports (box-shadow:inherit) {#box-shadow {color:green;}}
+@supports (box-sizing:border-box) {#box-sizing {color:green;}}
+@supports (break-after:always) {#break-after {color:green;}}
+@supports (break-before:always) {#break-before {color:green;}}
+@supports (break-inside:inherit) {#break-inside {color:green;}}
+@supports (caption-side:inherit) {#caption-side {color:green;}}
+@supports (clear:inherit) {#clear {color:green;}}
+@supports (clip:inherit) {#clip {color:green;}}
+@supports (clip-path:inherit) {#clip-path {color:green;}}
+@supports (color:red) {#color {color:green;}}
+@supports (color-profile:red) {#color-profile {color:green;}}
+@supports (column-break-after:inherit) {#column-break-after {color:green;}}
+@supports (column-break-before:inherit) {#column-break-before {color:green;}}
+@supports (column-count:3) {#column-count {color:green;}}
+@supports (column-fill:balance) {#column-fill {color:green;}}
+@supports (column-gap:50px) {#column-gap {color:green;}}
+@supports (column-rule:dotted) {#column-rule {color:green;}}
+@supports (column-rule-color:red) {#column-rule-color {color:green;}}
+@supports (column-rule-style:solid) {#column-rule-style {color:green;}}
+@supports (column-rule-width:6px) {#column-rule-width {color:green;}}
+@supports (columns:3) {#columns {color:green;}}
+@supports (column-span:all) {#column-span {color:green;}}
+@supports (column-width:50px) {#column-width {color:green;}}
+@supports (content:inherit) {#content {color:green;}}
+@supports (counter-increment:inherit) {#counter-increment {color:green;}}
+@supports (counter-reset:inherit) {#counter-reset {color:green;}}
+@supports (crop:inherit) {#crop {color:green;}}
+@supports (cue:inherit) {#cue {color:green;}}
+@supports (cue-after:inherit) {#cue-after {color:green;}}
+@supports (cue-before:inherit) {#cue-before {color:green;}}
+@supports (cursor:inherit) {#cursor {color:green;}}
+@supports (direction:inherit) {#direction {color:green;}}
+@supports (display:inherit) {#display {color:green;}}
+@supports (dominant-baseline:inherit) {#dominant-baseline {color:green;}}
+@supports (drop-initial-after-adjust:inherit) {#drop-initial-after-adjust {color:green;}}
+@supports (drop-initial-after-align:inherit) {#drop-initial-after-align {color:green;}}
+@supports (drop-initial-before-adjust:inherit) {#drop-initial-before-adjust {color:green;}}
+@supports (drop-initial-before-align:inherit) {#drop-initial-before-align {color:green;}}
+@supports (drop-initial-size:inherit) {#drop-initial-size {color:green;}}
+@supports (drop-initial-value:inherit) {#drop-initial-value {color:green;}}
+@supports (elevation:inherit) {#elevation {color:green;}}
+@supports (empty-cells:inherit) {#empty-cells {color:green;}}
+@supports (filter:none) {#filter {color:green;}}
+@supports (fit:inherit) {#fit {color:green;}}
+@supports (fit-position:inherit) {#fit-position {color:green;}}
+@supports (flex:inherit) {#flex {color:green;}}
+@supports (flex-basis:inherit) {#flex-basis {color:green;}}
+@supports (flex-direction:inherit) {#flex-direction {color:green;}}
+@supports (flex-flow:column-reverse wrap) {#flex-flow {color:green;}}
+@supports (flex-grow:inherit) {#flex-grow {color:green;}}
+@supports (flex-shrink :inherit) {#flex-shrink  {color:green;}}
+@supports (flex-wrap:wrap) {#flex-wrap {color:green;}}
+@supports (float:inherit) {#float {color:green;}}
+@supports (float-offset:inherit) {#float-offset {color:green;}}
+@supports (font:inherit) {#font {color:green;}}
+@supports (font-effect:inherit) {#font-effect {color:green;}}
+@supports (font-emphasize:inherit) {#font-emphasize {color:green;}}
+@supports (font-emphasize-position:inherit) {#font-emphasize-position {color:green;}}
+@supports (font-emphasize-style:inherit) {#font-emphasize-style {color:green;}}
+@supports (font-family:inherit) {#font-family {color:green;}}
+@supports (font-feature-settings:"liga" 0) {#font-feature-settings {color:green;}}
+@supports (font-kerning:inherit) {#font-kerning {color:green;}}
+@supports (font-language-override:inherit) {#font-language-override {color:green;}}
+@supports (font-size:inherit) {#font-size {color:green;}}
+@supports (font-size-adjust:inherit) {#font-size-adjust {color:green;}}
+@supports (font-smooth:inherit) {#font-smooth {color:green;}}
+@supports (font-stretch:expanded) {#font-stretch {color:green;}}
+@supports (font-style:inherit) {#font-style {color:green;}}
+@supports (font-variant:inherit) {#font-variant {color:green;}}
+@supports (font-variant-ligatures:inherit) {#font-variant-ligatures {color:green;}}
+@supports (font-weight:inherit) {#font-weight {color:green;}}
+@supports (grid-columns:inherit) {#grid-columns {color:green;}}
+@supports (grid-rows:inherit) {#grid-rows {color:green;}}
+@supports (hanging-punctuation:inherit) {#hanging-punctuation {color:green;}}
+@supports (hanging-punctuations:inherit) {#hanging-punctuations {color:green;}}
+@supports (height:inherit) {#height {color:green;}}
+@supports (hyphenate-after:inherit) {#hyphenate-after {color:green;}}
+@supports (hyphenate-before:inherit) {#hyphenate-before {color:green;}}
+@supports (hyphenate-character:inherit) {#hyphenate-character {color:green;}}
+@supports (hyphenate-characters:inherit) {#hyphenate-characters {color:green;}}
+@supports (hyphenate-lines:inherit) {#hyphenate-lines {color:green;}}
+@supports (hyphenate-resource:inherit) {#hyphenate-resource {color:green;}}
+@supports (hyphens:manual) {#hyphens {color:green;}}
+@supports (icon:inherit) {#icon {color:green;}}
+@supports (image-orientation:0deg) {#image-orientation {color:green;}}
+@supports (image-rendering:inherit) {#image-rendering {color:green;}}
+@supports (image-resolution:inherit) {#image-resolution {color:green;}}
+@supports (ime-mode:inherit) {#ime-mode {color:green;}}
+@supports (inline-box-align:inherit) {#inline-box-align {color:green;}}
+@supports (justify-content:inherit) {#justify-content {color:green;}}
+@supports (left:inherit) {#left {color:green;}}
+@supports (letter-spacing:inherit) {#letter-spacing {color:green;}}
+@supports (line-height:inherit) {#line-height {color:green;}}
+@supports (line-stacking:inherit) {#line-stacking {color:green;}}
+@supports (line-stacking-ruby:inherit) {#line-stacking-ruby {color:green;}}
+@supports (line-stacking-shift:inherit) {#line-stacking-shift {color:green;}}
+@supports (line-stacking-strategy:inherit) {#line-stacking-strategy {color:green;}}
+@supports (list-style:inherit) {#list-style {color:green;}}
+@supports (list-style-image:inherit) {#list-style-image {color:green;}}
+@supports (list-style-position:inherit) {#list-style-position {color:green;}}
+@supports (list-style-type:inherit) {#list-style-type {color:green;}}
+@supports (margin:inherit) {#margin {color:green;}}
+@supports (margin-bottom:inherit) {#margin-bottom {color:green;}}
+@supports (margin-left:inherit) {#margin-left {color:green;}}
+@supports (margin-right:inherit) {#margin-right {color:green;}}
+@supports (margin-top:inherit) {#margin-top {color:green;}}
+@supports (mark:inherit) {#mark {color:green;}}
+@supports (mark-after:inherit) {#mark-after {color:green;}}
+@supports (mark-before:inherit) {#mark-before {color:green;}}
+@supports (marker-offset:inherit) {#marker-offset {color:green;}}
+@supports (marks:inherit) {#marks {color:green;}}
+@supports (marquee-direction:inherit) {#marquee-direction {color:green;}}
+@supports (marquee-play-count:inherit) {#marquee-play-count {color:green;}}
+@supports (marquee-speed:inherit) {#marquee-speed {color:green;}}
+@supports (marquee-style:inherit) {#marquee-style {color:green;}}
+@supports (mask:inherit) {#mask {color:green;}}
+@supports (max-height:inherit) {#max-height {color:green;}}
+@supports (max-width:inherit) {#max-width {color:green;}}
+@supports (min-height:inherit) {#min-height {color:green;}}
+@supports (min-width:inherit) {#min-width {color:green;}}
+@supports (move-to:inherit) {#move-to {color:green;}}
+@supports (nav-down:inherit) {#nav-down {color:green;}}
+@supports (nav-index:inherit) {#nav-index {color:green;}}
+@supports (nav-left:inherit) {#nav-left {color:green;}}
+@supports (nav-right:inherit) {#nav-right {color:green;}}
+@supports (nav-up:inherit) {#nav-up {color:green;}}
+@supports (object-fit:inherit) {#object-fit {color:green;}}
+@supports (object-position:inherit) {#object-position {color:green;}}
+@supports (opacity:inherit) {#opacity {color:green;}}
+@supports (order:inherit) {#order {color:green;}}
+@supports (orphans:inherit) {#orphans {color:green;}}
+@supports (outline:inherit) {#outline {color:green;}}
+@supports (outline-color:red) {#outline-color {color:green;}}
+@supports (outline-offset:inherit) {#outline-offset {color:green;}}
+@supports (outline-style:inherit) {#outline-style {color:green;}}
+@supports (outline-width:inherit) {#outline-width {color:green;}}
+@supports (overflow:inherit) {#overflow {color:green;}}
+@supports (overflow-style:inherit) {#overflow-style {color:green;}}
+@supports (overflow-wrap:inherit) {#overflow-wrap {color:green;}}
+@supports (overflow-x:inherit) {#overflow-x {color:green;}}
+@supports (overflow-y:inherit) {#overflow-y {color:green;}}
+@supports (padding:inherit) {#padding {color:green;}}
+@supports (padding-bottom:inherit) {#padding-bottom {color:green;}}
+@supports (padding-left:inherit) {#padding-left {color:green;}}
+@supports (padding-right:inherit) {#padding-right {color:green;}}
+@supports (padding-top:inherit) {#padding-top {color:green;}}
+@supports (page:inherit) {#page {color:green;}}
+@supports (page-break-after:inherit) {#page-break-after {color:green;}}
+@supports (page-break-before:inherit) {#page-break-before {color:green;}}
+@supports (page-break-inside:inherit) {#page-break-inside {color:green;}}
+@supports (page-policy:inherit) {#page-policy {color:green;}}
+@supports (pause:inherit) {#pause {color:green;}}
+@supports (pause-after:inherit) {#pause-after {color:green;}}
+@supports (pause-before:inherit) {#pause-before {color:green;}}
+@supports (perspective:inherit) {#perspective {color:green;}}
+@supports (perspective-origin:inherit) {#perspective-origin {color:green;}}
+@supports (phonemes:inherit) {#phonemes {color:green;}}
+@supports (pitch:inherit) {#pitch {color:green;}}
+@supports (pitch-range:inherit) {#pitch-range {color:green;}}
+@supports (play-during:inherit) {#play-during {color:green;}}
+@supports (pointer-events:inherit) {#pointer-events {color:green;}}
+@supports (position:inherit) {#position {color:green;}}
+@supports (presentation-level:inherit) {#presentation-level {color:green;}}
+@supports (punctuation-trim:inherit) {#punctuation-trim {color:green;}}
+@supports (quotes:inherit) {#quotes {color:green;}}
+@supports (rendering-intent:inherit) {#rendering-intent {color:green;}}
+@supports (resize:inherit) {#resize {color:green;}}
+@supports (rest:inherit) {#rest {color:green;}}
+@supports (rest-after:inherit) {#rest-after {color:green;}}
+@supports (rest-before:inherit) {#rest-before {color:green;}}
+@supports (richness:inherit) {#richness {color:green;}}
+@supports (right:inherit) {#right {color:green;}}
+@supports (rotation:inherit) {#rotation {color:green;}}
+@supports (rotation-point:inherit) {#rotation-point {color:green;}}
+@supports (ruby-align:inherit) {#ruby-align {color:green;}}
+@supports (ruby-overhang:inherit) {#ruby-overhang {color:green;}}
+@supports (ruby-position:inherit) {#ruby-position {color:green;}}
+@supports (ruby-span:inherit) {#ruby-span {color:green;}}
+@supports (size:inherit) {#size {color:green;}}
+@supports (speak:inherit) {#speak {color:green;}}
+@supports (speak-header:inherit) {#speak-header {color:green;}}
+@supports (speak-numeral:inherit) {#speak-numeral {color:green;}}
+@supports (speak-punctuation:inherit) {#speak-punctuation {color:green;}}
+@supports (speech-rate:inherit) {#speech-rate {color:green;}}
+@supports (stress:inherit) {#stress {color:green;}}
+@supports (string-set:inherit) {#string-set {color:green;}}
+@supports (table-layout:inherit) {#table-layout {color:green;}}
+@supports (tab-side:inherit) {#tab-side {color:green;}}
+@supports (tab-size:4) {#tab-size {color:green;}}
+@supports (target:inherit) {#target {color:green;}}
+@supports (target-name:inherit) {#target-name {color:green;}}
+@supports (target-new:inherit) {#target-new {color:green;}}
+@supports (target-position:inherit) {#target-position {color:green;}}
+@supports (text-align:inherit) {#text-align {color:green;}}
+@supports (text-align-last:center) {#text-align-last {color:green;}}
+@supports (text-combine-horizontal:inherit) {#text-combine-horizontal {color:green;}}
+@supports (text-decoration:inherit) {#text-decoration {color:green;}}
+@supports (text-decoration-color:red) {#text-decoration-color {color:green;}}
+@supports (text-decoration-line:underline) {#text-decoration-line {color:green;}}
+@supports (text-decoration-style:double) {#text-decoration-style {color:green;}}
+@supports (text-emphasis:inherit) {#text-emphasis {color:green;}}
+@supports (text-height:inherit) {#text-height {color:green;}}
+@supports (text-indent:inherit) {#text-indent {color:green;}}
+@supports (text-justify:inherit) {#text-justify {color:green;}}
+@supports (text-orientation:inherit) {#text-orientation {color:green;}}
+@supports (text-outline:inherit) {#text-outline {color:green;}}
+@supports (text-overflow:inherit) {#text-overflow {color:green;}}
+@supports (text-rendering:inherit) {#text-rendering {color:green;}}
+@supports (text-replace:inherit) {#text-replace {color:green;}}
+@supports (text-shadow:inherit) {#text-shadow {color:green;}}
+@supports (text-transform:inherit) {#text-transform {color:green;}}
+@supports (text-underline-position:inherit) {#text-underline-position {color:green;}}
+@supports (text-wrap:inherit) {#text-wrap {color:green;}}
+@supports (top:inherit) {#top {color:green;}}
+@supports (transform:inherit) {#transform {color:green;}}
+@supports (transform-origin:inherit) {#transform-origin {color:green;}}
+@supports (transform-style:inherit) {#transform-style {color:green;}}
+@supports (transition:inherit) {#transition {color:green;}}
+@supports (transition-delay:inherit) {#transition-delay {color:green;}}
+@supports (transition-duration:inherit) {#transition-duration {color:green;}}
+@supports (transition-property:inherit) {#transition-property {color:green;}}
+@supports (transition-timing-function:inherit) {#transition-timing-function {color:green;}}
+@supports (unicode-bibi:inherit) {#unicode-bibi {color:green;}}
+@supports (unicode-bidi:inherit) {#unicode-bidi {color:green;}}
+@supports (vertical-align:inherit) {#vertical-align {color:green;}}
+@supports (visibility:inherit) {#visibility {color:green;}}
+@supports (voice-balance:inherit) {#voice-balance {color:green;}}
+@supports (voice-duration:inherit) {#voice-duration {color:green;}}
+@supports (voice-family:inherit) {#voice-family {color:green;}}
+@supports (voice-pitch:inherit) {#voice-pitch {color:green;}}
+@supports (voice-pitch-range:inherit) {#voice-pitch-range {color:green;}}
+@supports (voice-rate:inherit) {#voice-rate {color:green;}}
+@supports (voice-stress:inherit) {#voice-stress {color:green;}}
+@supports (voice-volume:inherit) {#voice-volume {color:green;}}
+@supports (volume:inherit) {#volume {color:green;}}
+@supports (white-space:inherit) {#white-space {color:green;}}
+@supports (white-space-collapse:inherit) {#white-space-collapse {color:green;}}
+@supports (widows:inherit) {#widows {color:green;}}
+@supports (width:inherit) {#width {color:green;}}
+@supports (word-break:inherit) {#word-break {color:green;}}
+@supports (word-spacing:inherit) {#word-spacing {color:green;}}
+@supports (word-wrap:break-word) {#word-wrap {color:green;}}
+@supports (writing-mode:rl-tb) {#writing-mode {color:green;}}
+@supports (z-index:inherit) {#z-index {color:green;}}
+/*Regeln*/
+#charset {color:grey;}
+@document domain(mozilla.net) {#document {color:green;}}
+@-moz-document domain(mozilla.net) {#-moz-document {color:green;}}
+#font-face {color:grey;}
+/*@import in Zeile 2*/
+#keyframes {animation:test 3s linear infinite alternate; animation-play-state:paused;}
+@keyframes test {from {color:green;} to {color:green;}}
+#-moz-keyframes {-moz-animation:test 3s linear infinite alternate; -moz-animation-play-state:paused;}
+@-moz-keyframes test {from {color:green;} to {color:green;}}
+#-o-keyframes {-o-animation:test 3s linear infinite alternate; -o-animation-play-state:paused;}
+@-o-keyframes test {from {color:green;} to {color:green;}}
+#-webkit-keyframes {-webkit-animation:test 3s linear infinite alternate; -webkit-animation-play-state:paused;}
+@-webkit-keyframes test {from {color:green;} to {color:green;}}
+@media all {#media {color:green;}}
+/*@namespace in Zeile 3*/
+test|*#namespace {color:green;}
+#at-page {color:grey;}
+@supports not (testtest:testtest) {#supports {color:green;}}
+#viewport {color:grey;}
+#-o-viewport {color:grey;}
+/*Gecko*/
+@supports (-moz-appearance:inherit) {#-moz-appearance {color:green;}}
+@supports (-moz-backface-visibility:inherit) {#-moz-backface-visibility {color:green;}}
+@supports (-moz-background-inline-policy:inherit) {#-moz-background-inline-policy {color:green;}}
+@supports (-moz-border-image:inherit) {#-moz-border-image {color:green;}}
+@supports (-moz-border-image-outset:inherit) {#-moz-border-image-outset {color:green;}}
+@supports (-moz-border-image-repeat:inherit) {#-moz-border-image-repeat {color:green;}}
+@supports (-moz-border-image-slice:inherit) {#-moz-border-image-slice {color:green;}}
+@supports (-moz-border-image-source:inherit) {#-moz-border-image-source {color:green;}}
+@supports (-moz-border-image-width:inherit) {#-moz-border-image-width {color:green;}}
+@supports (-moz-box-sizing:inherit) {#-moz-box-sizing {color:green;}}
+@supports (-moz-column-count:inherit) {#-moz-column-count {color:green;}}
+@supports (-moz-column-fill:inherit) {#-moz-column-fill {color:green;}}
+@supports (-moz-column-gap:inherit) {#-moz-column-gap {color:green;}}
+@supports (-moz-column-width:inherit) {#-moz-column-width {color:green;}}
+@supports (-moz-column-rule:inherit) {#-moz-column-rule {color:green;}}
+@supports (-moz-column-rule-width:inherit) {#-moz-column-rule-width {color:green;}}
+@supports (-moz-column-rule-style:inherit) {#-moz-column-rule-style {color:green;}}
+@supports (-moz-column-rule-color:red) {#-moz-column-rule-color {color:green;}}
+@supports (-moz-font-feature-settings:inherit) {#-moz-font-feature-settings {color:green;}}
+@supports (-moz-font-language-override:inherit) {#-moz-font-language-override {color:green;}}
+@supports (-moz-hyphens:inherit) {#-moz-hyphens {color:green;}}
+@supports (-moz-perspective:inherit) {#-moz-perspective {color:green;}}
+@supports (-moz-perspective-origin:inherit) {#-moz-perspective-origin {color:green;}}
+@supports (-moz-text-align-last:inherit) {#-moz-text-align-last {color:green;}}
+@supports (-moz-text-decoration-color:red) {#-moz-text-decoration-color {color:green;}}
+@supports (-moz-text-decoration-line:inherit) {#-moz-text-decoration-line {color:green;}}
+@supports (-moz-text-decoration-style:inherit) {#-moz-text-decoration-style {color:green;}}
+@supports (-moz-transform:inherit) {#-moz-transform {color:green;}}
+@supports (-moz-transform-origin:inherit) {#-moz-transform-origin {color:green;}}
+@supports (-moz-transform-style:inherit) {#-moz-transform-style {color:green;}}
+@supports (-moz-transition:inherit) {#-moz-transition {color:green;}}
+@supports (-moz-transition-delay:inherit) {#-moz-transition-delay {color:green;}}
+@supports (-moz-transition-duration:inherit) {#-moz-transition-duration {color:green;}}
+@supports (-moz-transition-property:inherit) {#-moz-transition-property {color:green;}}
+@supports (-moz-transition-timing-function:inherit) {#-moz-transition-timing-function {color:green;}}
+@supports (-moz-binding:inherit) {#-moz-binding {color:green;}}
+@supports (-moz-border-bottom-colors:red) {#-moz-border-bottom-colors {color:green;}}
+@supports (-moz-border-end:inherit) {#-moz-border-end {color:green;}}
+@supports (-moz-border-end-color:red) {#-moz-border-end-color {color:green;}}
+@supports (-moz-border-end-style:inherit) {#-moz-border-end-style {color:green;}}
+@supports (-moz-border-end-width:inherit) {#-moz-border-end-width {color:green;}}
+@supports (-moz-border-left-colors:red) {#-moz-border-left-colors {color:green;}}
+@supports (-moz-border-right-colors:red) {#-moz-border-right-colors {color:green;}}
+@supports (-moz-border-start:inherit) {#-moz-border-start {color:green;}}
+@supports (-moz-border-start-color:red) {#-moz-border-start-color {color:green;}}
+@supports (-moz-border-start-style:inherit) {#-moz-border-start-style {color:green;}}
+@supports (-moz-border-start-width:inherit) {#-moz-border-start-width {color:green;}}
+@supports (-moz-border-top-colors:red) {#-moz-border-top-colors {color:green;}}
+@supports (-moz-box-align:inherit) {#-moz-box-align {color:green;}}
+@supports (-moz-box-direction:inherit) {#-moz-box-direction {color:green;}}
+@supports (-moz-box-flex:inherit) {#-moz-box-flex {color:green;}}
+@supports (-moz-box-ordinal-group:inherit) {#-moz-box-ordinal-group {color:green;}}
+@supports (-moz-box-orient:inherit) {#-moz-box-orient {color:green;}}
+@supports (-moz-box-pack:inherit) {#-moz-box-pack {color:green;}}
+@supports (-moz-float-edge:inherit) {#-moz-float-edge {color:green;}}
+@supports (-moz-force-broken-image-icon:inherit) {#-moz-force-broken-image-icon {color:green;}}
+@supports (-moz-image-region:inherit) {#-moz-image-region {color:green;}}
+@supports (-moz-margin-end:inherit) {#-moz-margin-end {color:green;}}
+@supports (-moz-margin-start:inherit) {#-moz-margin-start {color:green;}}
+@supports (-moz-orient:inherit) {#-moz-orient {color:green;}}
+@supports (-moz-outline-radius:inherit) {#-moz-outline-radius {color:green;}}
+@supports (-moz-outline-radius-bottomleft:inherit) {#-moz-outline-radius-bottomleft {color:green;}}
+@supports (-moz-outline-radius-bottomright:inherit) {#-moz-outline-radius-bottomright {color:green;}}
+@supports (-moz-outline-radius-topleft:inherit) {#-moz-outline-radius-topleft {color:green;}}
+@supports (-moz-outline-radius-topright:inherit) {#-moz-outline-radius-topright {color:green;}}
+@supports (-moz-padding-end:inherit) {#-moz-padding-end {color:green;}}
+@supports (-moz-padding-start:inherit) {#-moz-padding-start {color:green;}}
+@supports (-moz-script-level:inherit) {#-moz-script-level {color:green;}}
+@supports (-moz-script-min-size:inherit) {#-moz-script-min-size {color:green;}}
+@supports (-moz-script-size-multiplier:inherit) {#-moz-script-size-multiplier {color:green;}}
+@supports (-moz-stack-sizing:inherit) {#-moz-stack-sizing {color:green;}}
+@supports (-moz-text-blink:inherit) {#-moz-text-blink {color:green;}}
+@supports (-moz-user-focus:inherit) {#-moz-user-focus {color:green;}}
+@supports (-moz-user-input:inherit) {#-moz-user-input {color:green;}}
+@supports (-moz-user-modify:inherit) {#-moz-user-modify {color:green;}}
+@supports (-moz-user-select:inherit) {#-moz-user-select {color:green;}}
+@supports (-moz-window-shadow:inherit) {#-moz-window-shadow {color:green;}}
+@supports (-moz-animation:inherit) {#-moz-animation {color:green;}}
+@supports (-moz-animation-delay:inherit) {#-moz-animation-delay {color:green;}}
+@supports (-moz-animation-direction:inherit) {#-moz-animation-direction {color:green;}}
+@supports (-moz-animation-duration:inherit) {#-moz-animation-duration {color:green;}}
+@supports (-moz-animation-fill-mode:inherit) {#-moz-animation-fill-mode {color:green;}}
+@supports (-moz-animation-iteration-count:inherit) {#-moz-animation-iteration-count {color:green;}}
+@supports (-moz-animation-name:inherit) {#-moz-animation-name {color:green;}}
+@supports (-moz-animation-play-state:inherit) {#-moz-animation-play-state {color:green;}}
+@supports (-moz-animation-timing-function:inherit) {#-moz-animation-timing-function {color:green;}}
+@supports (-moz-background-clip:inherit) {#-moz-background-clip {color:green;}}
+@supports (-moz-background-origin:inherit) {#-moz-background-origin {color:green;}}
+@supports (-moz-background-size:inherit) {#-moz-background-size {color:green;}}
+@supports (-moz-opacity:inherit) {#-moz-opacity {color:green;}}
+@supports (-moz-outline:inherit) {#-moz-outline {color:green;}}
+@supports (-moz-outline-color:red) {#-moz-outline-color {color:green;}}
+@supports (-moz-outline-offset:inherit) {#-moz-outline-offset {color:green;}}
+@supports (-moz-outline-style:inherit) {#-moz-outline-style {color:green;}}
+@supports (-moz-outline-width:inherit) {#-moz-outline-width {color:green;}}
+/*Presto*/
+@supports (-o-animation:inherit) {#-o-animation {color:green;}}
+@supports (-o-animation-delay:inherit) {#-o-animation-delay {color:green;}}
+@supports (-o-animation-direction:inherit) {#-o-animation-direction {color:green;}}
+@supports (-o-animation-duration:inherit) {#-o-animation-duration {color:green;}}
+@supports (-o-animation-fill-mode:inherit) {#-o-animation-fill-mode {color:green;}}
+@supports (-o-animation-iteration-count:inherit) {#-o-animation-iteration-count {color:green;}}
+@supports (-o-animation-name:inherit) {#-o-animation-name {color:green;}}
+@supports (-o-animation-play-state:inherit) {#-o-animation-play-state {color:green;}}
+@supports (-o-animation-timing-function:inherit) {#-o-animation-timing-function {color:green;}}
+@supports (-o-border-image:inherit) {#-o-border-image {color:green;}}
+@supports (-o-device-pixel-ratio:inherit) {#-o-device-pixel-ratio {color:green;}}
+@supports (-o-focus-opacity:inherit) {#-o-focus-opacity {color:green;}}
+@supports (-o-link:inherit) {#-o-link {color:green;}}
+@supports (-o-link-source:inherit) {#-o-link-source {color:green;}}
+@supports (-o-mini-fold:inherit) {#-o-mini-fold {color:green;}}
+@supports (-o-object-fit:inherit) {#-o-object-fit {color:green;}}
+@supports (-o-object-position:inherit) {#-o-object-position {color:green;}}
+@supports (-o-table-baseline:inherit) {#-o-table-baseline {color:green;}}
+@supports (-o-tab-size:inherit) {#-o-tab-size {color:green;}}
+@supports (-o-transform:inherit) {#-o-transform {color:green;}}
+@supports (-o-transform-origin:inherit) {#-o-transform-origin {color:green;}}
+@supports (-o-transition:inherit) {#-o-transition {color:green;}}
+@supports (-o-transition-delay:inherit) {#-o-transition-delay {color:green;}}
+@supports (-o-transition-duration:inherit) {#-o-transition-duration {color:green;}}
+@supports (-o-transition-property:inherit) {#-o-transition-property {color:green;}}
+@supports (-o-transition-timing-function:inherit) {#-o-transition-timing-function {color:green;}}
+@supports (-wap-accesskey:inherit) {#-wap-accesskey {color:green;}}
+@supports (-wap-input-format:inherit) {#-wap-input-format {color:green;}}
+@supports (-wap-input-required:inherit) {#-wap-input-required {color:green;}}
+@supports (-wap-marquee-dir:inherit) {#-wap-marquee-dir {color:green;}}
+@supports (-wap-marquee-loop:inherit) {#-wap-marquee-loop {color:green;}}
+@supports (-wap-marquee-speed:inherit) {#-wap-marquee-speed {color:green;}}
+@supports (-wap-marquee-style:inherit) {#-wap-marquee-style {color:green;}}
+@supports (-xv-interpret-as:inherit) {#-xv-interpret-as {color:green;}}
+@supports (-xv-phonemes:inherit) {#-xv-phonemes {color:green;}}
+@supports (-xv-voice-balance:inherit) {#-xv-voice-balance {color:green;}}
+@supports (-xv-voice-duration:inherit) {#-xv-voice-duration {color:green;}}
+@supports (-xv-voice-pitch:inherit) {#-xv-voice-pitch {color:green;}}
+@supports (-xv-voice-pitch-range:inherit) {#-xv-voice-pitch-range {color:green;}}
+@supports (-xv-voice-rate:inherit) {#-xv-voice-rate {color:green;}}
+@supports (-xv-voice-stress:inherit) {#-xv-voice-stress {color:green;}}
+@supports (-xv-voice-volume:inherit) {#-xv-voice-volume {color:green;}}
+@supports (-xy-voice-balance:inherit) {#-xy-voice-balance {color:green;}}
+@supports (-xy-voice-duration:inherit) {#-xy-voice-duration {color:green;}}
+@supports (-xy-voice-pitch:inherit) {#-xy-voice-pitch {color:green;}}
+@supports (-xy-voice-pitch-range:inherit) {#-xy-voice-pitch-range {color:green;}}
+@supports (-xy-voice-rate:inherit) {#-xy-voice-rate {color:green;}}
+@supports (-xy-voice-stress:inherit) {#-xy-voice-stress {color:green;}}
+@supports (-xy-voice-volume:inherit) {#-xy-voice-volume {color:green;}}
+/*Webkit*/
+@supports (-webkit-animation:inherit) {#-webkit-animation{color:green;}}
+@supports (-webkit-animation-delay:inherit) {#-webkit-animation-delay{color:green;}}
+@supports (-webkit-animation-direction:inherit) {#-webkit-animation-direction{color:green;}}
+@supports (-webkit-animation-duration:inherit) {#-webkit-animation-duration{color:green;}}
+@supports (-webkit-animation-fill-mode:inherit) {#-webkit-animation-fill-mode{color:green;}}
+@supports (-webkit-animation-iteration-count:inherit) {#-webkit-animation-iteration-count{color:green;}}
+@supports (-webkit-animation-name:inherit) {#-webkit-animation-name{color:green;}}
+@supports (-webkit-animation-play-state:inherit) {#-webkit-animation-play-state{color:green;}}
+@supports (-webkit-animation-timing-function:inherit) {#-webkit-animation-timing-function{color:green;}}
+@supports (-webkit-appearance:inherit) {#-webkit-appearance{color:green;}}
+@supports (-webkit-backface-visibility:inherit) {#-webkit-backface-visibility{color:green;}}
+@supports (-webkit-border-image:inherit) {#-webkit-border-image{color:green;}}
+@supports (-webkit-column-count:inherit) {#-webkit-column-count{color:green;}}
+@supports (-webkit-column-gap:inherit) {#-webkit-column-gap{color:green;}}
+@supports (-webkit-column-width:inherit) {#-webkit-column-width{color:green;}}
+@supports (-webkit-column-rule:inherit) {#-webkit-column-rule{color:green;}}
+@supports (-webkit-column-rule-width:inherit) {#-webkit-column-rule-width{color:green;}}
+@supports (-webkit-column-rule-style:inherit) {#-webkit-column-rule-style{color:green;}}
+@supports (-webkit-column-rule-color:red) {#-webkit-column-rule-color{color:green;}}
+@supports (-webkit-columns:inherit) {#-webkit-columns{color:green;}}
+@supports (-webkit-column-span:inherit) {#-webkit-column-span{color:green;}}
+@supports (-webkit-font-feature-settings:inherit) {#-webkit-font-feature-settings{color:green;}}
+@supports (-webkit-font-kerning:inherit) {#-webkit-font-kerning{color:green;}}
+@supports (-webkit-font-size-delta:inherit) {#-webkit-font-size-delta{color:green;}}
+@supports (-webkit-font-variant-ligatures:inherit) {#-webkit-font-variant-ligatures{color:green;}}
+@supports (-webkit-grid-column:inherit) {#-webkit-grid-column{color:green;}}
+@supports (-webkit-grid-columns:inherit) {#-webkit-grid-columns{color:green;}}
+@supports (-webkit-grid-row:inherit) {#-webkit-grid-row{color:green;}}
+@supports (-webkit-grid-rows:inherit) {#-webkit-grid-rows{color:green;}}
+@supports (-webkit-hyphens:inherit) {#-webkit-hyphens{color:green;}}
+@supports (-webkit-perspective:inherit) {#-webkit-perspective{color:green;}}
+@supports (-webkit-perspective-origin:inherit) {#-webkit-perspective-origin{color:green;}}
+@supports (-webkit-region-overflow:inherit) {#-webkit-region-overflow{color:green;}}
+@supports (-webkit-transform:inherit) {#-webkit-transform{color:green;}}
+@supports (-webkit-transform-origin:inherit) {#-webkit-transform-origin{color:green;}}
+@supports (-webkit-transform-style:inherit) {#-webkit-transform-style{color:green;}}
+@supports (-webkit-transition:inherit) {#-webkit-transition{color:green;}}
+@supports (-webkit-transition-delay:inherit) {#-webkit-transition-delay{color:green;}}
+@supports (-webkit-transition-duration:inherit) {#-webkit-transition-duration{color:green;}}
+@supports (-webkit-transition-property:inherit) {#-webkit-transition-property{color:green;}}
+@supports (-webkit-transition-timing-function:inherit) {#-webkit-transition-timing-function{color:green;}}
+@supports (-epub-word-break:inherit) {#-epub-word-break{color:green;}}
+@supports (-epub-writing-mode:inherit) {#-epub-writing-mode{color:green;}}
+@supports (-webkit-align-content:inherit) {#-webkit-align-content{color:green;}}
+@supports (-webkit-align-items:inherit) {#-webkit-align-items{color:green;}}
+@supports (-webkit-align-self:inherit) {#-webkit-align-self{color:green;}}
+@supports (-webkit-app-region:inherit) {#-webkit-app-region{color:green;}}
+@supports (-webkit-blend-mode:inherit) {#-webkit-blend-mode{color:green;}}
+@supports (-webkit-box-decoration-break:inherit) {#-webkit-box-decoration-break{color:green;}}
+@supports (-webkit-box-ordinal-group:inherit) {#-webkit-box-ordinal-group{color:green;}}
+@supports (-webkit-clip-path:inherit) {#-webkit-clip-path{color:green;}}
+@supports (-webkit-color-correction:red) {#-webkit-color-correction{color:green;}}
+@supports (-webkit-column-progression:inherit) {#-webkit-column-progression{color:green;}}
+@supports (-webkit-flex:inherit) {#-webkit-flex{color:green;}}
+@supports (-webkit-flex-basis:inherit) {#-webkit-flex-basis{color:green;}}
+@supports (-webkit-flex-direction:inherit) {#-webkit-flex-direction{color:green;}}
+@supports (-webkit-flex-flow:inherit) {#-webkit-flex-flow{color:green;}}
+@supports (-webkit-flex-grow:inherit) {#-webkit-flex-grow{color:green;}}
+@supports (-webkit-flex-shrink:inherit) {#-webkit-flex-shrink{color:green;}}
+@supports (-webkit-flex-wrap:inherit) {#-webkit-flex-wrap{color:green;}}
+@supports (-webkit-flow-from:inherit) {#-webkit-flow-from{color:green;}}
+@supports (-webkit-flow-into:inherit) {#-webkit-flow-into{color:green;}}
+@supports (-webkit-hyphenate-character:inherit) {#-webkit-hyphenate-character{color:green;}}
+@supports (-webkit-justify-content:inherit) {#-webkit-justify-content{color:green;}}
+@supports (-webkit-mask-box-image-source:inherit) {#-webkit-mask-box-image-source{color:green;}}
+@supports (-webkit-order:inherit) {#-webkit-order{color:green;}}
+@supports (-webkit-ruby-position:inherit) {#-webkit-ruby-position{color:green;}}
+@supports (-webkit-shape-inside:inherit) {#-webkit-shape-inside{color:green;}}
+@supports (-webkit-shape-margin:inherit) {#-webkit-shape-margin{color:green;}}
+@supports (-webkit-shape-padding:inherit) {#-webkit-shape-padding{color:green;}}
+@supports (-webkit-text-align-last:inherit) {#-webkit-text-align-last{color:green;}}
+@supports (-webkit-text-decoration-line:inherit) {#-webkit-text-decoration-line{color:green;}}
+@supports (-webkit-text-decoration-style:inherit) {#-webkit-text-decoration-style{color:green;}}
+@supports (-webkit-transform-origin-x:inherit) {#-webkit-transform-origin-x{color:green;}}
+@supports (-webkit-transform-origin-y:inherit) {#-webkit-transform-origin-y{color:green;}}
+@supports (-webkit-transform-origin-z:inherit) {#-webkit-transform-origin-z{color:green;}}
+@supports (-webkit-user-drag:inherit) {#-webkit-user-drag{color:green;}}
+@supports (-webkit-user-modify:inherit) {#-webkit-user-modify{color:green;}}
+@supports (-webkit-user-select:inherit) {#-webkit-user-select{color:green;}}
+@supports (-webkit-wrap:inherit) {#-webkit-wrap{color:green;}}
+@supports (-webkit-wrap-flow:inherit) {#-webkit-wrap-flow{color:green;}}
+@supports (-webkit-wrap-through:inherit) {#-webkit-wrap-through{color:green;}}
+@supports (-webkit-aspect-ratio:inherit) {#-webkit-aspect-ratio{color:green;}}
+@supports (-webkit-background-composite:inherit) {#-webkit-background-composite{color:green;}}
+@supports (background-origin-x:inherit) {#background-origin-x{color:green;}}
+@supports (background-origin-y:inherit) {#background-origin-y{color:green;}}
+@supports (-webkit-border-after:inherit) {#-webkit-border-after{color:green;}}
+@supports (-webkit-border-after-color:red) {#-webkit-border-after-color{color:green;}}
+@supports (-webkit-border-after-style:inherit) {#-webkit-border-after-style{color:green;}}
+@supports (-webkit-border-after-width:inherit) {#-webkit-border-after-width{color:green;}}
+@supports (-webkit-border-before:inherit) {#-webkit-border-before{color:green;}}
+@supports (-webkit-border-before-color:red) {#-webkit-border-before-color{color:green;}}
+@supports (-webkit-border-before-style:inherit) {#-webkit-border-before-style{color:green;}}
+@supports (-webkit-border-before-width:inherit) {#-webkit-border-before-width{color:green;}}
+@supports (-webkit-border-end:inherit) {#-webkit-border-end{color:green;}}
+@supports (-webkit-border-end-color:red) {#-webkit-border-end-color{color:green;}}
+@supports (-webkit-border-end-style:inherit) {#-webkit-border-end-style{color:green;}}
+@supports (-webkit-border-end-width:inherit) {#-webkit-border-end-width{color:green;}}
+@supports (-webkit-border-fit:inherit) {#-webkit-border-fit{color:green;}}
+@supports (-webkit-border-horizontal-spacing:inherit) {#-webkit-border-horizontal-spacing{color:green;}}
+@supports (-webkit-border-start:inherit) {#-webkit-border-start{color:green;}}
+@supports (-webkit-border-start-color:red) {#-webkit-border-start-color{color:green;}}
+@supports (-webkit-border-start-style:inherit) {#-webkit-border-start-style{color:green;}}
+@supports (-webkit-border-start-width:inherit) {#-webkit-border-start-width{color:green;}}
+@supports (-webkit-border-vertical-spacing:inherit) {#-webkit-border-vertical-spacing{color:green;}}
+@supports (-webkit-box-align:inherit) {#-webkit-box-align{color:green;}}
+@supports (-webkit-box-direction:inherit) {#-webkit-box-direction{color:green;}}
+@supports (-webkit-box-flex:inherit) {#-webkit-box-flex{color:green;}}
+@supports (-webkit-box-flex-group:inherit) {#-webkit-box-flex-group{color:green;}}
+@supports (-webkit-box-lines:inherit) {#-webkit-box-lines{color:green;}}
+@supports (-webkit-box-ordinal-groups:inherit) {#-webkit-box-ordinal-groups{color:green;}}
+@supports (-webkit-box-orient:inherit) {#-webkit-box-orient{color:green;}}
+@supports (-webkit-box-pack:inherit) {#-webkit-box-pack{color:green;}}
+@supports (-webkit-box-reflect:inherit) {#-webkit-box-reflect{color:green;}}
+@supports (-webkit-box-shadow:inherit) {#-webkit-box-shadow{color:green;}}
+@supports (-webkit-column-axis:inherit) {#-webkit-column-axis{color:green;}}
+@supports (-webkit-column-break-after:inherit) {#-webkit-column-break-after{color:green;}}
+@supports (-webkit-column-break-before:inherit) {#-webkit-column-break-before{color:green;}}
+@supports (-webkit-column-break-inside:inherit) {#-webkit-column-break-inside{color:green;}}
+@supports (-webkit-dashboard-region:inherit) {#-webkit-dashboard-region{color:green;}}
+@supports (-webkit-filter:inherit) {#-webkit-filter{color:green;}}
+@supports (-webkit-font-smoothing:inherit) {#-webkit-font-smoothing{color:green;}}
+@supports (-webkit-highlight:inherit) {#-webkit-highlight{color:green;}}
+@supports (-webkit-hyphenate-charset:inherit) {#-webkit-hyphenate-charset{color:green;}}
+@supports (-webkit-hyphenate-limit-after:inherit) {#-webkit-hyphenate-limit-after{color:green;}}
+@supports (-webkit-hyphenate-limit-before:inherit) {#-webkit-hyphenate-limit-before{color:green;}}
+@supports (-webkit-hyphenate-limit-lines:inherit) {#-webkit-hyphenate-limit-lines{color:green;}}
+@supports (-webkit-line-align:inherit) {#-webkit-line-align{color:green;}}
+@supports (-webkit-line-box-contain:inherit) {#-webkit-line-box-contain{color:green;}}
+@supports (-webkit-line-break:inherit) {#-webkit-line-break{color:green;}}
+@supports (-webkit-line-clamp:inherit) {#-webkit-line-clamp{color:green;}}
+@supports (-webkit-line-grid:inherit) {#-webkit-line-grid{color:green;}}
+@supports (-webkit-line-snap:inherit) {#-webkit-line-snap{color:green;}}
+@supports (-webkit-locale:inherit) {#-webkit-locale{color:green;}}
+@supports (-webkit-logical-height:inherit) {#-webkit-logical-height{color:green;}}
+@supports (-webkit-logical-width:inherit) {#-webkit-logical-width{color:green;}}
+@supports (-webkit-margin-after:inherit) {#-webkit-margin-after{color:green;}}
+@supports (-webkit-margin-after-collapse:inherit) {#-webkit-margin-after-collapse{color:green;}}
+@supports (-webkit-margin-before:inherit) {#-webkit-margin-before{color:green;}}
+@supports (-webkit-margin-before-collapse:inherit) {#-webkit-margin-before-collapse{color:green;}}
+@supports (-webkit-margin-bottom-collapse:inherit) {#-webkit-margin-bottom-collapse{color:green;}}
+@supports (-webkit-margin-collapse:inherit) {#-webkit-margin-collapse{color:green;}}
+@supports (-webkit-margin-end:inherit) {#-webkit-margin-end{color:green;}}
+@supports (-webkit-margin-start:inherit) {#-webkit-margin-start{color:green;}}
+@supports (-webkit-margin-top-collapse:inherit) {#-webkit-margin-top-collapse{color:green;}}
+@supports (-webkit-marquee:inherit) {#-webkit-marquee{color:green;}}
+@supports (-webkit-marquee-direction:inherit) {#-webkit-marquee-direction{color:green;}}
+@supports (-webkit-marquee-increment:inherit) {#-webkit-marquee-increment{color:green;}}
+@supports (-webkit-marquee-repetition:inherit) {#-webkit-marquee-repetition{color:green;}}
+@supports (-webkit-marquee-speed:inherit) {#-webkit-marquee-speed{color:green;}}
+@supports (-webkit-marquee-style:inherit) {#-webkit-marquee-style{color:green;}}
+@supports (-webkit-mask:inherit) {#-webkit-mask{color:green;}}
+@supports (-webkit-mask-attachment:inherit) {#-webkit-mask-attachment{color:green;}}
+@supports (-webkit-mask-box-image:inherit) {#-webkit-mask-box-image{color:green;}}
+@supports (-webkit-mask-box-image-outset:inherit) {#-webkit-mask-box-image-outset{color:green;}}
+@supports (-webkit-mask-box-image-repeat:inherit) {#-webkit-mask-box-image-repeat{color:green;}}
+@supports (-webkit-mask-box-image-slice:inherit) {#-webkit-mask-box-image-slice{color:green;}}
+@supports (-webkit-mask-boximage-source:inherit) {#-webkit-mask-boximage-source{color:green;}}
+@supports (-webkit-mask-box-image-width:inherit) {#-webkit-mask-box-image-width{color:green;}}
+@supports (-webkit-mask-clip:inherit) {#-webkit-mask-clip{color:green;}}
+@supports (-webkit-mask-composite:inherit) {#-webkit-mask-composite{color:green;}}
+@supports (-webkit-mask-image:inherit) {#-webkit-mask-image{color:green;}}
+@supports (-webkit-mask-origin:inherit) {#-webkit-mask-origin{color:green;}}
+@supports (-webkit-mask-position:inherit) {#-webkit-mask-position{color:green;}}
+@supports (-webkit-mask-position-x:inherit) {#-webkit-mask-position-x{color:green;}}
+@supports (-webkit-mask-position-y:inherit) {#-webkit-mask-position-y{color:green;}}
+@supports (-webkit-mask-repeat:inherit) {#-webkit-mask-repeat{color:green;}}
+@supports (-webkit-mask-repeat-x:inherit) {#-webkit-mask-repeat-x{color:green;}}
+@supports (-webkit-mask-repeat-y:inherit) {#-webkit-mask-repeat-y{color:green;}}
+@supports (-webkit-mask-size:inherit) {#-webkit-mask-size{color:green;}}
+@supports (-webkit-match-nearest-mail-blockquote-color:red) {#-webkit-match-nearest-mail-blockquote-color{color:green;}}
+@supports (-webkit-max-logical-height:inherit) {#-webkit-max-logical-height{color:green;}}
+@supports (-webkit-max-logical-width:inherit) {#-webkit-max-logical-width{color:green;}}
+@supports (-webkit-min-logical-height:inherit) {#-webkit-min-logical-height{color:green;}}
+@supports (-webkit-min-logical-width:inherit) {#-webkit-min-logical-width{color:green;}}
+@supports (-webkit-nbsp-mode:inherit) {#-webkit-nbsp-mode{color:green;}}
+@supports (-webkit-overflow-scrolling:inherit) {#-webkit-overflow-scrolling{color:green;}}
+@supports (-webkit-padding-after:inherit) {#-webkit-padding-after{color:green;}}
+@supports (-webkit-padding-before:inherit) {#-webkit-padding-before{color:green;}}
+@supports (-webkit-padding-end:inherit) {#-webkit-padding-end{color:green;}}
+@supports (-webkit-padding-start:inherit) {#-webkit-padding-start{color:green;}}
+@supports (-webkit-perspective-origin-x:inherit) {#-webkit-perspective-origin-x{color:green;}}
+@supports (-webkit-perspective-origin-y:inherit) {#-webkit-perspective-origin-y{color:green;}}
+@supports (-webkit-print-color-adjust:red) {#-webkit-print-color-adjust{color:green;}}
+@supports (-webkit-region-break-after:inherit) {#-webkit-region-break-after{color:green;}}
+@supports (-webkit-region-break-before:inherit) {#-webkit-region-break-before{color:green;}}
+@supports (-webkit-region-break-inside:inherit) {#-webkit-region-break-inside{color:green;}}
+@supports (-webkit-rtl-ordering:inherit) {#-webkit-rtl-ordering{color:green;}}
+@supports (-webkit-shape-insided:inherit) {#-webkit-shape-insided{color:green;}}
+@supports (-webkit-shape-outside:inherit) {#-webkit-shape-outside{color:green;}}
+@supports (-webkit-svg-shadow:inherit) {#-webkit-svg-shadow{color:green;}}
+@supports (-webkit-tap-highlight-color:red) {#-webkit-tap-highlight-color{color:green;}}
+@supports (-epub-text-combine:inherit) {#-epub-text-combine{color:green;}}
+@supports (-webkit-text-decorations-in-effect:inherit) {#-webkit-text-decorations-in-effect{color:green;}}
+@supports (-epub-text-emphasis:inherit) {#-epub-text-emphasis{color:green;}}
+@supports (-epub-text-emphasis-color:red) {#-epub-text-emphasis-color{color:green;}}
+@supports (-webkit-text-emphasis-position:inherit) {#-webkit-text-emphasis-position{color:green;}}
+@supports (-epub-text-emphasis-style:inherit) {#-epub-text-emphasis-style{color:green;}}
+@supports (-webkit-text-fill-color:red) {#-webkit-text-fill-color{color:green;}}
+@supports (-epub-text-orientation:inherit) {#-epub-text-orientation{color:green;}}
+@supports (-webkit-text-security:inherit) {#-webkit-text-security{color:green;}}
+@supports (-webkit-text-size-adjust:inherit) {#-webkit-text-size-adjust{color:green;}}
+@supports (-webkit-text-stroke:inherit) {#-webkit-text-stroke{color:green;}}
+@supports (-webkit-text-stroke-color:red) {#-webkit-text-stroke-color{color:green;}}
+@supports (-webkit-text-stroke-width:inherit) {#-webkit-text-stroke-width{color:green;}}
+@supports (-webkit-touch-callout:inherit) {#-webkit-touch-callout{color:green;}}
+@supports (-webkit-background-clip:inherit) {#-webkit-background-clip{color:green;}}
+@supports (-webkit-background-origin:inherit) {#-webkit-background-origin{color:green;}}
+@supports (-webkit-background-size:inherit) {#-webkit-background-size{color:green;}}
+@supports (-webkit-border-bottom-left-radius:inherit) {#-webkit-border-bottom-left-radius{color:green;}}
+@supports (-webkit-border-bottom-right-radius:inherit) {#-webkit-border-bottom-right-radius{color:green;}}
+@supports (-webkit-border-radius:inherit) {#-webkit-border-radius{color:green;}}
+@supports (-webkit-border-top-left-radius:inherit) {#-webkit-border-top-left-radius{color:green;}}
+@supports (-webkit-border-top-right-radius:inherit) {#-webkit-border-top-right-radius{color:green;}}
+@supports (-webkit-box-sizing:inherit) {#-webkit-box-sizing{color:green;}}
+@supports (-epub-caption-side:inherit) {#-epub-caption-side{color:green;}}
+@supports (-webkit-opacity:inherit) {#-webkit-opacity{color:green;}}
+@supports (-epub-text-transform:inherit) {#-epub-text-transform{color:green;}}
+/*Trident*/
+@supports (-ms-accelerator:inherit) {#-ms-accelerator {color:green;}}
+@supports (-ms-background-position-x:inherit) {#-ms-background-position-x {color:green;}}
+@supports (-ms-background-position-y:inherit) {#-ms-background-position-y {color:green;}}
+@supports (-ms-behavior:inherit) {#-ms-behavior {color:green;}}
+@supports (-ms-block-progression:inherit) {#-ms-block-progression {color:green;}}
+@supports (-ms-content-zoom-chaining:inherit) {#-ms-content-zoom-chaining {color:green;}}
+@supports (-ms-content-zooming:inherit) {#-ms-content-zooming {color:green;}}
+@supports (-ms-content-zoom-limit:inherit) {#-ms-content-zoom-limit {color:green;}}
+@supports (-ms-content-zoom-limit-max:inherit) {#-ms-content-zoom-limit-max {color:green;}}
+@supports (-ms-content-zoom-limit-min:inherit) {#-ms-content-zoom-limit-min {color:green;}}
+@supports (-ms-content-zoom-snap:inherit) {#-ms-content-zoom-snap {color:green;}}
+@supports (-ms-content-zoom-snap-points:inherit) {#-ms-content-zoom-snap-points {color:green;}}
+@supports (-ms-content-zoom-snap-type:inherit) {#-ms-content-zoom-snap-type {color:green;}}
+@supports (-ms-filter:inherit) {#-ms-filter {color:green;}}
+@supports (-ms-flex:inherit) {#-ms-flex {color:green;}}
+@supports (-ms-flex-align:inherit) {#-ms-flex-align {color:green;}}
+@supports (-ms-flex-direction:inherit) {#-ms-flex-direction {color:green;}}
+@supports (-ms-flex-order:inherit) {#-ms-flex-order {color:green;}}
+@supports (-ms-flex-pack:inherit) {#-ms-flex-pack {color:green;}}
+@supports (-ms-flex-wrap:inherit) {#-ms-flex-wrap {color:green;}}
+@supports (-ms-flow-from:inherit) {#-ms-flow-from {color:green;}}
+@supports (-ms-flow-into:inherit) {#-ms-flow-into {color:green;}}
+@supports (-ms-grid-column:inherit) {#-ms-grid-column {color:green;}}
+@supports (-ms-grid-column-align:inherit) {#-ms-grid-column-align {color:green;}}
+@supports (-ms-grid-columns:inherit) {#-ms-grid-columns {color:green;}}
+@supports (-ms-grid-column-span:inherit) {#-ms-grid-column-span {color:green;}}
+@supports (-ms-grid-row:inherit) {#-ms-grid-row {color:green;}}
+@supports (-ms-grid-row-align:inherit) {#-ms-grid-row-align {color:green;}}
+@supports (-ms-grid-rows:inherit) {#-ms-grid-rows {color:green;}}
+@supports (-ms-grid-row-span:inherit) {#-ms-grid-row-span {color:green;}}
+@supports (-ms-high-contrast-adjust:inherit) {#-ms-high-contrast-adjust {color:green;}}
+@supports (-ms-hyphenate-limit-chars:inherit) {#-ms-hyphenate-limit-chars {color:green;}}
+@supports (-ms-hyphenate-limit-lines:inherit) {#-ms-hyphenate-limit-lines {color:green;}}
+@supports (-ms-hyphenate-limit-zone:inherit) {#-ms-hyphenate-limit-zone {color:green;}}
+@supports (-ms-hyphens:inherit) {#-ms-hyphens {color:green;}}
+@supports (-ms-ime-mode:inherit) {#-ms-ime-mode {color:green;}}
+@supports (-ms-interpolation-mode:inherit) {#-ms-interpolation-mode {color:green;}}
+@supports (-ms-layout-flow:inherit) {#-ms-layout-flow {color:green;}}
+@supports (-ms-layout-grid:inherit) {#-ms-layout-grid {color:green;}}
+@supports (-ms-layout-grid-char:inherit) {#-ms-layout-grid-char {color:green;}}
+@supports (-ms-layout-grid-line:inherit) {#-ms-layout-grid-line {color:green;}}
+@supports (-ms-layout-grid-mode:inherit) {#-ms-layout-grid-mode {color:green;}}
+@supports (-ms-layout-grid-type:inherit) {#-ms-layout-grid-type {color:green;}}
+@supports (-ms-overflow-style:inherit) {#-ms-overflow-style {color:green;}}
+@supports (-ms-overflow-x:inherit) {#-ms-overflow-x {color:green;}}
+@supports (-ms-overflow-y:inherit) {#-ms-overflow-y {color:green;}}
+@supports (-ms-progress-appearance:inherit) {#-ms-progress-appearance {color:green;}}
+@supports (-ms-scrollbar-arrow-color:red) {#-ms-scrollbar-arrow-color {color:green;}}
+@supports (-ms-scrollbar-base-color:red) {#-ms-scrollbar-base-color {color:green;}}
+@supports (-ms-scrollbar-darkshadow-color:red) {#-ms-scrollbar-darkshadow-color {color:green;}}
+@supports (-ms-scrollbar-face-color:red) {#-ms-scrollbar-face-color {color:green;}}
+@supports (-ms-scrollbar-highlight-color:red) {#-ms-scrollbar-highlight-color {color:green;}}
+@supports (-ms-scrollbar-shadow-color:red) {#-ms-scrollbar-shadow-color {color:green;}}
+@supports (-ms-scrollbar-track-color:red) {#-ms-scrollbar-track-color {color:green;}}
+@supports (-ms-scroll-chaining:inherit) {#-ms-scroll-chaining {color:green;}}
+@supports (-ms-scroll-limit:inherit) {#-ms-scroll-limit {color:green;}}
+@supports (-ms-scroll-limit-x-max:inherit) {#-ms-scroll-limit-x-max {color:green;}}
+@supports (-ms-scroll-limit-x-min:inherit) {#-ms-scroll-limit-x-min {color:green;}}
+@supports (-ms-scroll-limit-y-max:inherit) {#-ms-scroll-limit-y-max {color:green;}}
+@supports (-ms-scroll-limit-y-min:inherit) {#-ms-scroll-limit-y-min {color:green;}}
+@supports (-ms-scroll-rails:inherit) {#-ms-scroll-rails {color:green;}}
+@supports (-ms-scroll-snap-points-x:inherit) {#-ms-scroll-snap-points-x {color:green;}}
+@supports (-ms-scroll-snap-points-y:inherit) {#-ms-scroll-snap-points-y {color:green;}}
+@supports (-ms-scroll-snap-type:inherit) {#-ms-scroll-snap-type {color:green;}}
+@supports (-ms-scroll-snap-x:inherit) {#-ms-scroll-snap-x {color:green;}}
+@supports (-ms-scroll-snap-y:inherit) {#-ms-scroll-snap-y {color:green;}}
+@supports (-ms-scroll-translation:inherit) {#-ms-scroll-translation {color:green;}}
+@supports (-ms-text-align-last:inherit) {#-ms-text-align-last {color:green;}}
+@supports (-ms-text-autospace:inherit) {#-ms-text-autospace {color:green;}}
+@supports (-ms-text-justify:inherit) {#-ms-text-justify {color:green;}}
+@supports (-ms-text-kashida-space:inherit) {#-ms-text-kashida-space {color:green;}}
+@supports (-ms-text-overflow:inherit) {#-ms-text-overflow {color:green;}}
+@supports (-ms-text-underline-position:inherit) {#-ms-text-underline-position {color:green;}}
+@supports (-ms-touch-action:inherit) {#-ms-touch-action {color:green;}}
+@supports (-ms-transform:inherit) {#-ms-transform {color:green;}}
+@supports (-ms-transform-origin:inherit) {#-ms-transform-origin {color:green;}}
+@supports (-ms-user-select:inherit) {#-ms-user-select {color:green;}}
+@supports (-ms-word-break:inherit) {#-ms-word-break {color:green;}}
+@supports (-ms-word-wrap:inherit) {#-ms-word-wrap {color:green;}}
+@supports (-ms-wrap-flow:inherit) {#-ms-wrap-flow {color:green;}}
+@supports (-ms-wrap-margin:inherit) {#-ms-wrap-margin {color:green;}}
+@supports (-ms-wrap-through:inherit) {#-ms-wrap-through {color:green;}}
+@supports (-ms-writing-mode:inherit) {#-ms-writing-mode {color:green;}}
+@supports (-ms-zoom:inherit) {#-ms-zoom {color:green;}}

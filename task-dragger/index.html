@@ -1,0 +1,57 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Mozilla DnD Test</title>
+
+		<meta name="description" content="Mozilla Dnd Test.">
+		<meta name="author" content="Nestor Alvaro">
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		
+		<link rel="stylesheet" href="css/todo.css">
+	</head>
+	
+	<body>
+		<div id="main">
+		
+			<div class="top">
+				<div class="left myButton">
+					<img src="images/done.png" alt="done" id="done" data-list="listFinished">
+				</div>
+				<div class="right myButton">
+					<img src="images/new.png" alt="new" id="new" data-list="listCurrent">
+				</div>
+			</div><!-- top -->
+			
+			<div id="central">
+				<h1 id="listStarred" class="listNameToShow"><img src="images/star.png" alt="star" style="height:48px" /> Starred Tasks</h1>
+				<h1 id="listFinished" class="listNameToShow"><img src="images/done.png" alt="finished" style="height:48px" /> Finished Tasks</h1>
+				<h1 id="listDeleted" class="listNameToShow"><img src="images/bin_full.png" alt="deleted" style="height:48px" /> Deleted Tasks</h1>
+				<h1 id="listCurrent" class="listNameToShow"><img src="images/new.png" alt="current" style="height:48px" /> Current Tasks</h1>
+				<article id="tasks">
+					<ul class="cards">
+					</ul>
+				</article>
+			</div><!-- central -->
+			
+			<div class="bottom">
+				<div class="left myButton">
+					<img src="images/star.png" alt="star" id="star" data-list="listStarred">
+				</div>
+				<div class="right myButton">
+					<img src="images/bin.png" alt="bin" id="bin" data-list="listDeleted">
+				</div>
+			</div><!-- bottom -->
+			
+		</div><!-- main -->
+
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/todo.js"></script>
+ 
+</body>
+</html>

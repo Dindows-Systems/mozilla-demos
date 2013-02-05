@@ -1,0 +1,126 @@
+/* Applies to all elements */
+* {
+	/* apply a natural box layout model to all elements */
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*
+ * See https://developer.mozilla.org/en/Images,_Tables,_and_Mysterious_Gaps
+ *+ for why this is needed. (it doesn't apply to just tables)
+ */
+a, img {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+/* main.css */
+
+a {
+	color: inherit;
+}
+
+.text-content, p {
+	line-height: 150%;
+}
+
+.monospace, code {
+	font-family: "DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono",Monaco,"Lucida Console","Courier New",monospace;
+}
+
+.update, .draft, code {
+	background: rgba(248, 232, 207, 0.2); /*#f8e8cf*/
+	border: none;
+	border-radius: 0.5em;
+	margin: 15px;
+	padding: 15px;
+	display: block;
+}
+
+.update, .draft, p code, span code, li code {
+	/* padding: [top/bottom] [left/right] */
+	padding: 1px 5px;
+	margin: 0px;
+	display: inline;
+}
+
+img {
+	border: none;
+}
+
+h1 { font-size:1.5em; }
+h2 { font-size:1.4em; }
+h3 { font-size:1.1em; }
+h4, h5, h6 { font-size:1.1em; }
+
+/* theme.css */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-family: "DejaVu Sans","Bitstream Vera Sans",Verdana,Helvetica,sans-serif;
+	height: 100%;
+	background-color: #373737;
+	/*color: white;*/
+	color: black;
+}
+
+* {
+	border: 0px solid #CCC;
+}
+
+.constraint {
+	margin: 0 auto;
+	max-width: 960px;
+}
+
+#dynamic .constraint {
+	padding: 20px;
+	padding-top: 50px;
+
+	min-height: 100%;
+}
+
+#dynamic .constraint, #header .constraint {
+	background: #EEE;
+	color: black;
+}
+
+.post #content {
+  display: inline-block;
+  padding: 30px 40px;
+}
+
+#dynamic header {
+	overflow: hidden;
+}
+
+header img {
+	display: none;
+}
+
+footer {
+	clear: both;
+	/* margin: [top] [right] [bottom] [left] */
+	margin: 40px -15px 0 -15px;
+	border-top-width: 1px;
+	/* padding: [top/bottom] [left/right] */
+	padding: 0 15px;
+}
+
+footer img {
+	display: none;
+}
+
+::selection {
+	color: white;
+	text-shadow: none;
+	background: #778DA8;
+}
+
+iframe {
+	padding-top: 20px;
+}
+
